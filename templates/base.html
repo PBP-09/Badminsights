@@ -7,21 +7,47 @@
     
     <title>Badminsights - {% block title %}Halaman Utama{% endblock %}</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#F8F7F4',
+                        'surface': '#FFFFFF',
+                        'primary': '#2C3E50', 
+                        'secondary': '#8492A6', 
+                        'accent': '#000000',   
+                        'white': '#FFFFFF',      
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
     
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="bg-gray-900 text-gray-200 font-sans">
+<body class="bg-background text-primary font-sans">
 
-    <nav class="bg-gray-800 p-4 shadow-md">
+    <nav class="bg-surface/75 backdrop-blur-lg p-4 shadow-sm sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-white text-xl font-bold">🚀 Badminsights</a>
+            <a href="#" class="text-primary text-xl font-serif">🏸 Badminsights</a>
             <div class="hidden md:flex space-x-6">
-                <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
-                <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors">Players</a>
-                <!-- <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors">Pertandingan</a> -->
+                <a href="#" class="text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="#" class="text-secondary hover:text-primary transition-colors">Who's on Court?</a>
+                <a href="#" class="text-secondary hover:text-primary transition-colors">BadmiNews</a>
+                <a href="#" class="text-secondary hover:text-primary transition-colors">SmashTalk</a>
+                <a href="#" class="text-secondary hover:text-primary transition-colors">Merch</a>
             </div>
-            </div>
+        </div>
     </nav>
 
     <main class="container mx-auto mt-6 px-4" style="min-height: 80vh;">
@@ -29,8 +55,8 @@
         {% endblock %}
     </main>
 
-    <footer class="bg-gray-800 text-gray-400 text-center py-4 mt-8">
-        <p>&copy; {% now "Y" %} Badminsights by PBP B-09.</p>
+    <footer class="bg-surface text-secondary text-center py-4 mt-8 border-t border-gray-200">
+        <p>&copy; {% now "Y" %} Badminsights | PBP B-09</p>
     </footer>
 
 </body>
