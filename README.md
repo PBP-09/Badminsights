@@ -66,7 +66,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ---
 
 ### 2. 📰 BadmiNews
-**Dikerjakan oleh:** Ghalen Cakra Permana
+**Dikerjakan oleh:** Nuril Izza Ahmady
 
 **Deskripsi:** Menyajikan artikel dan berita terbaru seputar dunia badminton. Artikel disusun agar mudah dibaca, menarik, dan informatif. Admin dapat menambahkan konten berita atau artikel baru agar informasi selalu up-to-date.
 
@@ -75,7 +75,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ---
 
 ### 3. 💬 SmashTalk
-**Dikerjakan oleh:** Naufal Agam Ardiansyah
+**Dikerjakan oleh:** Rousan Chandra Syahbunan
 
 **Deskripsi:** Forum diskusi yang memungkinkan pengguna bertanya, berbagi pengalaman, atau memberikan rekomendasi mengenai pemain, pertandingan, atau strategi bermain. Pengguna dapat membuat postingan, memberikan komentar, dan menanggapi pertanyaan. Dilengkapi fitur like atau voting untuk menemukan diskusi populer.
 
@@ -84,7 +84,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ---
 
 ### 4. 🛒 Katalog Merch
-**Dikerjakan oleh:** Nuril Izza Ahmady
+**Dikerjakan oleh:** Ghalen Cakra Permana
 
 **Deskripsi:** Toko daring yang menyediakan berbagai produk merchandise badminton seperti raket, shuttlecock, jersey, sepatu, dan aksesoris. Pengguna dapat mencari produk berdasarkan kategori, menambahkan ke keranjang, dan melakukan pembelian. Admin dapat mengelola katalog produk.
 
@@ -93,7 +93,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ---
 
 ### 5. ⭐ Bookmark/Favorite Player
-**Dikerjakan oleh:** Rousan Chandra Syahbunan
+**Dikerjakan oleh:** Naufal Agam Ardiansyah
 
 **Deskripsi:** Memungkinkan pengguna menyimpan pemain favorit mereka dan mendapatkan notifikasi atau update terkait pemain atau pertandingan. Membuat pengalaman lebih personal dan interaktif dengan daftar favorit yang unik sesuai minat pengguna.
 
@@ -135,4 +135,3 @@ Design web menggunakan Figma.
 3. 🔍 Jelajahi biodata atlet, baca berita, dan ikuti kuis
 4. 💬 Bergabung dengan komunitas di SmashTalk
 5. ⭐ Tandai pemain favorit Anda
-

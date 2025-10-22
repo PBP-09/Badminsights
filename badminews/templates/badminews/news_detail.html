@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ news_item.title }} - BadmiNews{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <article class="bg-surface p-8 rounded-lg shadow-md">
+        {% if news_item.image %}
+        <div class="mb-6">
+            <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        {% endif %}
+
+        <h1 class="text-4xl font-serif font-bold text-primary mb-4">{{ news_item.title }}</h1>
+
+        <div class="flex flex-wrap items-center gap-4 text-secondary mb-6">
+            <span class="text-lg">By {{ news_item.author.username }}</span>
+            <span class="text-lg">{{ news_item.date_published|date:"l, d F Y" }}</span>
+            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">{{ news_item.get_category_display }}</span>
+        </div>
+
+        <div class="prose prose-lg max-w-none text-primary">
+            {{ news_item.content|linebreaks }}
+        </div>
+    </article>
+
+    <div class="mt-8 text-center">
+        <a href="{% url 'badminews:news_list' %}" class="bg-secondary text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors inline-block">Kembali ke Daftar Berita</a>
+    </div>
+</div>
+{% endblock %}
