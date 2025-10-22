@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Selamat Datang
+{% endblock %}
+
+{% block content %}
+<div class="bg-surface p-8 rounded-lg shadow-sm text-center mb-8 border border-gray-200">
+    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">Selamat Datang di Badminsights</h1>
+    <p class="text-lg text-secondary max-w-2xl mx-auto">
+        ini landing page hehe
+    </p>
+    <hr class="border-gray-200 my-6">
+    <button class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+        Lihat Daftar Pemain
+    </button>
+</div>
+
+{% if featured_player %}
+<div class="my-12">
+    <div class="text-center my-8">
+        <h2 class="text-3xl font-serif text-accent">Featured Player</h2>
+        <p class="text-secondary">Profil pemain pilihan minggu ini.</p>
+    </div>
+    
+    <div class="bg-surface rounded-lg shadow-md overflow-hidden md:flex border border-gray-200">
+        <div class="md:w-1/3">
+            {% if featured_player.thumbnail %}
+            <img class="object-cover h-full w-full" src="{{ featured_player.thumbnail.url }}" alt="Foto {{ featured_player.name }}">
+            {% else %}
+            <div class="bg-gray-100 h-full w-full flex items-center justify-center">
+                <span class="text-secondary">No Image</span>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="md:w-2/3 p-8">
+            <p class="text-sm text-accent font-semibold">{{ featured_player.get_category_display }}</p>
+            <h3 class="text-3xl font-serif text-primary mt-2">{{ featured_player.name }}</h3>
+            <p class="text-lg text-secondary mt-1">Asal: {{ featured_player.country }}</p>
+            
+            {% if featured_player.world_rank %}
+            <div class="mt-4 inline-block bg-gray-100 text-primary text-sm font-bold px-3 py-1 rounded-full">
+                Peringkat Dunia: #{{ featured_player.world_rank }}
+            </div>
+            {% endif %}
+            
+            <p class="mt-6 text-secondary leading-relaxed">
+                {{ featured_player.bio|truncatewords:40 }}
+            </p>
+            
+            <a href="#" class="mt-8 inline-block bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-5 rounded-lg transition-colors">
+                Lihat Profil Lengkap
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xl font-serif text-primary mb-2">Pemain Unggulan</h2>
+        <p class="text-secondary mb-4">Lihat profil dan statistik dari para pemain terbaik.</p>
+        <a href="#" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+            Selengkapnya
+        </a>
+    </div>
+    <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xl font-serif text-primary mb-2">BadmiNews</h2>
+        <p class="text-secondary mb-4">Temukan berita terbaru seputar dunia badminton.</p>
+        <a href="#" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+            Selengkapnya
+        </a>
+    </div>
+</div>
+{% endblock %}
