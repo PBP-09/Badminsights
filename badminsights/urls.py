@@ -20,13 +20,6 @@ from .admin import custom_admin_site
 from . import views
 urlpatterns = [
     path('admin/', custom_admin_site.urls),
-    path('forum/', include('modules.smash_talk.urls')),
-    
-    # Authentication
-    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('register/', views.register, name='register'),
-    
-    # Homepage
-    path('', views.home, name='home'),
+    path('forum/', include('smash_talk.urls')),
+
 ]
