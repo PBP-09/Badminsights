@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Daftar Pemain{% endblock %}
+
+{% block content %}
+
+<div class="bg-surface p-8 rounded-lg shadow-sm text-center mb-8 border border-gray-200">
+    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">Who's on Court?</h1>
+    <p class="text-lg text-secondary max-w-2xl mx-auto">
+        Get to know your favourite player!
+    </p>
+    <hr class="border-gray-200 my-6">
+    
+    {% if request.user.is_staff %}
+    <hr class="border-gray-200 my-6">
+    <a href="{% url 'main:add_player' %}" class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+        + Tambah Pemain Baru
+    </a>
+    {% endif %}
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    {% for player in player_list %}
+    <div class="bg-surface rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+        
+        <div>
+            {% if player.thumbnail %}
+                <img class="w-full h-56 object-cover" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
+            {% else %}
+                <div class="w-full h-56 bg-gray-100 flex items-center justify-center">
+                    <span class="text-secondary">No Image</span>
+                </div>
+            {% endif %}
+            
+            <div class="p-6">
+                <p class="text-sm text-accent font-semibold">{{ player.get_category_display }}</p>
+                <h2 class="text-2xl font-serif text-primary mt-2 mb-1">
+                    {{ player.name }}
+                </h2>
+                <p class="text-secondary mb-4">{{ player.country }}</p>
+                
+                {% if player.world_rank %}
+                <span class="inline-block bg-gray-100 text-primary text-xs font-bold px-2 py-1 rounded-full">
+                    Rank #{{ player.world_rank }}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="p-4 bg-gray-50 border-t border-gray-200">
+            <a href="{% url 'main:show_player' player.id %}" class="text-accent font-semibold text-sm hover:underline">
+                Lihat Profil Lengkap &rarr;
+            </a>
+        </div>
+    </div>
+    
+    {% empty %}
+    <div class="col-span-full bg-surface p-8 rounded-lg shadow-sm border border-gray-200 text-center">
+        <h3 class="text-xl font-serif text-primary">Masih Kosong</h3>
+        <p class="text-secondary mt-2">Belum ada data pemain.</p>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
