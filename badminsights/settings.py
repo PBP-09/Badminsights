@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_countries',
     'main',
     'bookmark',
+    'smash_talk',
 ]
 
 MIDDLEWARE = [
