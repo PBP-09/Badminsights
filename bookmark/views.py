@@ -11,4 +11,5 @@ def show_favorite(request):
     context = {
         'favorites': favorites
     }
+    
     return render(request, 'bookmark/show_favorite.html', context)
