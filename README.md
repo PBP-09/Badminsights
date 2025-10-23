@@ -33,25 +33,6 @@ Namun, informasi mendalam tentang atlet, prestasi, dan sejarah dunia badminton s
 
 Nama **Badminsights** merupakan gabungan dari *badminton* dan *insights*, yang mencerminkan tujuan utama aplikasi ini: **memberikan wawasan mendalam tentang dunia bulu tangkis**.
 
-### ✨ Fitur Unggulan
-
-🏅 **Who's on Court?**  
-Mengenal lebih dekat para atlet terbaik dari berbagai negara, memahami perjalanan karier mereka, dan melihat sisi lain di balik performa mereka di lapangan.
-
-🏆 **Hall of Fame**  
-Apresiasi terhadap kebanggaan nasional! Menampilkan deretan prestasi gemilang para atlet terbaik Indonesia dengan momen-momen bersejarah dan kemenangan ikonik.
-
-💬 **SmashTalk**  
-Tempat berkumpulnya para penggemar badminton untuk berdiskusi, berbagi pandangan, dan saling terhubung dalam semangat yang sama.
-
-🧠 **BadminTrivia**  
-Kuis interaktif yang mengajak pengguna menguji pengetahuan mereka tentang sejarah, fakta menarik, dan hal-hal unik seputar badminton.
-
-🛍️ **Merchandise**  
-Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema badminton.
-
-> **Badminsights** hadir untuk menyatukan informasi, inspirasi, edukasi, dan komunitas dalam satu aplikasi bagi siapa pun yang mencintai badminton! 🎉
-
 ---
 
 ## 🎮 Daftar Modul & Fitur
@@ -103,11 +84,11 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 
 ## 👨‍💼 Role Pengguna
 
-| Role | Keterangan | Icon |
-|------|-----------|------|
-| **Admin** | Mengelola seluruh sistem termasuk data pemain, produk merchandise, berita, dan forum. Memantau aktivitas pengguna dan menjaga keamanan sistem. | 🔑 |
-| **Logged-in User** | Pengguna terdaftar yang dapat mengakses fitur bookmark, forum diskusi, dan kuis. | 👤 |
-| **Guest** | Pengunjung yang dapat melihat informasi umum seperti biodata atlet dan berita. | 👁️ |
+| Role | Keterangan | 
+|------|-----------|
+| **Admin** | Mengelola seluruh sistem termasuk data pemain, produk merchandise, berita, dan forum. Memantau aktivitas pengguna dan menjaga keamanan sistem. |
+| **Logged-in User** | Pengguna terdaftar yang dapat mengakses fitur bookmark, forum diskusi, dan kuis. |
+| **Guest** | Pengunjung yang dapat melihat informasi umum seperti biodata atlet dan berita. |
 
 ---
 
@@ -115,7 +96,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 
 Dataset berisikan 100 pemain Badminton asal Indonesia. 
 
-Sumber dari dataset ini diantarnya website Wikipedia, WBF, dan PBSI
+Sumber dari dataset ini diantaranya Wikipedia, BWF, dan PBSI
 
 🔗 [Link Dataset](https://docs.google.com/spreadsheets/d/18yNj_TLrU-CJbgXg5ZqDDTt7wtm0cvLYEuYeB0zaxyQ/edit?usp=sharing)
 
@@ -125,14 +106,4 @@ Sumber dari dataset ini diantarnya website Wikipedia, WBF, dan PBSI
 Design web menggunakan Figma.
 
 🔗 [Link Figma]( https://www.figma.com/design/nx99S5yzqm39UQmLQsjnCb/Badminsights?node-id=0-1&t=1Pj3ayvEd9KPDaDe-1)
-
----
-
-## 🚀 Cara Menggunakan
-
-1. 🌐 Kunjungi [Badminsights](https://rousan-chandra-badminsights.pbp.cs.ui.ac.id/)
-2. 📝 Daftar atau login untuk mengakses fitur lengkap
-3. 🔍 Jelajahi biodata atlet, baca berita, dan ikuti kuis
-4. 💬 Bergabung dengan komunitas di SmashTalk
-5. ⭐ Tandai pemain favorit Anda
 
