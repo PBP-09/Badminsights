@@ -17,21 +17,22 @@ Selamat Datang
     </a>
 </div>
 
-<h5>NPM: {{ npm }}</h5>
+<!-- <h5>NPM: {{ npm }}</h5> -->
 <p>{{ name }}</p>
-<h5>Class: {{ class }}</h5>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+<!-- <h5>Class: {{ class }}</h5> -->
+<!-- <h5>Sesi terakhir login: {{ last_login }}</h5> -->
 
-<a href="?filter=all">
+<!-- <a href="?filter=all">
     <button type="button">All Players</button>
 </a>
 <a href="?filter=my">
     <button type="button">My Players</button>
-</a>
+</a> -->
 
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
+<form method="POST" action="{% url 'main:logout' %}">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
 
 {% if featured_player %}
 <div class="my-12">
