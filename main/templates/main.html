@@ -16,6 +16,22 @@ Selamat Datang
     </button>
 </div>
 
+<h5>NPM: {{ npm }}</h5>
+<p>{{ name }}</p>
+<h5>Class: {{ class }}</h5>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<a href="?filter=all">
+    <button type="button">All Players</button>
+</a>
+<a href="?filter=my">
+    <button type="button">My Players</button>
+</a>
+
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
 {% if featured_player %}
 <div class="my-12">
     <div class="text-center my-8">

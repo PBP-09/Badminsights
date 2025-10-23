@@ -7,7 +7,13 @@ from .models import News
 from .forms import NewsForm
 
 def news_list(request):
-    news = News.objects.all().order_by('-date_published')
+    filter_type = request.GET.get("filter", "all")  # default 'all'
+
+    if filter_type == "all":
+        news = News.objects.all().order_by('-date_published')
+    else:
+        news = News.objects.filter(author=request.user).order_by('-date_published')
+
     category = request.GET.get('category')
     search = request.GET.get('search')
 
@@ -25,6 +31,7 @@ def news_list(request):
         'categories': News.CATEGORY_CHOICES,
         'selected_category': category,
         'search_query': search,
+        'filter_type': filter_type,
     }
     return render(request, 'badminews/news_list.html', context)
 

@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from django_countries.fields import CountryField
+from django.contrib.auth.models import User
 
 class Player(models.Model):
     CATEGORY_CHOICES = [
@@ -28,7 +29,8 @@ class Player(models.Model):
     thumbnail = models.URLField(blank=True, null=True) # untuk foto pemain
     world_rank = models.PositiveIntegerField(null=True, blank=True, help_text="Peringkat dunia saat ini") # peringkat dunia (bwf) pemain
     partner = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, help_text="Pilih pemain lain sebagai partner (jika pemain ganda)") # pasangan untuk pemain ganda
-    is_featured = models.BooleanField(default=False) # featured player 
+    is_featured = models.BooleanField(default=False) # featured player
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # tambahkan ini
 
     def __str__(self):
         return self.name

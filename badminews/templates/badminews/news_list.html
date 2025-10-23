@@ -7,9 +7,14 @@
 <div class="max-w-6xl mx-auto">
     <h1 class="text-4xl font-serif font-bold text-primary mb-8">BadmiNews</h1>
 
-    <!-- Search and Filter Section -->
+    <!-- Filter News Section -->
     <div class="bg-surface p-6 rounded-lg shadow-md mb-8">
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+            <a href="?filter=all{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">All News</a>
+            <a href="?filter=my{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}" class="bg-secondary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">My News</a>
+        </div>
         <form method="GET" class="flex flex-col md:flex-row gap-4" id="filter-form">
+            <input type="hidden" name="filter" value="{{ filter_type }}">
             <div class="flex-1">
                 <input type="text" name="search" value="{{ search_query }}" placeholder="Cari berita..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
             </div>
