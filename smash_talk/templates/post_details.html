@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - SmashTalk{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <!-- Post Content -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h1 class="card-title h3">{{ post.title }}</h1>
+                        <span class="badge bg-primary">{{ post.get_category_display }}</span>
+                    </div>
+                    {% if user == post.author %}
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Aksi
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-danger" href="{% url 'smash_talk:delete_post' post.pk %}" 
+                                   onclick="return confirm('Hapus postingan ini?')">Hapus Postingan</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center">
+                        <small class="text-muted">
+                            Oleh: <strong>{{ post.author.username }}</strong> 
+                            pada {{ post.created_at|date:"d M Y H:i" }}
+                        </small>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <small class="text-muted">👁️ {{ post.views }} dilihat</small>
+                    </div>
+                </div>
+
+                <div class="post-content mb-4">
+                    {{ post.content|linebreaks }}
+                </div>
+
+                <!-- Like Button -->
+                <div class="d-flex gap-3 align-items-center">
+                    <form method="post" action="{% url 'smash_talk:like_post' post.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn like-btn {% if user in post.likes.all %}liked{% endif %}">
+                            {% if user in post.likes.all %}❤️{% else %}🤍{% endif %}
+                            Like ({{ post.total_likes }})
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Komentar ({{ comments.count }})</h5>
+            </div>
+            <div class="card-body">
+                <!-- Add Comment Form -->
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'smash_talk:add_comment' post.pk %}" class="mb-4">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ comment_form.content }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                </form>
+                {% else %}
+                <div class="alert alert-info">
+                    <a href="{% url 'login' %}?next={{ request.path }}">Login</a> untuk menambahkan komentar.
+                </div>
+                {% endif %}
+
+                <!-- Comments List -->
+                {% for comment in comments %}
+                <div class="border-bottom pb-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <strong>{{ comment.author.username }}</strong>
+                                <small class="text-muted">{{ comment.created_at|date:"d M Y H:i" }}</small>
+                            </div>
+                            <p class="mb-2">{{ comment.content|linebreaks }}</p>
+                            
+                            <!-- Like Comment Button -->
+                            <form method="post" action="{% url 'smash_talk:like_comment' comment.pk %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm like-btn {% if user in comment.likes.all %}liked{% endif %}">
+                                    {% if user in comment.likes.all %}❤️{% else %}🤍{% endif %}
+                                    {{ comment.total_likes }}
+                                </button>
+                            </form>
+
+                            {% if user == comment.author %}
+                            <a href="{% url 'smash_talk:delete_comment' comment.pk %}" 
+                               class="btn btn-sm btn-outline-danger ms-2"
+                               onclick="return confirm('Hapus komentar ini?')">Hapus</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-muted text-center py-3">Belum ada komentar. Jadilah yang pertama berkomentar!</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Statistik Postingan</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-2">
+                    <strong>Like:</strong> {{ post.total_likes }}
+                </div>
+                <div class="mb-2">
+                    <strong>Komentar:</strong> {{ post.total_comments }}
+                </div>
+                <div class="mb-2">
+                    <strong>Dilihat:</strong> {{ post.views }}
+                </div>
+                <div>
+                    <strong>Dibuat:</strong> {{ post.created_at|date:"d M Y" }}
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body text-center">
+                <a href="{% url 'smash_talk:forum_list' %}" class="btn btn-outline-primary w-100 mb-2">
+                    ← Kembali ke Forum
+                </a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'smash_talk:create_post' %}" class="btn btn-success w-100">
+                    + Buat Postingan Baru
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

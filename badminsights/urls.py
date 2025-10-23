@@ -22,5 +22,6 @@ urlpatterns = [
     path('badminews/', include('badminews.urls')),
     path('', include('main.urls')),
     path('bookmark/', include('bookmark.urls')),
+    path('smash_talk/', include('smash_talk.urls')),
 
 ]

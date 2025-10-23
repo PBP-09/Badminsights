@@ -11,9 +11,10 @@ Selamat Datang
         ini landing page hehe
     </p>
     <hr class="border-gray-200 my-6">
-    <button class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+    
+    <a href="{% url 'main:player_list' %}" class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
         Lihat Daftar Pemain
-    </button>
+    </a>
 </div>
 
 <h5>NPM: {{ npm }}</h5>
