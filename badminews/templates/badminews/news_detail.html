@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ news_item.title }} - BadmiNews{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <article class="bg-surface p-8 rounded-lg shadow-md">
+        {% if news_item.image %}
+        <div class="mb-6">
+            <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        {% endif %}
+
+        <h1 class="text-4xl font-serif font-bold text-primary mb-4">{{ news_item.title }}</h1>
+
+        <div class="flex flex-wrap items-center gap-4 text-secondary mb-6">
+            <span class="text-lg">By {{ news_item.author.username }}</span>
+            <span class="text-lg">{{ news_item.date_published|date:"l, d F Y" }}</span>
+            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">{{ news_item.get_category_display }}</span>
+            <span class="text-lg">Views: {{ news_item.views }}</span>
+            <div class="flex items-center gap-2">
+                <button id="upvote-btn" class="text-2xl {% if user.is_authenticated and user in news_item.upvotes.all %}text-red-500{% else %}text-gray-400{% endif %} hover:text-red-500" data-news-id="{{ news_item.pk }}">
+                    {% if user.is_authenticated and user in news_item.upvotes.all %}🔼{% else %}⬆️{% endif %}
+                </button>
+                <span id="upvote-count" class="text-lg">{{ news_item.total_upvotes }}</span>
+            </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none text-primary">
+            {{ news_item.content|linebreaks }}
+        </div>
+    </article>
+
+    <div class="mt-8 text-center">
+        <a href="{% url 'badminews:news_list' %}" class="bg-secondary text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors inline-block">Kembali ke Daftar Berita</a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const upvoteBtn = document.getElementById('upvote-btn');
+    const upvoteCount = document.getElementById('upvote-count');
+
+    if (upvoteBtn) {
+        upvoteBtn.addEventListener('click', function() {
+            const newsId = this.dataset.newsId;
+
+            fetch(`/badminews/${newsId}/upvote/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.upvoted) {
+                    upvoteBtn.textContent = '🔼';
+                    upvoteBtn.classList.add('text-red-500');
+                    upvoteBtn.classList.remove('text-gray-400');
+                } else {
+                    upvoteBtn.textContent = '⬆';
+                    upvoteBtn.classList.remove('text-red-500');
+                    upvoteBtn.classList.add('text-gray-400');
+                }
+                upvoteCount.textContent = data.upvote_count;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('You need to login to upvote');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}
