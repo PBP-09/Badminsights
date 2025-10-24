@@ -11,9 +11,10 @@ Selamat Datang
         ini landing page hehe
     </p>
     <hr class="border-gray-200 my-6">
-    <button class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+    
+    <a href="{% url 'main:player_list' %}" class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
         Lihat Daftar Pemain
-    </button>
+    </a>
 </div>
 
 {% if featured_player %}
@@ -71,6 +72,15 @@ Selamat Datang
         <a href="#" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
             Selengkapnya
         </a>
+    </div>
+    <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xl font-serif text-primary mb-2">Smash Talk</h2>
+        <p class="text-secondary mb-4">Forum untuk bertanya, berbagi pengalaman, dan berdiskusi soal pemain, pertandingan, dan strategi.</p>
+        <a href="{% url 'smash_talk:forum_list' %}"
+     class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+    Lihat Selengkapnya
+  </a>
+
     </div>
 </div>
 {% endblock %}

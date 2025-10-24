@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('bookmark/', include('bookmark.urls')),
+    path('forum/', include('smash_talk.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ]
