@@ -40,11 +40,7 @@ def product_detail(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, "katalog/product_detail.html", {"product": product})
 
 
-def is_staff(user) -> bool:
-    return user.is_authenticated and user.is_staff
-
-
-@user_passes_test(is_staff)
+@login_required
 def product_create(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         name = request.POST.get("name", "").strip()
@@ -69,7 +65,7 @@ def product_create(request: HttpRequest) -> HttpResponse:
     return render(request, "katalog/product_form.html", {"categories": Product.Category.choices})
 
 
-@user_passes_test(is_staff)
+@login_required
 def product_update(request: HttpRequest, pk: int) -> HttpResponse:
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
@@ -85,7 +81,7 @@ def product_update(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, "katalog/product_form.html", {"product": product, "categories": Product.Category.choices})
 
 
-@user_passes_test(is_staff)
+@login_required
 def product_delete(request: HttpRequest, pk: int) -> HttpResponse:
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
