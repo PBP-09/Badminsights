@@ -5,17 +5,23 @@ Selamat Datang
 {% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 <div class="bg-surface p-8 rounded-lg shadow-sm text-center mb-8 border border-gray-200">
-    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">Selamat Datang di Badminsights</h1>
+    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">All Things Badminton, in One Place.</h1>
     <p class="text-lg text-secondary max-w-2xl mx-auto">
-        ini landing page hehe
+        Discover detailed player bios, explore official merch, and join discussions with badminton fans worldwide — only on Badminsights.
     </p>
     <hr class="border-gray-200 my-6">
     
     <a href="{% url 'main:player_list' %}" class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-        Lihat Daftar Pemain
+        Explore Players
     </a>
 </div>
+
+<p>{{ name }}</p>
+
+
+
 
 {% if featured_player %}
 <div class="my-12">
@@ -41,7 +47,7 @@ Selamat Datang
             <p class="text-lg text-secondary mt-1">Asal: {{ featured_player.country }}</p>
             
             {% if featured_player.world_rank %}
-            <div class="mt-4 inline-block bg-gray-100 text-primary text-sm font-bold px-3 py-1 rounded-full">
+            <div class="mt-4 inline-block bg-gray-100 text-primary text-sm font-bold py-1 rounded-full">
                 Peringkat Dunia: #{{ featured_player.world_rank }}
             </div>
             {% endif %}
@@ -50,7 +56,7 @@ Selamat Datang
                 {{ featured_player.bio|truncatewords:40 }}
             </p>
             
-            <a href="#" class="mt-8 inline-block bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-5 rounded-lg transition-colors">
+            <a href="{% url 'main:show_player' featured_player.id %}" class="mt-8 inline-block bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-5 rounded-lg transition-colors">
                 Lihat Profil Lengkap
             </a>
         </div>
@@ -60,27 +66,33 @@ Selamat Datang
 
 <div class="grid md:grid-cols-2 gap-6">
     <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
-        <h2 class="text-xl font-serif text-primary mb-2">Pemain Unggulan</h2>
-        <p class="text-secondary mb-4">Lihat profil dan statistik dari para pemain terbaik.</p>
-        <a href="#" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+        <h2 class="text-xl font-serif text-primary mb-2">SmashTalk</h2>
+        <p class="text-secondary mb-4">Forum untuk bertanya, berbagi pengalaman, dan berdiskusi soal pemain, pertandingan, dan strategi.</p>
+        <a href="{% url 'smash_talk:forum_list' %}" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
             Selengkapnya
         </a>
     </div>
     <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
         <h2 class="text-xl font-serif text-primary mb-2">BadmiNews</h2>
         <p class="text-secondary mb-4">Temukan berita terbaru seputar dunia badminton.</p>
-        <a href="#" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+        <a href="{% url 'badminews:news_list' %}" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
             Selengkapnya
         </a>
     </div>
     <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
-        <h2 class="text-xl font-serif text-primary mb-2">Smash Talk</h2>
-        <p class="text-secondary mb-4">Forum untuk bertanya, berbagi pengalaman, dan berdiskusi soal pemain, pertandingan, dan strategi.</p>
-        <a href="{% url 'smash_talk:forum_list' %}"
+        <h2 class="text-xl font-serif text-primary mb-2">Merch</h2>
+        <p class="text-secondary mb-4">Temukan perlengkapan badminton terbaik.</p>
+        <a href="#"
      class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
     Selengkapnya
   </a>
-
+  </div>
+  <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xl font-serif text-primary mb-2">Katalog Merch</h2>
+        <p class="text-secondary mb-4">Beli berbagai produk merchandise badminton seperti raket, shuttlecock, jersey, sepatu, dan aksesoris.</p>
+        <a href="{% url 'katalog:product_list' %}" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+            Selengkapnya
+        </a>
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,70 @@
+{% if page_obj.object_list %}
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  {% for p in page_obj %}
+  <div class="bg-white border rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden flex flex-col relative group">
+
+    <!-- Gambar produk -->
+    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+      {% if p.image_url %}
+        <img src="{{ p.image_url }}" alt="{{ p.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      {% else %}
+        <div class="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
+      {% endif %}
+
+      <!-- Tombol Edit & Delete (Hanya admin) -->
+      {% if request.user.is_staff %}
+      <div class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition">
+        <a href="{% url 'katalog:product_update' p.pk %}" 
+           class="bg-blue-500 text-white text-xs p-1.5 rounded-md hover:bg-blue-600 transition"
+           title="Edit Produk">
+          ✏️
+        </a>
+        <a href="{% url 'katalog:product_delete' p.pk %}" 
+           class="bg-red-500 text-white text-xs p-1.5 rounded-md hover:bg-red-600 transition"
+           title="Hapus Produk"
+           onclick="return confirm('Yakin ingin menghapus produk ini?');">
+          🗑️
+        </a>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Informasi Produk -->
+    <div class="p-4 flex flex-col flex-1">
+      <div class="font-semibold text-lg mb-1 truncate">{{ p.name }}</div>
+      <div class="text-sm text-gray-500 mb-2">{{ p.get_category_display }}</div>
+      <div class="font-semibold text-primary mb-4">Rp {{ p.price|floatformat:0 }}</div>
+
+      <!-- Tombol Detail -->
+      <a href="{% url 'katalog:product_detail' p.pk %}" 
+         class="mt-auto text-center bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition">
+        Lihat Detail
+      </a>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if page_obj.paginator.num_pages > 1 %}
+<div class="flex justify-center gap-3 mt-8">
+  {% if page_obj.has_previous %}
+    <a data-page="{{ page_obj.previous_page_number }}" 
+       class="ajax-page px-4 py-2 border rounded cursor-pointer hover:bg-gray-100">← Sebelumnya</a>
+  {% endif %}
+  <span class="px-4 py-2 text-gray-500 bg-gray-50 border rounded">
+    Hal {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+  </span>
+  {% if page_obj.has_next %}
+    <a data-page="{{ page_obj.next_page_number }}" 
+       class="ajax-page px-4 py-2 border rounded cursor-pointer hover:bg-gray-100">Selanjutnya →</a>
+  {% endif %}
+</div>
+{% endif %}
+
+{% else %}
+<div class="text-center text-gray-500 py-10">
+  Tidak ada produk.
+</div>
+{% endif %}
