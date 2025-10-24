@@ -1,0 +1,1602 @@
+[
+    {
+        "model": "main.Player",
+        "pk": "26f39dc1-e0fd-4962-9390-cb10d0313b2a",
+        "fields": {
+            "name": "Jonatan CHRISTIE",
+            "date_of_birth": "1997-09-15",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "https://asset-2.tribunnews.com/tribunnews/foto/bank/images/Jonatan-Christie-Semifinal-Denmark-Open-2025.jpg",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "8b7e400f-330a-4b29-acf0-b9c8ad7c5f38",
+        "fields": {
+            "name": "Alwi FARHAN",
+            "date_of_birth": "2005-05-12",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "00989b17-d977-4bab-bf56-bb7c6527e473",
+        "fields": {
+            "name": "Chico Aura DWI WARDOYO",
+            "date_of_birth": "1998-06-15",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "1d3fe85b-2e89-4917-a267-6bc0c9f7943b",
+        "fields": {
+            "name": "Prahdiska Bagas SHUJIWO",
+            "date_of_birth": "2005-09-02",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "4ad383ba-66d7-4fb3-a495-1ae55c0166cd",
+        "fields": {
+            "name": "Anthony Sinisuka GINTING",
+            "date_of_birth": "1996-10-20",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "d1fcfa56-0c0d-4306-8ec2-c15a2216c09a",
+        "fields": {
+            "name": "Moh. Zaki UBAIDILLAH",
+            "date_of_birth": "2007-06-26",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "a48d49ba-5d1d-4ea4-83a5-68751b49ebec",
+        "fields": {
+            "name": "Yohanes Saut MARCELLYNO",
+            "date_of_birth": "2003-05-02",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "b875ed0f-cf92-42b5-b7c9-5ea2fd6cc46b",
+        "fields": {
+            "name": "Muhammad Reza AL FAJRI",
+            "date_of_birth": "2005-06-23",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "b4e98326-b8e1-49f9-8c44-fb2c5ed0b33d",
+        "fields": {
+            "name": "Eng Hian",
+            "date_of_birth": "1977-05-17",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "59cbdd62-8dc1-401f-a62e-0a5eb9abaae5",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "65241089-de35-4386-80b2-5d17654506dc",
+        "fields": {
+            "name": "Christian ADINATA",
+            "date_of_birth": "2001-06-16",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "c7e37a6e-68fb-41bc-b6d8-0ca8c1eb0045",
+        "fields": {
+            "name": "Henrikho Wibowo KHO",
+            "date_of_birth": "1994-04-29",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "f31c734e-65b8-4c2f-9ec9-2a9866651ada",
+        "fields": {
+            "name": "Ikhsan Leonardo Imanuel RUMBAY",
+            "date_of_birth": "2000-01-15",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "62e7782e-31e6-42b3-933a-d2a628d4622c",
+        "fields": {
+            "name": "Antonius Ariantho",
+            "date_of_birth": "1973-10-03",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "ad28797e-5c1c-493b-b571-ef5a1347554c",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "d99e4dab-1d5b-4f19-9193-d57d9897aa77",
+        "fields": {
+            "name": "Jason Christ Alexander",
+            "date_of_birth": "2004-12-28",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "557940d5-92d7-4d52-b129-aba78f0b7d80",
+        "fields": {
+            "name": "Marcus Fernaldi Gideon",
+            "date_of_birth": "1991-03-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "39f751f6-d018-4c5b-a059-e75f135f2e02",
+        "fields": {
+            "name": "Dendi Triansyah",
+            "date_of_birth": "2007-08-26",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "0fad0d4d-4835-42a6-9681-627a8102f6c1",
+        "fields": {
+            "name": "Ang Tjin Siang",
+            "date_of_birth": "1942-09-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "31362c94-8075-4d09-a14c-41942c78fce3",
+        "fields": {
+            "name": "Denis AZZARYA",
+            "date_of_birth": "2007-12-04",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "1fbaa61c-d27f-408c-a43e-4e91543e7964",
+        "fields": {
+            "name": "Rami WAREETH",
+            "date_of_birth": "2006-11-22",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "2fbadb09-8436-48b1-92d0-ab717e8ddaff",
+        "fields": {
+            "name": "Tavio TERICHY",
+            "date_of_birth": "2006-09-29",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "d734c4d4-6855-43f0-b964-946d36635d38",
+        "fields": {
+            "name": "Hariyanto Arbi",
+            "date_of_birth": "1972-01-21",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "c0296953-31c5-4996-ad69-73ba3e500dd3",
+        "fields": {
+            "name": "Michael Daniel Royce KARAMOY",
+            "date_of_birth": "2006-09-06",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "a64e62a7-cf11-4fb6-ad52-b90a5672b2e6",
+        "fields": {
+            "name": "Darren Gerrard TANNINOVICH",
+            "date_of_birth": "2007-03-13",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "441bb091-12b2-4117-bfff-f230d476e462",
+        "fields": {
+            "name": "Alvi Wijaya CHAIRULLAH",
+            "date_of_birth": "2022-08-24",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "ad28797e-5c1c-493b-b571-ef5a1347554c",
+        "fields": {
+            "name": "Denny Kantono",
+            "date_of_birth": "1970-01-12",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "5e72483c-bc7b-415c-b8e6-4bdfd99736bc",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "3e86d0a2-6d80-4dd8-819f-f6c6b1047aec",
+        "fields": {
+            "name": "Putri Kusuma WARDANI",
+            "date_of_birth": "2002-07-20",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "78c9fa1f-7e56-4eed-9579-9e933a95d51f",
+        "fields": {
+            "name": "Gregoria Mariska TUNJUNG",
+            "date_of_birth": "1999-08-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "c8d01552-b459-4288-ac48-1b7c2886f481",
+        "fields": {
+            "name": "Komang Ayu Cahya DEWI",
+            "date_of_birth": "2002-10-21",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "0fcbee90-4835-41e3-b9ad-c9af557034a1",
+        "fields": {
+            "name": "Ni Kadek Dhinda Amartya PRATIWI",
+            "date_of_birth": "2006-06-13",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "72bafc03-e8cc-4fc4-9941-9c45b2f20637",
+        "fields": {
+            "name": "Mutiara Ayu PUSPITASARI",
+            "date_of_birth": "2006-05-17",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "1f3689d5-6ea4-4977-bc5e-c78270dbbd2d",
+        "fields": {
+            "name": "Thalita Ramadhani WIRYAWAN",
+            "date_of_birth": "2007-09-21",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "bf7b8f8f-2b57-4025-97ed-d716da489871",
+        "fields": {
+            "name": "Bilqis PRASISTA",
+            "date_of_birth": "2003-05-24",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "566916d7-575e-4ae8-8150-cb3cd117a8ed",
+        "fields": {
+            "name": "Chiara Marvella HANDOYO",
+            "date_of_birth": "2005-01-04",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "2889fc2d-3a4b-49c1-92c4-e797250dfc89",
+        "fields": {
+            "name": "Ester Nurumi Tri WARDOYO",
+            "date_of_birth": "2004-08-26",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "6ba2a3b4-42c8-4f9f-bce6-8de2e07da1d9",
+        "fields": {
+            "name": "Minarni Soedaryanto",
+            "date_of_birth": "1944-05-10",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "6095ae2f-55bc-4ca2-b65a-78201e44b4b9",
+        "fields": {
+            "name": "Yulia Yosephine SUSANTO",
+            "date_of_birth": "1993-10-19",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "5b581b01-7956-486d-8231-73eab424d14b",
+        "fields": {
+            "name": "Maria Kristin Yulianti",
+            "date_of_birth": "1985-06-25",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "521527d9-cb2d-49ee-bd20-5d1c1ffd6dc1",
+        "fields": {
+            "name": "Fajar ALFIAN",
+            "date_of_birth": "1995-03-07",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "a6fa4bca-cf72-4e10-aa86-250c6a79f55c",
+        "fields": {
+            "name": "Muhammad Rian ARDIANTO",
+            "date_of_birth": "1996-02-13",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "659b372f-0fec-47ae-8b05-40bf32a510a4",
+        "fields": {
+            "name": "Sabar Karyaman GUTAMA",
+            "date_of_birth": "1996-01-08",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "300a824f-af07-4a08-9a2d-6050e24c93a4",
+        "fields": {
+            "name": "Moh Reza Pahlevi ISFAHANI",
+            "date_of_birth": "1998-08-06",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "394b40f0-e37b-4017-92f2-91d51cfdd3fc",
+        "fields": {
+            "name": "Febriana Dwipuji KUSUMA",
+            "date_of_birth": "2001-02-20",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "a56c84fc-c7a3-468a-be7c-1b3185e2b7ac",
+        "fields": {
+            "name": "Amallia Cahaya PRATIWI",
+            "date_of_birth": "2001-10-14",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "8d0b5322-6746-479a-9ac2-187a52d858b1",
+        "fields": {
+            "name": "Lanny Tria MAYASARI",
+            "date_of_birth": "2002-05-08",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "96f636a5-9915-43e4-a3e6-e09a4e0c5a58",
+        "fields": {
+            "name": "Siti Fadia Silva RAMADHANTI",
+            "date_of_birth": "2000-11-16",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "d886b953-c24f-4168-868b-16d03ac98787",
+        "fields": {
+            "name": "Meilysa Trias PUSPITASARI",
+            "date_of_birth": "2004-05-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "7b082aea-e4bc-43db-aa09-cfdd8e6b8c0c",
+        "fields": {
+            "name": "Rachel Allessya ROSE",
+            "date_of_birth": "2004-06-30",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "167c7b0c-af42-4f48-bb44-010e880cfc95",
+        "fields": {
+            "name": "Isyana Syahira MEIDA",
+            "date_of_birth": "2006-12-06",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "2e3fa102-8e24-48bf-8ae4-4edc0ec8d06b",
+        "fields": {
+            "name": "Nitya Krishinda Maheswari",
+            "date_of_birth": "1988-12-16",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "5c8e9c37-14f3-4d4e-9458-5377f06f249f",
+        "fields": {
+            "name": "Jafar HIDAYATULLAH",
+            "date_of_birth": "2003-01-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "ef9f8ebd-70b8-408d-9580-189d17d99fa2",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "ef9f8ebd-70b8-408d-9580-189d17d99fa2",
+        "fields": {
+            "name": "Felisha Alberta Nathaniel PASARIBU",
+            "date_of_birth": "2005-09-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "5c8e9c37-14f3-4d4e-9458-5377f06f249f",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "053dac3f-5789-47e4-9963-60f3067f0683",
+        "fields": {
+            "name": "Rehan Naufal KUSHARJANTO",
+            "date_of_birth": "2000-02-28",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "b3d8e162-2ebe-49d2-b1cf-faf226419fd8",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "b3d8e162-2ebe-49d2-b1cf-faf226419fd8",
+        "fields": {
+            "name": "Gloria Emanuelle WIDJAJA",
+            "date_of_birth": "1993-12-28",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "053dac3f-5789-47e4-9963-60f3067f0683",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "4849cc1a-ac1e-44e2-8909-86e5d8802f28",
+        "fields": {
+            "name": "Amri SYAHNAWI",
+            "date_of_birth": "1998-11-08",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "19bfe122-b940-49ee-a8b7-edc527b72618",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "19bfe122-b940-49ee-a8b7-edc527b72618",
+        "fields": {
+            "name": "Nita Violina MARWAH",
+            "date_of_birth": "2001-03-25",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "4849cc1a-ac1e-44e2-8909-86e5d8802f28",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "c9463698-5af2-409c-afb7-a0558d3a9b52",
+        "fields": {
+            "name": "Dejan FERDINANSYAH",
+            "date_of_birth": "2000-01-21",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "dfe0487c-08ba-423a-9295-ab45a23f267c",
+        "fields": {
+            "name": "Pitha Haningtyas MENTARI",
+            "date_of_birth": "1999-07-01",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "ba3a3bea-6b8d-4f21-bc44-51f1167654de",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "6ef35690-6811-41ef-be4a-b685f8279541",
+        "fields": {
+            "name": "Adnan MAULANA",
+            "date_of_birth": "1999-10-23",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "881f0d3b-9cbd-4951-b25a-02a8dc3c9352",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "881f0d3b-9cbd-4951-b25a-02a8dc3c9352",
+        "fields": {
+            "name": "Indah Cahya Sari JAMIL",
+            "date_of_birth": "2002-03-16",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "6ef35690-6811-41ef-be4a-b685f8279541",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "8c02085f-7e9d-4be6-a595-8220e245ad77",
+        "fields": {
+            "name": "LIEM Swie King",
+            "date_of_birth": "1956-02-28",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "f93174df-bddf-4daf-870c-c5bd6382e890",
+        "fields": {
+            "name": "Taufik Hidayat",
+            "date_of_birth": "1981-08-10",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "e3bb2fa0-062a-4f19-b950-a982d3ee278e",
+        "fields": {
+            "name": "Susi Susanti",
+            "date_of_birth": "1971-02-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "2d8a1067-3ee3-40e4-9b29-a72577b81c78",
+        "fields": {
+            "name": "Rudy Hartono",
+            "date_of_birth": "1949-08-18",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "c8f648e7-970b-478a-8364-0807f34bd1b5",
+        "fields": {
+            "name": "Alan Budikusuma",
+            "date_of_birth": "1968-03-29",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "db01dc21-20d3-4b7d-aed3-3bc5a507fa2e",
+        "fields": {
+            "name": "Christian Hadinata",
+            "date_of_birth": "1949-12-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "5119f28c-a004-4e76-b2f2-949955425e6f",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "e65bfb36-e689-4b41-b75a-1c70d279d66b",
+        "fields": {
+            "name": "Verawaty Fajrin",
+            "date_of_birth": "1957-10-01",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "0535c47f-01da-4f3a-b195-247c5d8f65ec",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "620f8759-8be5-456d-9606-5762bbc9e2c5",
+        "fields": {
+            "name": "Liliyana Natsir",
+            "date_of_birth": "1985-09-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "941b41cb-2eef-49a8-b553-8e69419f8380",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "941b41cb-2eef-49a8-b553-8e69419f8380",
+        "fields": {
+            "name": "Tontowi Ahmad",
+            "date_of_birth": "1987-07-18",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "620f8759-8be5-456d-9606-5762bbc9e2c5",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "652be75e-ce48-4c31-b0a9-60a8ba80dffc",
+        "fields": {
+            "name": "Ricky Subagja",
+            "date_of_birth": "1971-01-27",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "4e9c9f70-5b08-44a2-9207-c6c7e7179dbe",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "6d1ea7de-8dc9-4b36-b3d8-9068e1efbc2c",
+        "fields": {
+            "name": "Candra Wijaya",
+            "date_of_birth": "1975-09-16",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "b7adbdd0-28e9-4ba6-8a84-b7a11b950c09",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "ba3a3bea-6b8d-4f21-bc44-51f1167654de",
+        "fields": {
+            "name": "Rinov RIVALDY",
+            "date_of_birth": "1999-11-12",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "dfe0487c-08ba-423a-9295-ab45a23f267c",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "f9dd86a3-b8f2-4aa8-9090-9ccfc4881898",
+        "fields": {
+            "name": "Mohammad Ahsan",
+            "date_of_birth": "1987-09-07",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "a90dd64a-86c8-49d0-923f-f9e1e1a15447",
+        "fields": {
+            "name": "Minarti Timur",
+            "date_of_birth": "1968-03-24",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "839fc688-b740-416d-a9b2-8f029b52476e",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "7356ad2c-d5f7-430e-8567-ce9a8053884e",
+        "fields": {
+            "name": "Aadijatmiko Christina Finarsih",
+            "date_of_birth": "1972-02-08",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "ebbc7c48-772e-4e74-b706-4c12ef03030e",
+        "fields": {
+            "name": "Eliza Nathanael",
+            "date_of_birth": "1973-05-27",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "c9bf176d-27c9-4d0d-a1c7-ee1dbb0d5493",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "c9bf176d-27c9-4d0d-a1c7-ee1dbb0d5493",
+        "fields": {
+            "name": "Zelin Resiana",
+            "date_of_birth": "1972-07-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "ebbc7c48-772e-4e74-b706-4c12ef03030e",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "839fc688-b740-416d-a9b2-8f029b52476e",
+        "fields": {
+            "name": "Tri Kusharjanto",
+            "date_of_birth": "1974-01-18",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "a90dd64a-86c8-49d0-923f-f9e1e1a15447",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "488a6ef3-6e55-4f59-8a1e-e837677c13f1",
+        "fields": {
+            "name": "Imelda Wiguna",
+            "date_of_birth": "1951-10-12",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "77a16008-8bc0-4017-b17c-07f2709bb3b8",
+        "fields": {
+            "name": "Retno Kustiyah",
+            "date_of_birth": "1942-06-19",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "6fdd985c-0c64-46a5-aee2-81523f8dcdab",
+        "fields": {
+            "name": "Bobby Ertanto",
+            "date_of_birth": "1960-08-02",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "5119f28c-a004-4e76-b2f2-949955425e6f",
+        "fields": {
+            "name": "Ade Chandra",
+            "date_of_birth": "1950-02-04",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "db01dc21-20d3-4b7d-aed3-3bc5a507fa2e",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "e3592f93-7a1b-4990-a4e2-cfb2c9783cde",
+        "fields": {
+            "name": "Tan Joe Hok",
+            "date_of_birth": "1937-08-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "badba9aa-ccea-48e5-9a69-199dc047daa7",
+        "fields": {
+            "name": "Kevin Sanjaya Sukamuljo",
+            "date_of_birth": "1995-08-02",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "557940d5-92d7-4d52-b129-aba78f0b7d80",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+        "fields": {
+            "name": "Markis Kido",
+            "date_of_birth": "1984-08-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "f9dd86a3-b8f2-4aa8-9090-9ccfc4881898",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "0df4abf5-c93b-4bf7-99a7-6d854704e404",
+        "fields": {
+            "name": "Greysia Polli",
+            "date_of_birth": "1987-08-11",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "d179d6a0-c817-4a85-8e84-400764ed27f8",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "d179d6a0-c817-4a85-8e84-400764ed27f8",
+        "fields": {
+            "name": "Apriani Rahayu",
+            "date_of_birth": "1998-04-29",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "0df4abf5-c93b-4bf7-99a7-6d854704e404",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "829e674f-cbea-40fe-8e3a-929f45eccb9d",
+        "fields": {
+            "name": "Bobby SETIABUDI",
+            "date_of_birth": "2001-03-22",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "active",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "2ded6349-ed97-4d0f-9be4-191d18e3ff1e",
+        "fields": {
+            "name": "Hermawan Susanto",
+            "date_of_birth": "1967-09-27",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "4e9c9f70-5b08-44a2-9207-c6c7e7179dbe",
+        "fields": {
+            "name": "Rexy Mainaky",
+            "date_of_birth": "1968-03-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "652be75e-ce48-4c31-b0a9-60a8ba80dffc",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "b7adbdd0-28e9-4ba6-8a84-b7a11b950c09",
+        "fields": {
+            "name": "Tony Gunawan",
+            "date_of_birth": "1975-04-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "6d1ea7de-8dc9-4b36-b3d8-9068e1efbc2c",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "8631fab9-1b50-4a02-b9ea-cfd839d146c5",
+        "fields": {
+            "name": "Rafael Candra Wijaya",
+            "date_of_birth": "1975-09-16",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "b7adbdd0-28e9-4ba6-8a84-b7a11b950c09",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "8bfc6245-f742-4c01-a6e5-6c2bc0381ceb",
+        "fields": {
+            "name": "Hendra Setiawan",
+            "date_of_birth": "1984-08-25",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "cdf31f3d-923e-49a9-aff3-94b594ccfa1f",
+        "fields": {
+            "name": "Ardy Bernardus Wiranata",
+            "date_of_birth": "1970-02-10",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "6a59d331-45cf-46ba-b6c2-31edd4d61e21",
+        "fields": {
+            "name": "Sony Dwi Kuncoro",
+            "date_of_birth": "1984-07-07",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "abec6712-34de-4677-9ec1-11a9d48460c1",
+        "fields": {
+            "name": "Mia Audina Tjiptawan",
+            "date_of_birth": "1979-08-22",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "women's single",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": null,
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "0535c47f-01da-4f3a-b195-247c5d8f65ec",
+        "fields": {
+            "name": "Eddy Hartono",
+            "date_of_birth": "1964-07-19",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "e65bfb36-e689-4b41-b75a-1c70d279d66b",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "551e73d5-a4c8-4175-9976-5fbd8ed7ad80",
+        "fields": {
+            "name": "Rudy Gunawan",
+            "date_of_birth": "1966-12-31",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "0535c47f-01da-4f3a-b195-247c5d8f65ec",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "5e72483c-bc7b-415c-b8e6-4bdfd99736bc",
+        "fields": {
+            "name": "Antonius Budi Ariantho",
+            "date_of_birth": "1971-10-03",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "ad28797e-5c1c-493b-b571-ef5a1347554c",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "d8e5ee0e-c937-48b4-8c4f-5741213a72ab",
+        "fields": {
+            "name": "Nova Widianto",
+            "date_of_birth": "1977-10-10",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "mixed double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "620f8759-8be5-456d-9606-5762bbc9e2c5",
+            "is_featured": false
+        }
+    },
+    {
+        "model": "main.Player",
+        "pk": "59cbdd62-8dc1-401f-a62e-0a5eb9abaae5",
+        "fields": {
+            "name": "Flandy Limpele",
+            "date_of_birth": "1974-02-09",
+            "country": "Indonesia",
+            "bio": "",
+            "category": "men's double",
+            "status": "retired",
+            "thumbnail": "",
+            "world_rank": null,
+            "partner": "b4e98326-b8e1-49f9-8c44-fb2c5ed0b33d",
+            "is_featured": false
+        }
+    }
+]
