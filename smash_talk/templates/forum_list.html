@@ -108,15 +108,19 @@
           <p class="mt-4 text-gray-700">{{ post.content|truncatewords:30 }}</p>
         </div>
       </article>
-      {% empty %}
-      <div class="text-center py-12 text-gray-500">
-        <h4 class="text-lg font-medium">Belum ada postingan</h4>
-        <p class="mt-2">Jadilah yang pertama membuat postingan!</p>
-        {% if user.is_authenticated %}
-        <a href="{% url 'smash_talk:create_post' %}" class="inline-block mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white">Buat Postingan Pertama</a>
-        {% endif %}
-      </div>
-      {% endfor %}
+    {% empty %}
+    <div class="text-center py-12 text-gray-500">
+      <p>Belum ada postingan</p>
+      <p class="mt-2">Jadilah yang pertama membuat postingan!</p>
+    
+      {% if user.is_authenticated %}
+      <a href="{% url 'smash_talk:create_post' %}" class="inline-block mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white">
+        Buat Postingan Pertama
+      </a>
+      {% endif %}
+    </div>
+    {% endfor %}
+
     </div>
 
     <!-- Pagination -->
