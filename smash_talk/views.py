@@ -44,7 +44,7 @@ def forum_list(request):
         'sort_by': sort_by,
         'categories': Post.CATEGORY_CHOICES,
     }
-    return render(request, 'smash_talk/forum_list.html', context)
+    return render(request, 'forum_list.html', context)
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -61,7 +61,7 @@ def post_detail(request, pk):
         'comments': comments,
         'comment_form': comment_form,
     }
-    return render(request, 'smash_talk/post_detail.html', context)
+    return render(request, 'post_details.html', context)
 
 @login_required
 def create_post(request):
@@ -72,12 +72,12 @@ def create_post(request):
             post.author = request.user
             post.save()
             messages.success(request, 'Postingan berhasil dibuat!')
-            return redirect('smash_talk:post_detail', pk=post.pk)
+            return redirect('post_details', pk=post.pk)
     else:
         form = PostForm()
     
     context = {'form': form}
-    return render(request, 'smash_talk/create_post.html', context)
+    return render(request, 'screate_post.html', context)
 
 @login_required
 def add_comment(request, pk):
@@ -92,7 +92,7 @@ def add_comment(request, pk):
             comment.save()
             messages.success(request, 'Komentar berhasil ditambahkan!')
     
-    return redirect('smash_talk:post_detail', pk=post.pk)
+    return redirect('post_details', pk=post.pk)
 
 @login_required
 def like_post(request, pk):
@@ -103,7 +103,7 @@ def like_post(request, pk):
     else:
         post.likes.add(request.user)
     
-    return redirect('smash_talk:post_detail', pk=post.pk)
+    return redirect('post_details', pk=post.pk)
 
 @login_required
 def like_comment(request, pk):
@@ -114,7 +114,7 @@ def like_comment(request, pk):
     else:
         comment.likes.add(request.user)
     
-    return redirect('smash_talk:post_detail', pk=comment.post.pk)
+    return redirect('post_details', pk=comment.post.pk)
 
 @login_required
 def delete_post(request, pk):
@@ -127,7 +127,7 @@ def delete_post(request, pk):
     else:
         messages.error(request, 'Anda tidak memiliki izin untuk menghapus postingan ini.')
     
-    return redirect('smash_talk:forum_list')
+    return redirect('forum_list')
 
 @login_required
 def delete_comment(request, pk):
@@ -140,4 +140,4 @@ def delete_comment(request, pk):
     else:
         messages.error(request, 'Anda tidak memiliki izin untuk menghapus komentar ini.')
     
-    return redirect('smash_talk:post_detail', pk=comment.post.pk)
+    return redirect('post_details', pk=comment.post.pk)

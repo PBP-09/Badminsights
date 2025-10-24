@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Tambah Berita Baru - BadmiNews{% endblock %}
+{% block title %}{% if is_edit %}Edit Berita{% else %}Tambah Berita Baru{% endif %} - BadmiNews{% endblock %}
 
 {% block content %}
 <div class="max-w-2xl mx-auto">
-    <h1 class="text-4xl font-serif font-bold text-primary mb-8">Tambah Berita Baru</h1>
+    <h1 class="text-4xl font-serif font-bold text-primary mb-8">{% if is_edit %}Edit Berita{% else %}Tambah Berita Baru{% endif %}</h1>
 
     <div class="bg-surface p-8 rounded-lg shadow-md">
         <form method="post" enctype="multipart/form-data" class="space-y-6">

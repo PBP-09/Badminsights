@@ -17,22 +17,10 @@ Selamat Datang
     </a>
 </div>
 
-<!-- <h5>NPM: {{ npm }}</h5> -->
 <p>{{ name }}</p>
-<!-- <h5>Class: {{ class }}</h5> -->
-<!-- <h5>Sesi terakhir login: {{ last_login }}</h5> -->
 
-<!-- <a href="?filter=all">
-    <button type="button">All Players</button>
-</a>
-<a href="?filter=my">
-    <button type="button">My Players</button>
-</a> -->
 
-<form method="POST" action="{% url 'main:logout' %}">
-  {% csrf_token %}
-  <button type="submit">Logout</button>
-</form>
+
 
 {% if featured_player %}
 <div class="my-12">
@@ -86,9 +74,18 @@ Selamat Datang
     <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
         <h2 class="text-xl font-serif text-primary mb-2">BadmiNews</h2>
         <p class="text-secondary mb-4">Temukan berita terbaru seputar dunia badminton.</p>
-        <a href="#" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+        <a href="{% url 'badminews:news_list' %}" class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
             Selengkapnya
         </a>
+    </div>
+    <div class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xl font-serif text-primary mb-2">Smash Talk</h2>
+        <p class="text-secondary mb-4">Forum untuk bertanya, berbagi pengalaman, dan berdiskusi soal pemain, pertandingan, dan strategi.</p>
+        <a href="{% url 'smash_talk:forum_list' %}"
+     class="border border-accent text-accent hover:bg-accent hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+    Lihat Selengkapnya
+  </a>
+
     </div>
 </div>
 {% endblock %}

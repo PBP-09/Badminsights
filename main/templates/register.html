@@ -1,32 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block meta %}
-<title>Register</title>
-{% endblock meta %}
+{% block title %}Registrasi Akun{% endblock %}
 
 {% block content %}
+<div class="max-w-md mx-auto bg-surface p-8 rounded-lg shadow-sm border border-gray-200">
+    <h1 class="text-3xl font-serif text-primary mb-6 text-center">Buat Akun Baru</h1>
+    
+    <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        
+        {% if form.non_field_errors %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-<div>
-  <h1>Register</h1>
+        {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}" class="block text-sm font-semibold text-primary mb-2">
+                {{ field.label }}
+            </label>
+            
+            {{ field }}
+            
+            {% if field.help_text %}
+                <p class="mt-2 text-sm text-secondary">{{ field.help_text|safe }}</p>
+            {% endif %}
+            
+            {% for error in field.errors %}
+                <p class="mt-2 text-sm text-red-600">{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
 
-  <form method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td><input type="submit" name="submit" value="Daftar" /></td>
-      </tr>
-    </table>
-  </form>
+        <div class="pt-4">
+            <button type="submit" class="w-full bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                Daftar
+            </button>
+        </div>
+    </form>
 
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+    <p class="text-center text-sm text-secondary mt-6">
+        Sudah punya akun?
+        <a href="{% url 'main:login' %}" class="font-semibold text-accent hover:underline">
+            Login di sini
+        </a>
+    </p>
 </div>
-
-{% endblock content %}
+{% endblock %}
