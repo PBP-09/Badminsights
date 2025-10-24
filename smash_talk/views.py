@@ -108,12 +108,18 @@ def delete_post(request, pk):
     
     # Hanya author yang bisa menghapus post
     if post.author == request.user:
+        # Hapus file gambar dari storage (jika ada)
+        if post.image:
+            post.image.delete(save=False)
+
+        # Hapus objek dari database
         post.delete()
-        messages.success(request, 'Postingan berhasil dihapus!')
+        messages.success(request, 'Postingan dan gambarnya berhasil dihapus!')
     else:
         messages.error(request, 'Anda tidak memiliki izin untuk menghapus postingan ini.')
     
     return redirect('smash_talk:forum_list')
+
 
 @login_required
 def delete_comment(request, pk):
