@@ -42,6 +42,9 @@ def product_detail(request: HttpRequest, pk: int) -> HttpResponse:
 
 @login_required
 def product_create(request: HttpRequest) -> HttpResponse:
+    if request.user.username not in ["Admin", "admin"]:
+        messages.error(request, "Only admin users can create products.")
+        return redirect("katalog:product_list")
     if request.method == "POST":
         name = request.POST.get("name", "").strip()
         category = request.POST.get("category", "").strip()
@@ -67,6 +70,9 @@ def product_create(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def product_update(request: HttpRequest, pk: int) -> HttpResponse:
+    if request.user.username not in ["Admin", "admin"]:
+        messages.error(request, "Only admin users can update products.")
+        return redirect("katalog:product_list")
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
         product.name = request.POST.get("name", product.name).strip()
@@ -83,6 +89,9 @@ def product_update(request: HttpRequest, pk: int) -> HttpResponse:
 
 @login_required
 def product_delete(request: HttpRequest, pk: int) -> HttpResponse:
+    if request.user.username not in ["Admin", "admin"]:
+        messages.error(request, "Only admin users can delete products.")
+        return redirect("katalog:product_list")
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
         product.delete()
