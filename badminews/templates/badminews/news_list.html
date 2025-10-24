@@ -4,8 +4,9 @@
 {% block title %}BadmiNews - Berita Terbaru{% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 <div class="max-w-6xl mx-auto">
-    <h1 class="text-4xl font-serif font-bold text-primary mb-8">BadmiNews</h1>
+    <h1 class="text-2xl font-serif">📰 BadmiNews</h1>
 
     <!-- Trending News Section -->
     {% if trending_news %}
