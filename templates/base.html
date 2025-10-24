@@ -46,14 +46,14 @@
             
             <a href="{% url 'main:main_page' %}" class="text-secondary hover:text-primary transition-colors">Home</a>
             <a href="{% url 'main:player_list' %}" class="text-secondary hover:text-primary transition-colors">Who's on court</a>
-            <a href="#" class="text-secondary hover:text-primary transition-colors">Pertandingan</a>
+            <a href="#" class="text-secondary hover:text-primary transition-colors">SmashTalk</a>
 
             <div class="border-l border-gray-200 h-6"></div>
 
             {% if request.user.is_authenticated %}
                 
                 <span class="text-primary font-semibold text-sm">
-                    Halo, {{ request.user.username }}
+                    Hello, {{ request.user.username }}!
                 </span>
                 
                 <form action="{% url 'main:logout' %}" method="POST" class="m-0">

@@ -127,17 +127,18 @@ def show_player(request, id):
 
     return render(request, "player_details.html", context)
 
-@user_passes_test(is_staff_user, login_url='/login/')
+@login_required(login_url='/login/')
+# @user_passes_test(is_staff_user, login_url='/login/')
 def edit_player(request, id):
     player = get_object_or_404(Player, pk=id)
-    
     form = PlayerForm(request.POST or None, instance=player)
 
     if form.is_valid() and request.method == "POST":
         form.save()
         return redirect('main:show_player', id=id)
 
-    context = {'form': form, 'title': f'Edit {player.name}'}
+    context = {'form': form, 'title': f'Edit {player.name}'} 
+    
     return render(request, "player_form.html", context)
 
 @login_required(login_url='/login/')

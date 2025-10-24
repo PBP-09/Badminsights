@@ -8,7 +8,7 @@
     
     <div class="mb-4">
         <a href="{% url 'main:player_list' %}" class="text-accent font-semibold hover:underline">
-            &larr; ← Kembali ke Daftar Pemain
+            &larr; Kembali ke Daftar Pemain
         </a>
     </div>
 
@@ -29,14 +29,15 @@
             <h1 class="text-4xl font-serif text-primary mt-2">{{ player.name }}</h1>
             
             {% if player.world_rank %}
-            <div class="mt-2 inline-block bg-gray-100 text-primary text-sm font-bold px-3 py-1 rounded-full">
+            <div class="mt-2 inline-block bg-gray-100 text-primary text-sm font-bold py-1 rounded-full">
                 Peringkat Dunia: #{{ player.world_rank }}
             </div>
             {% endif %}
 
-            <div class="mt-6flex flex-wrap gap-4">
+            <div class="mt-6 flex flex-wrap items-center gap-4">
+                
                 {% if request.user.is_authenticated %}
-                    <form action="{% url 'main:toggle_favorite' player.id %}" method="POST" class="inline-block">
+                    <form action="{% url 'main:toggle_favorite' player.id %}" method="POST" class="m-0">
                         {% csrf_token %}
                         {% if request.user in player.favorited_by.all %}
                             <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
@@ -48,10 +49,14 @@
                             </button>
                         {% endif %}
                     </form>
+                {% else %}
+                    <p class="text-sm text-secondary italic">
+                        <a href="{% url 'main:login' %}" class="text-accent font-semibold underline">Login</a> untuk memfavoritkan.
+                    </p>
                 {% endif %}
 
-                {% if request.user.is_staff %}
-                    <a href="{% url 'main:edit_player' player.id %}" class="bg-gray-200 text-primary font-bold py-2 px-4 rounded-lg transition-colors hover:bg-gray-300">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'main:edit_player' player.id %}" class="bg-gray-200 ...">
                         Edit Pemain
                     </a>
                 {% endif %}
