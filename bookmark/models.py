@@ -1,9 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 from main.models import Player
-# Create your models here.
+
 class Bookmark(models.Model):
-    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='bookmarks')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookmarks')
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='bookmarked_by')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        unique_together = ('user', 'player')
+        ordering = ['-created_at'] 
+
     def __str__(self):
-        return f"Bookmark - {self.player.name}"
+        return f"{self.user.username} → {self.player.name}"
