@@ -1,7 +1,5 @@
-# smash_talk/models.py
 from django.db import models
 from django.conf import settings
-from django.utils import timezone
 
 class Post(models.Model):
     CATEGORY_CHOICES = [
@@ -13,19 +11,19 @@ class Post(models.Model):
         ('match', 'Pertandingan'),
         ('general', 'Umum'),
     ]
-    
+
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    likes = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
-        related_name='liked_posts',
-        blank=True
-    )
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='liked_posts', blank=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='general')
+
+    # NEW: image and views
+    image = models.ImageField(upload_to='posts/', null=True, blank=True)
+    views = models.PositiveIntegerField(default=0)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='forum_images/', blank=True, null=True)
 
     class Meta:
         db_table = 'smash_talk_posts'
@@ -37,6 +35,7 @@ class Post(models.Model):
     def like_count(self):
         return self.likes.count()
     like_count.short_description = 'Likes'
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
