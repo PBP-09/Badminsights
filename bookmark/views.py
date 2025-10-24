@@ -1,32 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse
-from main.models import Player
+from main.models import Player  
 from django.contrib.auth.decorators import login_required
 from .models import Bookmark
 
-# Create your views here.
 @login_required(login_url='/login/')
-def show_favorite(request):
+def show_favorites(request): 
     favorites = Bookmark.objects.filter(user=request.user)
     
     context = {
         'favorites': favorites
     }
-    return render(request, 'bookmark/show_favorite.html', context)
+    
+    return render(request, 'favorite_list.html', context)
+
 
 @login_required
 def toggle_favorite_ajax(request):
-    if request.method == "POST":
+    if not request.method == "POST":
+        return JsonResponse({"error": "Metode tidak diizinkan"}, status=405)
+
+    try:
         player_id = request.POST.get("player_id")
-        player = Player.objects.get(id=player_id)
+        
+        if not player_id:
+            return JsonResponse({"error": "Player ID tidak ada"}, status=400)
+        
+        player = get_object_or_404(Player, id=player_id)
+
         bookmark, created = Bookmark.objects.get_or_create(user=request.user, player=player)
 
         if not created:
-            # Sudah ada → hapus
             bookmark.delete()
-            return JsonResponse({"status": "removed"})
+            return JsonResponse({"status": "removed", "is_favorited": False})
         else:
-            # Belum ada → tambah
-            return JsonResponse({"status": "added"})
+            return JsonResponse({"status": "added", "is_favorited": True})
 
-    return JsonResponse({"error": "Invalid request"}, status=400)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 import uuid
 from django_countries.fields import CountryField

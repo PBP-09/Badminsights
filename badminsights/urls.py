@@ -26,7 +26,6 @@ urlpatterns = [
     path('bookmark/', include('bookmark.urls')),
     path('forum/', include('smash_talk.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-
 ]
 
 # Serve media files during development
