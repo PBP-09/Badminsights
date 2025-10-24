@@ -25,7 +25,8 @@ class Post(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='general')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+    image = models.ImageField(upload_to='forum_images/', blank=True, null=True)
+
     class Meta:
         db_table = 'smash_talk_posts'
         ordering = ['-created_at']

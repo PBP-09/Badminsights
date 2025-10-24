@@ -1,36 +1,44 @@
-.card {
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+/* FORCE vertical list and spacing for category links (override tailwind) */
+.list-group {
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
-/* Category list spacing */
-.list-group-item {
-    border: none;
-    margin-bottom: 6px;
-    border-radius: 6px;
-    background-color: #f8f9fa;
-    transition: all 0.2s ease-in-out;
+.list-group .list-group-item {
+  display: block !important;        /* pastikan block (override inline) */
+  width: 100% !important;
+  box-sizing: border-box;
+  padding: 0.55rem 0.75rem !important;
+  margin-bottom: 0.6rem !important;
+  background-color: #f8fafc !important;
+  color: #1f2937 !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(15,23,42,0.04) !important;
+  text-decoration: none !important;
 }
 
-/* Hover and active state */
-.list-group-item:hover {
-    background-color: #e9ecef;
-    transform: translateX(3px);
+.list-group .list-group-item:hover {
+  transform: translateX(6px);
+  background-color: #eef2ff !important;
+  text-decoration: none;
+  color: inherit !important;
 }
 
-.list-group-item.active {
-    background-color: #0d6efd;
-    color: white;
-    font-weight: 600;
+.list-group .list-group-item.active {
+  background: linear-gradient(90deg,#0d6efd,#0b5ed7) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 20px rgba(13,110,253,0.12) !important;
+  transform: none !important;
 }
 
-/* Category title */
-.card-header h5 {
-    font-weight: 600;
-}
-
-/* Button for create post */
-.btn-success {
-    border-radius: 6px;
-    font-weight: 500;
+/* Minor fix: make badge look normal (if using .badge) */
+.badge.bg-primary {
+  background-color: #0d6efd !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: .25rem .5rem !important;
+  font-weight: 600 !important;
 }
