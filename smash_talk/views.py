@@ -7,6 +7,7 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_exempt
 
 def forum_list(request):
     query = request.GET.get('q','')
@@ -107,12 +108,18 @@ def delete_post(request, pk):
     
     # Hanya author yang bisa menghapus post
     if post.author == request.user:
+        # Hapus file gambar dari storage (jika ada)
+        if post.image:
+            post.image.delete(save=False)
+
+        # Hapus objek dari database
         post.delete()
-        messages.success(request, 'Postingan berhasil dihapus!')
+        messages.success(request, 'Postingan dan gambarnya berhasil dihapus!')
     else:
         messages.error(request, 'Anda tidak memiliki izin untuk menghapus postingan ini.')
     
-    return redirect('forum_list')
+    return redirect('smash_talk:forum_list')
+
 
 @login_required
 def delete_comment(request, pk):
@@ -127,6 +134,7 @@ def delete_comment(request, pk):
     
     return redirect('post_detail', pk=comment.post.pk)
 
+@login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -134,17 +142,49 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+
+            # kalau permintaan datang dari AJAX
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                html = render_to_string('smash_talk/partials/_single_post.html', {'post': post}, request=request)
-                return JsonResponse({'success': True, 'html': html})
+                html = render_to_string('single_post.html', {'post': post}, request=request)
+                return JsonResponse({
+                    'success': True,
+                    'html': html,
+                    'message': 'Postingan berhasil dibuat!'
+                })
+
             messages.success(request, 'Postingan berhasil dibuat!')
-            return redirect('smash_talk:post_detail', pk=post.pk)
+            return redirect('smash_talk:forum_list')
         else:
+            # kalau invalid form
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                return JsonResponse({'success': False, 'errors': form.errors})
-            # for normal POST, re-render the form page with errors
+                return JsonResponse({
+                    'success': False,
+                    'errors': form.errors,
+                    'message': 'Gagal membuat postingan.'
+                })
+
             return render(request, 'create_post.html', {'form': form})
     else:
-        # GET -> render create_post.html with empty form
         form = PostForm()
         return render(request, 'create_post.html', {'form': form})
+
+    
+def get_posts_ajax(request):
+
+    posts = Post.objects.all().values('id', 'title', 'content', 'author__username')
+    return JsonResponse(list(posts), safe=False)
+
+
+@csrf_exempt 
+def create_post_ajax(request):
+    """Buat post baru lewat AJAX (POST)."""
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user if request.user.is_authenticated else None
+            post.save()
+            return JsonResponse({'status': 'success', 'title': post.title})
+        else:
+            return JsonResponse({'status': 'error', 'errors': form.errors})
+    return JsonResponse({'status': 'invalid'})
