@@ -6,7 +6,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const cancelBtn = document.getElementById('cancelCreatePost');
   const modal = document.getElementById('createPostModal');
 
-  // --- Modal open/close ---
+  // === TOAST ===
+  function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `fixed top-5 right-5 px-4 py-3 rounded-lg shadow-lg text-white z-50
+      ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'transition-all', 'duration-700');
+      setTimeout(() => toast.remove(), 700);
+    }, 2000);
+  }
+
+  // === Modal open/close ===
   function openModal() {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
@@ -26,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Preview gambar ---
+  // === Preview gambar ===
   const fileInput = document.querySelector('input[type="file"][name="image"]');
   const previewWrapper = document.getElementById('image-preview');
   const previewImg = document.getElementById('image-preview-img');
@@ -48,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Submit form pakai AJAX ---
+  // === Submit form pakai AJAX ===
   if (form) {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -65,8 +79,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const data = await response.json();
 
-      if (data.success) {
-        postsContainer.insertAdjacentHTML('afterbegin', data.html);
+      if (data.status === 'success') {
+        if (data.html) {
+          postsContainer.insertAdjacentHTML('afterbegin', data.html);
+        }
         form.reset();
 
         // Reset preview juga
@@ -75,16 +91,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Animasi muncul halus
         const newPost = postsContainer.firstElementChild;
-        newPost.classList.add('opacity-0', 'translate-y-2');
-        setTimeout(() => {
-          newPost.classList.remove('opacity-0', 'translate-y-2');
-          newPost.classList.add('transition-all', 'duration-500');
-        }, 50);
+        if (newPost) {
+          newPost.classList.add('opacity-0', 'translate-y-2');
+          setTimeout(() => {
+            newPost.classList.remove('opacity-0', 'translate-y-2');
+            newPost.classList.add('transition-all', 'duration-500');
+          }, 50);
+        }
 
+        showToast(data.message || 'Postingan berhasil dibuat!');
         closeModal();
       } else {
+        showToast(data.message || 'Gagal membuat postingan!', 'error');
         console.error(data.errors);
-        alert('Gagal membuat postingan!');
       }
     });
   }
