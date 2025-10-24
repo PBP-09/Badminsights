@@ -132,6 +132,7 @@ def delete_comment(request, pk):
     else:
         messages.error(request, 'Anda tidak memiliki izin untuk menghapus komentar ini.')
     
+    
     return redirect('post_detail', pk=comment.post.pk)
 
 @login_required
