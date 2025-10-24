@@ -128,6 +128,7 @@ def delete_comment(request, pk):
     
     return redirect('post_detail', pk=comment.post.pk)
 
+@login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -135,20 +136,32 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+
+            # kalau permintaan datang dari AJAX
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                html = render_to_string('smash_talk/partials/_single_post.html', {'post': post}, request=request)
-                return JsonResponse({'success': True, 'html': html})
+                html = render_to_string('single_post.html', {'post': post}, request=request)
+                return JsonResponse({
+                    'success': True,
+                    'html': html,
+                    'message': 'Postingan berhasil dibuat!'
+                })
+
             messages.success(request, 'Postingan berhasil dibuat!')
-            return redirect('smash_talk:forum_list', pk=post.pk)
+            return redirect('smash_talk:forum_list')
         else:
+            # kalau invalid form
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                return JsonResponse({'success': False, 'errors': form.errors})
-            # for normal POST, re-render the form page with errors
+                return JsonResponse({
+                    'success': False,
+                    'errors': form.errors,
+                    'message': 'Gagal membuat postingan.'
+                })
+
             return render(request, 'create_post.html', {'form': form})
     else:
-        # GET -> render create_post.html with empty form
         form = PostForm()
         return render(request, 'create_post.html', {'form': form})
+
     
 def get_posts_ajax(request):
 
