@@ -2,6 +2,7 @@ from django.urls import path
 from smash_talk.views import forum_list,post_detail,create_post,add_comment,like_post,like_comment,delete_post,delete_comment,get_posts_ajax, create_post_ajax
 app_name = 'smash_talk'
 
+
 urlpatterns = [
     path('', forum_list, name='forum_list'),
     path('post/<int:pk>/', post_detail, name='post_detail'),
