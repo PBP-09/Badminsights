@@ -4,6 +4,7 @@
 {% block title %}Daftar Pemain{% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 
 <div class="bg-surface p-8 rounded-lg shadow-sm text-center mb-8 border border-gray-200">
     <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">Who's on Court?</h1>
@@ -12,7 +13,7 @@
     </p>
     <hr class="border-gray-200 my-6">
     
-    {% if request.user.is_staff %}
+    {% if request.user.is_authenticated %}
     <hr class="border-gray-200 my-6">
     <a href="{% url 'main:add_player' %}" class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
         + Tambah Pemain Baru

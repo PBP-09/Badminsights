@@ -16,6 +16,7 @@ from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from bookmark.models import Bookmark
 
 def register(request):
     form = UserCreationForm()
@@ -107,7 +108,7 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('main:show_main'))
     
     
-@user_passes_test(is_staff_user, login_url='/login/')
+@login_required(login_url='/login/')
 def add_player(request):
     form = PlayerForm(request.POST or None)
 
@@ -121,14 +122,18 @@ def add_player(request):
 def show_player(request, id):
     player = get_object_or_404(Player, pk=id)
 
+    is_favorited = False
+    if request.user.is_authenticated:
+        is_favorited = Bookmark.objects.filter(user=request.user, player=player).exists()
+
     context = {
-        'player' : player
+        'player' : player,
+        'is_favorited': is_favorited 
     }
 
     return render(request, "player_details.html", context)
 
 @login_required(login_url='/login/')
-# @user_passes_test(is_staff_user, login_url='/login/')
 def edit_player(request, id):
     player = get_object_or_404(Player, pk=id)
     form = PlayerForm(request.POST or None, instance=player)
@@ -140,10 +145,6 @@ def edit_player(request, id):
     context = {'form': form, 'title': f'Edit {player.name}'} 
     
     return render(request, "player_form.html", context)
-
-@login_required(login_url='/login/')
-def toggle_favorite(request, player_id):
-    pass
 
 def show_xml(request):
     player_list = Player.objects.all()
