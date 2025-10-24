@@ -61,7 +61,7 @@ def post_detail(request, pk):
         'comments': comments,
         'comment_form': comment_form,
     }
-    return render(request, 'post_details.html', context)
+    return render(request, 'post_detail.html', context)
 
 @login_required
 def create_post(request):
@@ -72,7 +72,7 @@ def create_post(request):
             post.author = request.user
             post.save()
             messages.success(request, 'Postingan berhasil dibuat!')
-            return redirect('post_details', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
     
@@ -92,7 +92,7 @@ def add_comment(request, pk):
             comment.save()
             messages.success(request, 'Komentar berhasil ditambahkan!')
     
-    return redirect('post_details', pk=post.pk)
+    return redirect('post_detail', pk=post.pk)
 
 @login_required
 def like_post(request, pk):
@@ -103,7 +103,7 @@ def like_post(request, pk):
     else:
         post.likes.add(request.user)
     
-    return redirect('post_details', pk=post.pk)
+    return redirect('post_detail', pk=post.pk)
 
 @login_required
 def like_comment(request, pk):
@@ -114,7 +114,7 @@ def like_comment(request, pk):
     else:
         comment.likes.add(request.user)
     
-    return redirect('post_details', pk=comment.post.pk)
+    return redirect('post_detail', pk=comment.post.pk)
 
 @login_required
 def delete_post(request, pk):
@@ -140,4 +140,4 @@ def delete_comment(request, pk):
     else:
         messages.error(request, 'Anda tidak memiliki izin untuk menghapus komentar ini.')
     
-    return redirect('post_details', pk=comment.post.pk)
+    return redirect('post_detail', pk=comment.post.pk)
