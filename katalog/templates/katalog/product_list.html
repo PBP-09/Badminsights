@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Katalog Merch{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-2xl font-serif">🛒 Katalog Merch</h1>
+
+  <!-- Tombol tambah produk -->
+  <a 
+    href="{% if request.user.is_staff %}{% url 'katalog:product_create' %}{% else %}{% url 'katalog:user_login' %}{% endif %}"
+    class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition"
+  >
+    + Tambah Produk
+  </a>
+</div>
+
+<!-- Filter Produk -->
+<form id="filter-form" class="grid md:grid-cols-2 gap-3 mb-6">
+  <input 
+    name="q" id="q" 
+    value="{{ query }}" 
+    placeholder="Cari produk..." 
+    class="border rounded px-3 py-2 w-full"
+  />
+
+  <select 
+    name="category" 
+    id="category" 
+    class="border rounded px-3 py-2 w-full"
+    onchange="this.form.dispatchEvent(new Event('submit'))"
+  >
+    <option value="">Semua Kategori</option>
+    {% for val,label in categories %}
+      <option value="{{ val }}" {% if label == category %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<!-- Kontainer Produk -->
+<div id="grid-container" class="min-h-[100px] flex flex-col items-center justify-center text-secondary">
+  <div id="loading-text" class="animate-pulse text-gray-500">⏳ Memuat produk...</div>
+</div>
+
+<script>
+  const gridContainer = document.getElementById('grid-container');
+  const form = document.getElementById('filter-form');
+  const loadingText = document.getElementById('loading-text');
+
+  async function loadGrid(page = 1) {
+    loadingText.innerText = '⏳ Memuat produk...';
+    gridContainer.style.opacity = 0.6;
+
+    const params = new URLSearchParams({
+      q: document.getElementById('q').value,
+      category: document.getElementById('category').value,
+      page: page
+    });
+
+    const res = await fetch(`{% url 'katalog:product_grid' %}?` + params.toString());
+    const html = await res.text();
+    gridContainer.innerHTML = html;
+
+    // Pagination AJAX
+    gridContainer.querySelectorAll('.ajax-page').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        loadGrid(el.dataset.page);
+      });
+    });
+
+    gridContainer.style.opacity = 1;
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    loadGrid(1);
+  });
+
+  document.addEventListener('DOMContentLoaded', () => loadGrid(1));
+</script>
+{% endblock %}
