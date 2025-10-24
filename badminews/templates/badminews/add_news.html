@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% if is_edit %}Edit Berita{% else %}Tambah Berita Baru{% endif %} - BadmiNews{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <h1 class="text-4xl font-serif font-bold text-primary mb-8">{% if is_edit %}Edit Berita{% else %}Tambah Berita Baru{% endif %}</h1>
+
+    <div class="bg-surface p-8 rounded-lg shadow-md">
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+
+            <div>
+                <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium text-primary mb-2">Judul Berita</label>
+                {{ form.title }}
+                {% if form.title.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ form.title.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="{{ form.category.id_for_label }}" class="block text-sm font-medium text-primary mb-2">Kategori</label>
+                {{ form.category }}
+                {% if form.category.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ form.category.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="{{ form.content.id_for_label }}" class="block text-sm font-medium text-primary mb-2">Konten Berita</label>
+                {{ form.content }}
+                {% if form.content.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ form.content.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="{{ form.image.id_for_label }}" class="block text-sm font-medium text-primary mb-2">Gambar (Opsional)</label>
+                {{ form.image }}
+                {% if form.image.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ form.image.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="flex gap-4">
+                <button type="submit" class="bg-primary text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors">Simpan Berita</button>
+                <a href="{% url 'badminews:news_list' %}" class="bg-secondary text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors">Batal</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
