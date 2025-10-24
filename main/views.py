@@ -2,6 +2,41 @@ from django.shortcuts import get_object_or_404, redirect, render
 from main.models import Player
 from main.forms import PlayerForm
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.http import HttpResponse
+from django.core import serializers
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
+def register(request):
+    form = UserCreationForm()
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)\
+    
+def login_user(request):
+   if request.method == 'POST':
+      form = AuthenticationForm(data=request.POST)
+
+      if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('main:main_page')
+
+   else:
+      form = AuthenticationForm(request)
+   context = {'form': form}
+   return render(request, 'login.html', context)
+
+def logout_user(request):
+    logout(request)
+    return redirect('main:login')
 
 def is_staff_user(user):
     return user.is_staff
@@ -62,4 +97,32 @@ def toggle_favorite(request, player_id):
     pass
 
 
+'''
+ini penting gak sih??? perlu gak???
+'''
 
+def show_xml(request):
+    player_list = Player.objects.all()
+    xml_data = serializers.serialize("xml", player_list)
+    return HttpResponse(xml_data, content_type="application/xml")
+
+def show_json(request):
+    player_list = Player.objects.all()
+    json_data = serializers.serialize("json", player_list)
+    return HttpResponse(json_data, content_type="application/json")
+
+def show_xml_by_id(request, player_id):
+    try: 
+        player = Player.objects.filter(pk=player_id)
+        xml_data = serializers.serialize("xml", player)
+        return HttpResponse(xml_data, content_type="application/xml")
+    except Player.DoesNotExist:
+        return HttpResponse(status=404)
+
+def show_json_by_id(request, player_id):
+    try:
+        player = Player.objects.get(pk=player_id)
+        json_data = serializers.serialize("json", [player])
+        return HttpResponse(json_data, content_type="application/json")
+    except Player.DoesNotExist:
+        return HttpResponse(status=404)

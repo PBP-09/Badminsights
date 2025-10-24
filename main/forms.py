@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from main.models import Player
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 text_input_class = "w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent"
 select_input_class = "w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent"
@@ -34,3 +35,18 @@ class PlayerForm(ModelForm):
             'bio': 'Biografi Singkat',
             'is_featured': 'Jadikan Pemain Unggulan?',
         }
+
+    class CustomUserCreationForm(UserCreationForm):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['username'].widget.attrs.update({'class': text_input_class})
+            self.fields['password'].widget.attrs.update({'class': text_input_class})
+            self.fields['password2'].widget.attrs.update({'class': text_input_class})
+            # Ganti label
+            self.fields['password2'].label = "Konfirmasi Password"
+
+    class CustomAuthenticationForm(AuthenticationForm):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['username'].widget.attrs.update({'class': text_input_class})
+            self.fields['password'].widget.attrs.update({'class': text_input_class})

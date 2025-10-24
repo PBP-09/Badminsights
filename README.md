@@ -33,25 +33,6 @@ Namun, informasi mendalam tentang atlet, prestasi, dan sejarah dunia badminton s
 
 Nama **Badminsights** merupakan gabungan dari *badminton* dan *insights*, yang mencerminkan tujuan utama aplikasi ini: **memberikan wawasan mendalam tentang dunia bulu tangkis**.
 
-### ✨ Fitur Unggulan
-
-🏅 **Who's on Court?**  
-Mengenal lebih dekat para atlet terbaik dari berbagai negara, memahami perjalanan karier mereka, dan melihat sisi lain di balik performa mereka di lapangan.
-
-🏆 **Hall of Fame**  
-Apresiasi terhadap kebanggaan nasional! Menampilkan deretan prestasi gemilang para atlet terbaik Indonesia dengan momen-momen bersejarah dan kemenangan ikonik.
-
-💬 **SmashTalk**  
-Tempat berkumpulnya para penggemar badminton untuk berdiskusi, berbagi pandangan, dan saling terhubung dalam semangat yang sama.
-
-🧠 **BadminTrivia**  
-Kuis interaktif yang mengajak pengguna menguji pengetahuan mereka tentang sejarah, fakta menarik, dan hal-hal unik seputar badminton.
-
-🛍️ **Merchandise**  
-Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema badminton.
-
-> **Badminsights** hadir untuk menyatukan informasi, inspirasi, edukasi, dan komunitas dalam satu aplikasi bagi siapa pun yang mencintai badminton! 🎉
-
 ---
 
 ## 🎮 Daftar Modul & Fitur
@@ -59,7 +40,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ### 1. 👤 Who's on Court?
 **Dikerjakan oleh:** Friliani Gloria Palit
 
-**Deskripsi:** Modul biodata atlet badminton profesional yang menampilkan informasi lengkap seperti nama, kategori (tunggal/ganda/campuran), status, tempat dan tanggal lahir. Pengguna dapat mencari pemain berdasarkan nama, negara, atau kategori pertandingan.
+**Deskripsi:** Modul biodata atlet badminton profesional yang menampilkan informasi lengkap seperti nama, kategori (tunggal/ganda/campuran), status, tempat dan tanggal lahir.
 
 **Role Akses:** 🔓 Semua pengguna
 
@@ -68,7 +49,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ### 2. 📰 BadmiNews
 **Dikerjakan oleh:** Nuril Izza Ahmady
 
-**Deskripsi:** Menyajikan artikel dan berita terbaru seputar dunia badminton. Artikel disusun agar mudah dibaca, menarik, dan informatif. Admin dapat menambahkan konten berita atau artikel baru agar informasi selalu up-to-date.
+**Deskripsi:** Menyajikan artikel dan berita terbaru seputar dunia badminton. Admin dapat menambahkan konten berita atau artikel baru agar informasi selalu up-to-date.
 
 **Role Akses:** 🔓 Semua pengguna (Admin dapat mengelola)
 
@@ -77,7 +58,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ### 3. 💬 SmashTalk
 **Dikerjakan oleh:** Rousan Chandra Syahbunan
 
-**Deskripsi:** Forum diskusi yang memungkinkan pengguna bertanya, berbagi pengalaman, atau memberikan rekomendasi mengenai pemain, pertandingan, atau strategi bermain. Pengguna dapat membuat postingan, memberikan komentar, dan menanggapi pertanyaan. Dilengkapi fitur like atau voting untuk menemukan diskusi populer.
+**Deskripsi:** Forum diskusi yang memungkinkan pengguna bertanya, berbagi pengalaman, atau memberikan rekomendasi mengenai pemain, pertandingan, atau strategi bermain. Pengguna dapat membuat postingan, memberikan komentar, dan menanggapi pertanyaan. 
 
 **Role Akses:** 🔒 Logged-in User (untuk posting & komentar)
 
@@ -86,7 +67,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ### 4. 🛒 Katalog Merch
 **Dikerjakan oleh:** Ghalen Cakra Permana
 
-**Deskripsi:** Toko daring yang menyediakan berbagai produk merchandise badminton seperti raket, shuttlecock, jersey, sepatu, dan aksesoris. Pengguna dapat mencari produk berdasarkan kategori, menambahkan ke keranjang, dan melakukan pembelian. Admin dapat mengelola katalog produk.
+**Deskripsi:** Toko daring yang menyediakan berbagai produk merchandise badminton seperti raket, shuttlecock, jersey, sepatu, dan aksesoris. Admin dapat mengelola katalog produk.
 
 **Role Akses:** 🔓 Semua pengguna (Admin dapat mengelola produk)
 
@@ -95,7 +76,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 ### 5. ⭐ Bookmark/Favorite Player
 **Dikerjakan oleh:** Naufal Agam Ardiansyah
 
-**Deskripsi:** Memungkinkan pengguna menyimpan pemain favorit mereka dan mendapatkan notifikasi atau update terkait pemain atau pertandingan. Membuat pengalaman lebih personal dan interaktif dengan daftar favorit yang unik sesuai minat pengguna.
+**Deskripsi:** Memungkinkan pengguna menyimpan pemain favorit mereka. Membuat pengalaman lebih personal dan interaktif dengan daftar favorit yang unik sesuai minat pengguna.
 
 **Role Akses:** 🔒 Logged-in User
 
@@ -103,11 +84,11 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 
 ## 👨‍💼 Role Pengguna
 
-| Role | Keterangan | Icon |
-|------|-----------|------|
-| **Admin** | Mengelola seluruh sistem termasuk data pemain, produk merchandise, berita, dan forum. Memantau aktivitas pengguna dan menjaga keamanan sistem. | 🔑 |
-| **Logged-in User** | Pengguna terdaftar yang dapat mengakses fitur bookmark, forum diskusi, dan kuis. | 👤 |
-| **Guest** | Pengunjung yang dapat melihat informasi umum seperti biodata atlet dan berita. | 👁️ |
+| Role | Keterangan | 
+|------|-----------|
+| **Admin** | Mengelola seluruh sistem termasuk data pemain, produk merchandise, berita, dan forum. |
+| **Logged-in User** | Pengguna terdaftar yang dapat mengakses fitur bookmark dan forum diskusi |
+| **Guest** | Pengunjung yang dapat melihat informasi umum seperti biodata atlet dan berita. |
 
 ---
 
@@ -115,7 +96,7 @@ Menyalurkan semangat dalam kehidupan sehari-hari dengan berbagai produk bertema 
 
 Dataset berisikan 100 pemain Badminton asal Indonesia. 
 
-Sumber dari dataset ini diantarnya website Wikipedia, WBF, dan PBSI
+Sumber dari dataset ini diantaranya Wikipedia, BWF, dan PBSI
 
 🔗 [Link Dataset](https://docs.google.com/spreadsheets/d/18yNj_TLrU-CJbgXg5ZqDDTt7wtm0cvLYEuYeB0zaxyQ/edit?usp=sharing)
 
@@ -125,14 +106,4 @@ Sumber dari dataset ini diantarnya website Wikipedia, WBF, dan PBSI
 Design web menggunakan Figma.
 
 🔗 [Link Figma]( https://www.figma.com/design/nx99S5yzqm39UQmLQsjnCb/Badminsights?node-id=0-1&t=1Pj3ayvEd9KPDaDe-1)
-
----
-
-## 🚀 Cara Menggunakan
-
-1. 🌐 Kunjungi [Badminsights](https://rousan-chandra-badminsights.pbp.cs.ui.ac.id/)
-2. 📝 Daftar atau login untuk mengakses fitur lengkap
-3. 🔍 Jelajahi biodata atlet, baca berita, dan ikuti kuis
-4. 💬 Bergabung dengan komunitas di SmashTalk
-5. ⭐ Tandai pemain favorit Anda
 
