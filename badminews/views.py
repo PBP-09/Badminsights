@@ -13,6 +13,11 @@ def news_list(request):
     sort_by = request.GET.get("sort", "date")  # default sort by date
     search_query = request.GET.get('search', '').strip()
 
+    # Auto-populate dummy data if no news exists
+    if not News.objects.exists():
+        from django.core.management import call_command
+        call_command('populate_news')
+
     if filter_type == "all":
         news = News.objects.all()
     else:
