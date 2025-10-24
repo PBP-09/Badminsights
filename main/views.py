@@ -145,11 +145,6 @@ def edit_player(request, id):
 def toggle_favorite(request, player_id):
     pass
 
-
-'''
-ini penting gak sih??? perlu gak???
-'''
-
 def show_xml(request):
     player_list = Player.objects.all()
     xml_data = serializers.serialize("xml", player_list)
