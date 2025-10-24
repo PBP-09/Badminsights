@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'bookmark',
     'badminews',
     'smash_talk',
+    'katalog',
 ]
 
 MIDDLEWARE = [
@@ -165,4 +166,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Media files (uploaded images)
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+

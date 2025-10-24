@@ -11,6 +11,7 @@ from .forms import NewsForm
 def news_list(request):
     filter_type = request.GET.get("filter", "all")  # default 'all'
     sort_by = request.GET.get("sort", "date")  # default sort by date
+    search_query = request.GET.get('search', '').strip()
 
     if filter_type == "all":
         news = News.objects.all()
@@ -21,6 +22,10 @@ def news_list(request):
 
     if category and category != "":
         news = news.filter(category=category)
+
+    # Apply search filter
+    if search_query:
+        news = news.filter(Q(title__icontains=search_query) | Q(content__icontains=search_query))
 
     # Apply sorting after filtering
     if sort_by == "upvotes":
@@ -43,6 +48,7 @@ def news_list(request):
         'selected_category': category,
         'filter_type': filter_type,
         'sort_by': sort_by,
+        'search_query': search_query,
         'trending_news': trending_news,
     }
     return render(request, 'badminews/news_list.html', context)
@@ -133,6 +139,7 @@ def news_json(request):
     filter_type = request.GET.get("filter", "all")
     sort_by = request.GET.get("sort", "date")
     category = request.GET.get('category')
+    search_query = request.GET.get('search', '').strip()
 
     if filter_type == "all":
         news = News.objects.all()
@@ -142,6 +149,9 @@ def news_json(request):
     # Apply filters first
     if category and category.strip() != "":
         news = news.filter(category=category.strip())
+
+    if search_query:
+        news = news.filter(Q(title__icontains=search_query) | Q(content__icontains=search_query))
 
     # Apply sorting after filtering
     if sort_by == "upvotes":

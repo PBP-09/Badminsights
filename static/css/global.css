@@ -1,5 +1,4 @@
 
-/* FORCE vertical list and spacing for category links (override tailwind) */
 .list-group {
   display: block;
   padding: 0;

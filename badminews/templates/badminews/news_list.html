@@ -45,7 +45,7 @@
         <div class="flex flex-col md:flex-row justify-between items-start gap-4">
             <!-- Left side - Create News Button -->
             <div class="flex items-center gap-4">
-                {% if user.is_authenticated %}
+                {% if user.username == "Admin" or user.username == "admin" %}
                 <button id="create-news-btn" class="bg-accent text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors font-semibold">
                     + Create News
                 </button>
@@ -54,11 +54,18 @@
 
             <!-- Right side - Filters -->
             <div class="flex flex-col md:flex-row gap-4">
+                <!-- Search input -->
+                <div class="flex-1 md:w-64">
+                    <input type="text" id="search-input" placeholder="Search news..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" value="{{ search_query }}">
+                </div>
+
                 <!-- Filter buttons -->
+                {% if user.username == "Admin" or user.username == "admin" %}
                 <div class="flex gap-2">
                     <a href="?filter=all{% if selected_category %}&category={{ selected_category }}{% endif %}{% if sort_by != 'date' %}&sort={{ sort_by }}{% endif %}" class="{% if filter_type == 'all' %}bg-blue-600{% else %}bg-primary{% endif %} text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">All News</a>
                     <a href="?filter=my{% if selected_category %}&category={{ selected_category }}{% endif %}{% if sort_by != 'date' %}&sort={{ sort_by }}{% endif %}" class="{% if filter_type == 'my' %}bg-blue-600{% else %}bg-secondary{% endif %} text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">My News</a>
                 </div>
+                {% endif %}
 
                 <!-- Sort dropdown -->
                 <div class="flex items-center gap-2">
@@ -294,6 +301,90 @@ document.addEventListener('DOMContentLoaded', function() {
         url.searchParams.set('sort', sortValue);
         window.location.href = url.toString();
     };
+
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    let searchTimeout;
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                performSearch(this.value);
+            }, 300); // Debounce 300ms
+        });
+    }
+
+    function performSearch(query) {
+        const currentUrl = new URL(window.location);
+        const params = new URLSearchParams(currentUrl.search);
+
+        if (query.trim()) {
+            params.set('search', query.trim());
+        } else {
+            params.delete('search');
+        }
+
+        // Reset to page 1 when searching
+        params.delete('page');
+
+        fetch(`${currentUrl.pathname}?${params}`)
+            .then(response => response.text())
+            .then(html => {
+                // Extract news container from response
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newNewsContainer = doc.getElementById('news-container');
+                const newPagination = doc.querySelector('.pagination') || doc.querySelector('[class*="justify-center"]');
+
+                if (newNewsContainer) {
+                    document.getElementById('news-container').innerHTML = newNewsContainer.innerHTML;
+                }
+
+                // Update pagination if exists
+                const currentPagination = document.querySelector('.pagination') || document.querySelector('[class*="justify-center"]');
+                if (newPagination && currentPagination) {
+                    currentPagination.innerHTML = newPagination.innerHTML;
+                }
+
+                // Re-attach event listeners for new elements
+                attachEventListeners();
+            })
+            .catch(error => {
+                console.error('Search error:', error);
+            });
+    }
+
+    function attachEventListeners() {
+        // Re-attach upvote listeners
+        document.querySelectorAll('.upvote-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const newsId = this.dataset.newsId;
+                const upvoteCount = this.nextElementSibling;
+
+                fetch(`/badminews/${newsId}/upvote/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.upvoted) {
+                        this.textContent = '🔼';
+                    } else {
+                        this.textContent = '⬆️';
+                    }
+                    upvoteCount.textContent = data.upvote_count;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('You need to login to upvote');
+                });
+            });
+        });
+    }
 });
 </script>
 {% endblock %}
