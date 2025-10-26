@@ -22,7 +22,7 @@ class PlayerAdmin(admin.ModelAdmin):
     
     search_fields = (
         'name', 
-        'country__name' 
+        'country' 
     )
     
     list_editable = (

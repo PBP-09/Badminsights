@@ -7,19 +7,57 @@
 {% include 'navbar.html' %}
 
 <div class="bg-surface p-8 rounded-lg shadow-sm text-center mb-8 border border-gray-200">
-    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">Who's on Court?</h1>
+    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">{{ title|default:"Who's on Court?" }}</h1>
     <p class="text-lg text-secondary max-w-2xl mx-auto">
-        Get to know your favourite player!
+        Get to know your favourite players!
     </p>
-    <hr class="border-gray-200 my-6">
     
     {% if request.user.is_staff %}
-    <button id="add-player-button" 
-        class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+        <hr class="border-gray-200 my-6">
+        <button id="add-player-button" 
+                class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
             + Tambah Pemain Baru
-    </button>
+        </button>
     {% endif %}
 </div>
+
+<form method="GET" action="{% url 'main:player_list' %}" class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div>
+            <label for="category" class="block text-sm font-semibold text-primary mb-2">Filter per Kategori</label>
+            <select name="category" id="category" class="w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent">
+                <option value="">Semua Kategori</option>
+                {% for code, name in categories %}
+                    <option value="{{ code }}" {% if code == selected_category %}selected{% endif %}>
+                        {{ name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="country" class="block text-sm font-semibold text-primary mb-2">Filter per Negara</label>
+            <select name="country" id="country" class="w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent">
+                <option value="">Semua Negara</option>
+                {% for code, name in countries %}
+                    <option value="{{ code }}" {% if code == selected_country %}selected{% endif %}>
+                        {{ name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="flex items-end space-x-3">
+            <button type="submit" class="w-full bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded-lg">
+                Filter
+            </button>
+            <a href="{% url 'main:player_list' %}" class="w-full text-center bg-gray-200 text-primary font-bold py-2 px-4 rounded-lg hover:bg-gray-300">
+                Reset
+            </a>
+        </div>
+    </div>
+</form>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     {% for player in player_list %}
@@ -203,6 +241,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     const newCardHtml = createPlayerCard(data.player);
                     playerGrid.insertAdjacentHTML("afterbegin", newCardHtml); 
                     closeModal(); 
+                    Toastify({
+                        text: `Pemain "${data.player.name}" berhasil ditambahkan!`,
+                        duration: 3000,
+                        gravity: "top", 
+                        position: "right", 
+                        style: {
+                            background: "linear-gradient(to right, #4CAF50, #8BC34A)",
+                            borderRadius: "10px" 
+                        },
+                        stopOnFocus: true 
+                    }).showToast();
                 } else {
                     handleFormErrors(data.errors);
                 }

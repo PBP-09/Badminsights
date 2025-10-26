@@ -17,6 +17,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from bookmark.models import Bookmark
+from django_countries import countries as all_countries_lookup
 
 def register(request):
     form = UserCreationForm()
@@ -62,12 +63,40 @@ def main_page(request):
     return render(request, "main.html", context)
 
 def show_main(request):
+    category_filter = request.GET.get('category', '')
+    country_filter = request.GET.get('country', '')
+
     player_list = Player.objects.all()
 
+    if category_filter:
+        player_list = player_list.filter(category=category_filter)
+    
+    if country_filter:
+        player_list = player_list.filter(country=country_filter)
+
+    categories = Player.CATEGORY_CHOICES
+    used_country_codes = Player.objects.values_list('country', flat=True).distinct()
+
+    countries_list_unsorted = []
+    for code in used_country_codes:
+        if code:
+            try:
+                name = all_countries_lookup.name(code)
+                countries_list_unsorted.append((code, name))
+            except Exception:
+                countries_list_unsorted.append((code, code)) 
+
+    countries = sorted(countries_list_unsorted, key=lambda item: item[1])
+
     context = {
-        'name' : 'badminsights user',
-        'player_list' : player_list,
+        'player_list' : player_list,      
+        'categories': categories,         
+        'countries': countries,           
+        'selected_category': category_filter, 
+        'selected_country': country_filter,   
+        'title': 'Daftar Pemain'          
     }
+    
     return render(request, "player_list.html", context)
 
 def register(request):
