@@ -12,6 +12,7 @@ class Post(models.Model):
         ('general', 'Umum'),
     ]
 
+
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

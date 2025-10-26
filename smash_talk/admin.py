@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.db.models import Count
 from .models import Post, Comment, UserProfile
 
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'category', 'like_count_admin', 'created_at')

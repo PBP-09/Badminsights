@@ -15,3 +15,4 @@ class CommentForm(forms.ModelForm):
         fields = ['content']
     
     
+    

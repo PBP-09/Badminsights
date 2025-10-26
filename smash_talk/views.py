@@ -177,6 +177,7 @@ def get_posts_ajax(request):
     return JsonResponse(list(posts), safe=False)
 
 
+
 @csrf_exempt 
 def create_post_ajax(request):
     """Buat post baru lewat AJAX (POST)."""
