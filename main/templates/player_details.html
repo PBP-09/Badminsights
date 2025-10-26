@@ -16,7 +16,7 @@
         
         <div class="md:w-1/3">
             {% if player.thumbnail %}
-                <img class="object-cover h-full w-full" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
+                <img class="object-cover h-full w-full" src="{{ player.thumbnail }}" alt="Foto {{ player.name }}">
             {% else %}
                 <div class="bg-gray-100 h-full w-full flex items-center justify-center">
                     <span class="text-secondary">No Image</span>

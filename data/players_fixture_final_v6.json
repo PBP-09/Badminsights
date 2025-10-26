@@ -1,7 +1,7 @@
 [
     {
         "model": "main.Player",
-        "pk": "26f39dc1-e0fd-4962-9390-cb10d0313b2a",
+        "pk": "838f820f-90aa-46d4-a8d4-0d649579e759",
         "fields": {
             "name": "Jonatan CHRISTIE",
             "date_of_birth": "1997-09-15",
@@ -17,7 +17,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "8b7e400f-330a-4b29-acf0-b9c8ad7c5f38",
+        "pk": "eff04ca8-e0a0-4d27-8a14-559e9fed5aa0",
         "fields": {
             "name": "Alwi FARHAN",
             "date_of_birth": "2005-05-12",
@@ -33,7 +33,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "00989b17-d977-4bab-bf56-bb7c6527e473",
+        "pk": "f7117150-9bee-4b73-9630-90af57a0dd95",
         "fields": {
             "name": "Chico Aura DWI WARDOYO",
             "date_of_birth": "1998-06-15",
@@ -41,7 +41,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://id.dbasia.news/wp-content/uploads/2022/07/chico-aura-dwi-wardoyo-saat-berlaga-di-istora-senayan-foto-y-dxce.jpg",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -49,7 +49,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "1d3fe85b-2e89-4917-a267-6bc0c9f7943b",
+        "pk": "e88ea460-e301-427a-aaab-b3ac2cf5863a",
         "fields": {
             "name": "Prahdiska Bagas SHUJIWO",
             "date_of_birth": "2005-09-02",
@@ -57,7 +57,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://pbsi.id/wp-content/uploads/2024/10/Bagas_R64_IndonesiaIC2024_PBSI_20241023-scaled.jpg",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -65,7 +65,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "4ad383ba-66d7-4fb3-a495-1ae55c0166cd",
+        "pk": "4eecb961-955f-4a26-a235-23ce5ced3290",
         "fields": {
             "name": "Anthony Sinisuka GINTING",
             "date_of_birth": "1996-10-20",
@@ -73,7 +73,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://statik.tempo.co/data/2021/08/02/id_1039773/1039773_720.jpg",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -81,7 +81,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "d1fcfa56-0c0d-4306-8ec2-c15a2216c09a",
+        "pk": "1a7043fa-576b-4a13-9255-09d09c1f9fc4",
         "fields": {
             "name": "Moh. Zaki UBAIDILLAH",
             "date_of_birth": "2007-06-26",
@@ -89,7 +89,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/01/2024/12/27/ubai-4061839023.jpeg",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -97,7 +97,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "a48d49ba-5d1d-4ea4-83a5-68751b49ebec",
+        "pk": "f4f008f0-9bdf-4573-8b53-2b232b29b1c5",
         "fields": {
             "name": "Yohanes Saut MARCELLYNO",
             "date_of_birth": "2003-05-02",
@@ -105,7 +105,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://cdn.grid.id/crop/0x0:0x0/750x500/photo/2023/12/08/yohanes-saut-marcellynojpg-20231208064611.jpg",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -113,7 +113,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "b875ed0f-cf92-42b5-b7c9-5ea2fd6cc46b",
+        "pk": "58d97338-0474-4402-a274-28745f969ab9",
         "fields": {
             "name": "Muhammad Reza AL FAJRI",
             "date_of_birth": "2005-06-23",
@@ -121,7 +121,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS4LEyyz0Who3ZoP7KSvqtmJBoASLDntgyBQ&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -129,7 +129,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "b4e98326-b8e1-49f9-8c44-fb2c5ed0b33d",
+        "pk": "5a7b6bf3-ecc3-4bfb-92ab-ffade0094bd8",
         "fields": {
             "name": "Eng Hian",
             "date_of_birth": "1977-05-17",
@@ -137,15 +137,15 @@
             "bio": "",
             "category": "men's double",
             "status": "retired",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlXistXTLeqVSA988yaItQdO-8IrYpcRH06Q&s",
             "world_rank": null,
-            "partner": "59cbdd62-8dc1-401f-a62e-0a5eb9abaae5",
+            "partner": "464cee26-04ef-4340-80a5-aff80b1a8cc9",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "65241089-de35-4386-80b2-5d17654506dc",
+        "pk": "41513cb6-311c-4760-b62c-979d75351a37",
         "fields": {
             "name": "Christian ADINATA",
             "date_of_birth": "2001-06-16",
@@ -153,7 +153,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVOctn1tuajynICRuMBq16R3yMG44wEK24pA&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -161,7 +161,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "c7e37a6e-68fb-41bc-b6d8-0ca8c1eb0045",
+        "pk": "c40c17cf-80f1-4f4d-8015-fb6ede5dc551",
         "fields": {
             "name": "Henrikho Wibowo KHO",
             "date_of_birth": "1994-04-29",
@@ -169,7 +169,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSucJnimjM4IX-GfTm8Z21OPKrNj4GH7IB0A&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -177,7 +177,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "f31c734e-65b8-4c2f-9ec9-2a9866651ada",
+        "pk": "a84c3598-0758-4c4f-b991-d0ee8e2aac1d",
         "fields": {
             "name": "Ikhsan Leonardo Imanuel RUMBAY",
             "date_of_birth": "2000-01-15",
@@ -185,7 +185,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4OjBiFtfNJce8v1QraPdJh7QTw9HtAOB82w&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -193,7 +193,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "62e7782e-31e6-42b3-933a-d2a628d4622c",
+        "pk": "ee545de0-9027-4821-959b-0fba5ca73f66",
         "fields": {
             "name": "Antonius Ariantho",
             "date_of_birth": "1973-10-03",
@@ -201,15 +201,15 @@
             "bio": "",
             "category": "men's double",
             "status": "retired",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjLKHM2OB_K8-5rZrF3mC2FYX8hSRsUzTfLw&s",
             "world_rank": null,
-            "partner": "ad28797e-5c1c-493b-b571-ef5a1347554c",
+            "partner": "1b44b538-9245-49b1-8892-b7fc1f4e9968",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "d99e4dab-1d5b-4f19-9193-d57d9897aa77",
+        "pk": "4ba132af-c292-4db8-a9eb-d2d5dfac16d3",
         "fields": {
             "name": "Jason Christ Alexander",
             "date_of_birth": "2004-12-28",
@@ -217,7 +217,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsz2GBLy5Ira0PIGY-wkuQLERfj6uGztlNKw&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -225,7 +225,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "557940d5-92d7-4d52-b129-aba78f0b7d80",
+        "pk": "7b207952-bc1e-43e2-bd3c-8e826c2634bd",
         "fields": {
             "name": "Marcus Fernaldi Gideon",
             "date_of_birth": "1991-03-09",
@@ -233,15 +233,15 @@
             "bio": "",
             "category": "men's double",
             "status": "retired",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSANxTtrIdExvoF8tnpbIUe19G6yp05y0FBPw&s",
             "world_rank": null,
-            "partner": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+            "partner": "283c1b17-1a7f-4535-a14f-cbd6fe76ac83",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "39f751f6-d018-4c5b-a059-e75f135f2e02",
+        "pk": "405da37c-4cc2-48f4-8910-5207e9fceb42",
         "fields": {
             "name": "Dendi Triansyah",
             "date_of_birth": "2007-08-26",
@@ -249,7 +249,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSji7Dt1w6BFFACFPO6N1wVT2aXRuWLUK4v5g&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -257,7 +257,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "0fad0d4d-4835-42a6-9681-627a8102f6c1",
+        "pk": "31b60790-b4af-4a7e-a21c-f4537b653731",
         "fields": {
             "name": "Ang Tjin Siang",
             "date_of_birth": "1942-09-11",
@@ -265,7 +265,7 @@
             "bio": "",
             "category": "men's single",
             "status": "retired",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgFZdFexx6iF9qmbSeQOuYhogrTWXrk1psg&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -273,7 +273,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "31362c94-8075-4d09-a14c-41942c78fce3",
+        "pk": "96092c50-2f7b-45f7-b7fe-8cae0610075c",
         "fields": {
             "name": "Denis AZZARYA",
             "date_of_birth": "2007-12-04",
@@ -281,7 +281,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStlZgyK9UjDnVMPYsj3i64dOl_7XSsfFgC5Q&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -289,7 +289,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "1fbaa61c-d27f-408c-a43e-4e91543e7964",
+        "pk": "655d55e7-f772-4071-aa57-121c5856420e",
         "fields": {
             "name": "Rami WAREETH",
             "date_of_birth": "2006-11-22",
@@ -297,7 +297,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://awsimages.detik.net.id/community/media/visual/2023/02/20/allong-ardian-bni-sirnas-b-batam-2023-bni-sirnas-2023-1_169.jpeg?w=600&q=90",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -305,7 +305,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "2fbadb09-8436-48b1-92d0-ab717e8ddaff",
+        "pk": "4f8a2212-9e17-41b7-abe6-143f29f971b5",
         "fields": {
             "name": "Tavio TERICHY",
             "date_of_birth": "2006-09-29",
@@ -313,7 +313,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://th.bing.com/th/id/OIP.M7p_D5ofUPFfA0gtBqISBwHaEK?w=329&h=185&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -321,7 +321,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "d734c4d4-6855-43f0-b964-946d36635d38",
+        "pk": "2a1c2135-e036-4505-b561-84dbd0e2e793",
         "fields": {
             "name": "Hariyanto Arbi",
             "date_of_birth": "1972-01-21",
@@ -329,7 +329,7 @@
             "bio": "",
             "category": "men's single",
             "status": "retired",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtxSP2k-LU4f6FmdiOQGy2dB0pgCGzC3Z8XQ&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -337,7 +337,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "c0296953-31c5-4996-ad69-73ba3e500dd3",
+        "pk": "4712807c-57c8-4d21-885b-0ff491cfc54b",
         "fields": {
             "name": "Michael Daniel Royce KARAMOY",
             "date_of_birth": "2006-09-06",
@@ -345,7 +345,7 @@
             "bio": "",
             "category": "men's single",
             "status": "active",
-            "thumbnail": "",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR06jea2kSDQGT1d_4DZiBjaK_lSYWaBJESUQ&s",
             "world_rank": null,
             "partner": null,
             "is_featured": false
@@ -353,7 +353,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "a64e62a7-cf11-4fb6-ad52-b90a5672b2e6",
+        "pk": "f99b1dfc-d604-4b11-be85-1bbc380ac4a4",
         "fields": {
             "name": "Darren Gerrard TANNINOVICH",
             "date_of_birth": "2007-03-13",
@@ -369,7 +369,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "441bb091-12b2-4117-bfff-f230d476e462",
+        "pk": "33a5ff11-ea9d-4fce-bbad-eb19aa8ed2f3",
         "fields": {
             "name": "Alvi Wijaya CHAIRULLAH",
             "date_of_birth": "2022-08-24",
@@ -385,7 +385,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "ad28797e-5c1c-493b-b571-ef5a1347554c",
+        "pk": "1b44b538-9245-49b1-8892-b7fc1f4e9968",
         "fields": {
             "name": "Denny Kantono",
             "date_of_birth": "1970-01-12",
@@ -395,13 +395,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "5e72483c-bc7b-415c-b8e6-4bdfd99736bc",
+            "partner": "edd4d48e-b699-4d95-ae71-8de908a1a7be",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "3e86d0a2-6d80-4dd8-819f-f6c6b1047aec",
+        "pk": "53e16a89-105c-4063-bb35-79488fb82816",
         "fields": {
             "name": "Putri Kusuma WARDANI",
             "date_of_birth": "2002-07-20",
@@ -417,7 +417,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "78c9fa1f-7e56-4eed-9579-9e933a95d51f",
+        "pk": "c83cc2e8-32b2-4dcc-bbbc-aff81e02adf6",
         "fields": {
             "name": "Gregoria Mariska TUNJUNG",
             "date_of_birth": "1999-08-11",
@@ -433,7 +433,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "c8d01552-b459-4288-ac48-1b7c2886f481",
+        "pk": "9632ce2c-52ea-4708-9eb6-5e27da3e0754",
         "fields": {
             "name": "Komang Ayu Cahya DEWI",
             "date_of_birth": "2002-10-21",
@@ -449,7 +449,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "0fcbee90-4835-41e3-b9ad-c9af557034a1",
+        "pk": "0d612b2b-7e56-429d-b8fc-08ebe858285a",
         "fields": {
             "name": "Ni Kadek Dhinda Amartya PRATIWI",
             "date_of_birth": "2006-06-13",
@@ -465,7 +465,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "72bafc03-e8cc-4fc4-9941-9c45b2f20637",
+        "pk": "690feb93-2394-4477-a1be-b3ac114779a4",
         "fields": {
             "name": "Mutiara Ayu PUSPITASARI",
             "date_of_birth": "2006-05-17",
@@ -481,7 +481,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "1f3689d5-6ea4-4977-bc5e-c78270dbbd2d",
+        "pk": "0a919a4f-bf8b-4980-a286-6dd7863840ab",
         "fields": {
             "name": "Thalita Ramadhani WIRYAWAN",
             "date_of_birth": "2007-09-21",
@@ -497,7 +497,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "bf7b8f8f-2b57-4025-97ed-d716da489871",
+        "pk": "70303706-77f4-491f-8da9-d5163dbbd727",
         "fields": {
             "name": "Bilqis PRASISTA",
             "date_of_birth": "2003-05-24",
@@ -513,7 +513,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "566916d7-575e-4ae8-8150-cb3cd117a8ed",
+        "pk": "9a1821e0-c5cb-46cc-bc22-8c79a7a73956",
         "fields": {
             "name": "Chiara Marvella HANDOYO",
             "date_of_birth": "2005-01-04",
@@ -529,7 +529,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "2889fc2d-3a4b-49c1-92c4-e797250dfc89",
+        "pk": "9442e733-4222-4d12-9e98-27f9bb5d7ca2",
         "fields": {
             "name": "Ester Nurumi Tri WARDOYO",
             "date_of_birth": "2004-08-26",
@@ -545,7 +545,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "6ba2a3b4-42c8-4f9f-bce6-8de2e07da1d9",
+        "pk": "e8b267c3-e8a3-4b08-9a67-d8c005639017",
         "fields": {
             "name": "Minarni Soedaryanto",
             "date_of_birth": "1944-05-10",
@@ -561,7 +561,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "6095ae2f-55bc-4ca2-b65a-78201e44b4b9",
+        "pk": "ad5a9f19-97a1-4d66-8ff1-bd995185e2cf",
         "fields": {
             "name": "Yulia Yosephine SUSANTO",
             "date_of_birth": "1993-10-19",
@@ -577,7 +577,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "5b581b01-7956-486d-8231-73eab424d14b",
+        "pk": "906850f2-baf4-4eb1-bdee-6ef854ad71dc",
         "fields": {
             "name": "Maria Kristin Yulianti",
             "date_of_birth": "1985-06-25",
@@ -593,7 +593,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "521527d9-cb2d-49ee-bd20-5d1c1ffd6dc1",
+        "pk": "c1851fbb-c7cd-4f74-85de-1e370a403b82",
         "fields": {
             "name": "Fajar ALFIAN",
             "date_of_birth": "1995-03-07",
@@ -603,13 +603,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "a61f0993-c6ec-434f-8306-2dacb34dcfa8",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "a6fa4bca-cf72-4e10-aa86-250c6a79f55c",
+        "pk": "a61f0993-c6ec-434f-8306-2dacb34dcfa8",
         "fields": {
             "name": "Muhammad Rian ARDIANTO",
             "date_of_birth": "1996-02-13",
@@ -619,13 +619,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "c1851fbb-c7cd-4f74-85de-1e370a403b82",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "659b372f-0fec-47ae-8b05-40bf32a510a4",
+        "pk": "08f72757-12d1-463f-bd6e-01eb543d962c",
         "fields": {
             "name": "Sabar Karyaman GUTAMA",
             "date_of_birth": "1996-01-08",
@@ -641,7 +641,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "300a824f-af07-4a08-9a2d-6050e24c93a4",
+        "pk": "c0b8733e-1e15-4925-bcc9-c77b0ad4c359",
         "fields": {
             "name": "Moh Reza Pahlevi ISFAHANI",
             "date_of_birth": "1998-08-06",
@@ -651,13 +651,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "08f72757-12d1-463f-bd6e-01eb543d962c",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "394b40f0-e37b-4017-92f2-91d51cfdd3fc",
+        "pk": "8b5ccff3-9f25-49aa-837c-9cec588b1bee",
         "fields": {
             "name": "Febriana Dwipuji KUSUMA",
             "date_of_birth": "2001-02-20",
@@ -667,13 +667,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "e968d7b9-2f21-4feb-99d0-0be1ea97a1cd",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "a56c84fc-c7a3-468a-be7c-1b3185e2b7ac",
+        "pk": "e968d7b9-2f21-4feb-99d0-0be1ea97a1cd",
         "fields": {
             "name": "Amallia Cahaya PRATIWI",
             "date_of_birth": "2001-10-14",
@@ -683,13 +683,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "8b5ccff3-9f25-49aa-837c-9cec588b1bee",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "8d0b5322-6746-479a-9ac2-187a52d858b1",
+        "pk": "9bcf593b-1ee9-41e7-aada-5e2c996d64ad",
         "fields": {
             "name": "Lanny Tria MAYASARI",
             "date_of_birth": "2002-05-08",
@@ -705,7 +705,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "96f636a5-9915-43e4-a3e6-e09a4e0c5a58",
+        "pk": "6541de81-66e1-4e23-a171-1bde5eac766b",
         "fields": {
             "name": "Siti Fadia Silva RAMADHANTI",
             "date_of_birth": "2000-11-16",
@@ -721,7 +721,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "d886b953-c24f-4168-868b-16d03ac98787",
+        "pk": "6bc77c0f-af55-4b18-aa6a-a0db963c2433",
         "fields": {
             "name": "Meilysa Trias PUSPITASARI",
             "date_of_birth": "2004-05-11",
@@ -731,13 +731,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "c00574d2-8885-4360-a954-a1ac5e3be9eb",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "7b082aea-e4bc-43db-aa09-cfdd8e6b8c0c",
+        "pk": "c00574d2-8885-4360-a954-a1ac5e3be9eb",
         "fields": {
             "name": "Rachel Allessya ROSE",
             "date_of_birth": "2004-06-30",
@@ -747,13 +747,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "6bc77c0f-af55-4b18-aa6a-a0db963c2433",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "167c7b0c-af42-4f48-bb44-010e880cfc95",
+        "pk": "bfc92b4c-7188-4e28-a879-6d85aa07f14a",
         "fields": {
             "name": "Isyana Syahira MEIDA",
             "date_of_birth": "2006-12-06",
@@ -769,7 +769,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "2e3fa102-8e24-48bf-8ae4-4edc0ec8d06b",
+        "pk": "0eb98325-e918-4be8-b91e-7c3876c5cca8",
         "fields": {
             "name": "Nitya Krishinda Maheswari",
             "date_of_birth": "1988-12-16",
@@ -785,7 +785,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "5c8e9c37-14f3-4d4e-9458-5377f06f249f",
+        "pk": "0e38bc8b-247b-426d-b8b4-07a71bf0a336",
         "fields": {
             "name": "Jafar HIDAYATULLAH",
             "date_of_birth": "2003-01-09",
@@ -795,13 +795,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "ef9f8ebd-70b8-408d-9580-189d17d99fa2",
+            "partner": "2651922d-601e-4cfc-9a52-e66c9d91ca52",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "ef9f8ebd-70b8-408d-9580-189d17d99fa2",
+        "pk": "2651922d-601e-4cfc-9a52-e66c9d91ca52",
         "fields": {
             "name": "Felisha Alberta Nathaniel PASARIBU",
             "date_of_birth": "2005-09-11",
@@ -811,13 +811,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "5c8e9c37-14f3-4d4e-9458-5377f06f249f",
+            "partner": "0e38bc8b-247b-426d-b8b4-07a71bf0a336",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "053dac3f-5789-47e4-9963-60f3067f0683",
+        "pk": "603d1b46-d84b-4c19-bf24-d2a9366ac777",
         "fields": {
             "name": "Rehan Naufal KUSHARJANTO",
             "date_of_birth": "2000-02-28",
@@ -827,13 +827,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "b3d8e162-2ebe-49d2-b1cf-faf226419fd8",
+            "partner": "2ebca375-c90b-41b7-b00c-bf2bec2bc28d",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "b3d8e162-2ebe-49d2-b1cf-faf226419fd8",
+        "pk": "2ebca375-c90b-41b7-b00c-bf2bec2bc28d",
         "fields": {
             "name": "Gloria Emanuelle WIDJAJA",
             "date_of_birth": "1993-12-28",
@@ -843,13 +843,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "053dac3f-5789-47e4-9963-60f3067f0683",
+            "partner": "603d1b46-d84b-4c19-bf24-d2a9366ac777",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "4849cc1a-ac1e-44e2-8909-86e5d8802f28",
+        "pk": "4fe9ae01-febf-4250-a980-ce61cf35f871",
         "fields": {
             "name": "Amri SYAHNAWI",
             "date_of_birth": "1998-11-08",
@@ -859,13 +859,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "19bfe122-b940-49ee-a8b7-edc527b72618",
+            "partner": "18b0ddce-6c20-47fe-afda-656c5895abfe",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "19bfe122-b940-49ee-a8b7-edc527b72618",
+        "pk": "18b0ddce-6c20-47fe-afda-656c5895abfe",
         "fields": {
             "name": "Nita Violina MARWAH",
             "date_of_birth": "2001-03-25",
@@ -875,13 +875,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "4849cc1a-ac1e-44e2-8909-86e5d8802f28",
+            "partner": "4fe9ae01-febf-4250-a980-ce61cf35f871",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "c9463698-5af2-409c-afb7-a0558d3a9b52",
+        "pk": "bfc78089-b75d-411c-8bf1-d73b19d0b696",
         "fields": {
             "name": "Dejan FERDINANSYAH",
             "date_of_birth": "2000-01-21",
@@ -897,7 +897,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "dfe0487c-08ba-423a-9295-ab45a23f267c",
+        "pk": "2110bea5-05fe-4379-b3f6-f896f649df71",
         "fields": {
             "name": "Pitha Haningtyas MENTARI",
             "date_of_birth": "1999-07-01",
@@ -907,13 +907,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "ba3a3bea-6b8d-4f21-bc44-51f1167654de",
+            "partner": "a5f1477c-bde7-48d0-a5a3-bc21845335df",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "6ef35690-6811-41ef-be4a-b685f8279541",
+        "pk": "6db7ad40-2069-4898-a0fe-74a51823a93f",
         "fields": {
             "name": "Adnan MAULANA",
             "date_of_birth": "1999-10-23",
@@ -923,13 +923,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "881f0d3b-9cbd-4951-b25a-02a8dc3c9352",
+            "partner": "60bd2b17-f450-44b3-9ca4-a5176a41f0ee",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "881f0d3b-9cbd-4951-b25a-02a8dc3c9352",
+        "pk": "60bd2b17-f450-44b3-9ca4-a5176a41f0ee",
         "fields": {
             "name": "Indah Cahya Sari JAMIL",
             "date_of_birth": "2002-03-16",
@@ -939,13 +939,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "6ef35690-6811-41ef-be4a-b685f8279541",
+            "partner": "6db7ad40-2069-4898-a0fe-74a51823a93f",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "8c02085f-7e9d-4be6-a595-8220e245ad77",
+        "pk": "a5c64b15-2b76-4614-9784-66c84e21bf42",
         "fields": {
             "name": "LIEM Swie King",
             "date_of_birth": "1956-02-28",
@@ -961,7 +961,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "f93174df-bddf-4daf-870c-c5bd6382e890",
+        "pk": "bb6d81a2-8249-452a-9643-99301d660df7",
         "fields": {
             "name": "Taufik Hidayat",
             "date_of_birth": "1981-08-10",
@@ -977,7 +977,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "e3bb2fa0-062a-4f19-b950-a982d3ee278e",
+        "pk": "1f021def-2d64-42d5-b4ac-fc86a7607316",
         "fields": {
             "name": "Susi Susanti",
             "date_of_birth": "1971-02-11",
@@ -993,7 +993,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "2d8a1067-3ee3-40e4-9b29-a72577b81c78",
+        "pk": "0984294c-7e02-4d2d-b724-766a95c36553",
         "fields": {
             "name": "Rudy Hartono",
             "date_of_birth": "1949-08-18",
@@ -1009,7 +1009,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "c8f648e7-970b-478a-8364-0807f34bd1b5",
+        "pk": "76bc84b9-0aea-4098-947a-798584abd5cf",
         "fields": {
             "name": "Alan Budikusuma",
             "date_of_birth": "1968-03-29",
@@ -1025,7 +1025,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "db01dc21-20d3-4b7d-aed3-3bc5a507fa2e",
+        "pk": "5f14f286-a525-48f3-bfbb-282acce03669",
         "fields": {
             "name": "Christian Hadinata",
             "date_of_birth": "1949-12-11",
@@ -1035,13 +1035,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "5119f28c-a004-4e76-b2f2-949955425e6f",
+            "partner": "1f4f5a8c-4181-492f-addc-58708de9108c",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "e65bfb36-e689-4b41-b75a-1c70d279d66b",
+        "pk": "f824dee2-ced9-4852-bd0f-c99beed3ad83",
         "fields": {
             "name": "Verawaty Fajrin",
             "date_of_birth": "1957-10-01",
@@ -1051,13 +1051,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "0535c47f-01da-4f3a-b195-247c5d8f65ec",
+            "partner": "c0a1aedf-2814-4a3f-82c0-71addea0636c",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "620f8759-8be5-456d-9606-5762bbc9e2c5",
+        "pk": "d984c56a-f737-4aa8-9a1e-265caaca4b37",
         "fields": {
             "name": "Liliyana Natsir",
             "date_of_birth": "1985-09-09",
@@ -1067,13 +1067,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "941b41cb-2eef-49a8-b553-8e69419f8380",
+            "partner": "b4273f4b-cda4-43a3-adec-578891ecdcb2",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "941b41cb-2eef-49a8-b553-8e69419f8380",
+        "pk": "b4273f4b-cda4-43a3-adec-578891ecdcb2",
         "fields": {
             "name": "Tontowi Ahmad",
             "date_of_birth": "1987-07-18",
@@ -1083,13 +1083,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "620f8759-8be5-456d-9606-5762bbc9e2c5",
+            "partner": "d984c56a-f737-4aa8-9a1e-265caaca4b37",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "652be75e-ce48-4c31-b0a9-60a8ba80dffc",
+        "pk": "74c5eb91-1eaa-4fb2-9991-670428825e52",
         "fields": {
             "name": "Ricky Subagja",
             "date_of_birth": "1971-01-27",
@@ -1099,13 +1099,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "4e9c9f70-5b08-44a2-9207-c6c7e7179dbe",
+            "partner": "95440ea8-105b-45c1-a4db-f841f6b9d0af",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "6d1ea7de-8dc9-4b36-b3d8-9068e1efbc2c",
+        "pk": "9eca70aa-cd0f-438c-b209-61ee69b89b07",
         "fields": {
             "name": "Candra Wijaya",
             "date_of_birth": "1975-09-16",
@@ -1115,13 +1115,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "b7adbdd0-28e9-4ba6-8a84-b7a11b950c09",
+            "partner": "31e9091d-3a48-4767-bcaa-8172ce0cc74a",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "ba3a3bea-6b8d-4f21-bc44-51f1167654de",
+        "pk": "a5f1477c-bde7-48d0-a5a3-bc21845335df",
         "fields": {
             "name": "Rinov RIVALDY",
             "date_of_birth": "1999-11-12",
@@ -1131,13 +1131,13 @@
             "status": "active",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "dfe0487c-08ba-423a-9295-ab45a23f267c",
+            "partner": "2110bea5-05fe-4379-b3f6-f896f649df71",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "f9dd86a3-b8f2-4aa8-9090-9ccfc4881898",
+        "pk": "5a8d8f1d-9e0b-4214-9d43-d7e95c6c1afc",
         "fields": {
             "name": "Mohammad Ahsan",
             "date_of_birth": "1987-09-07",
@@ -1147,13 +1147,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+            "partner": null,
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "a90dd64a-86c8-49d0-923f-f9e1e1a15447",
+        "pk": "90895234-1510-4ddd-b15e-550c08c40a5b",
         "fields": {
             "name": "Minarti Timur",
             "date_of_birth": "1968-03-24",
@@ -1163,13 +1163,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "839fc688-b740-416d-a9b2-8f029b52476e",
+            "partner": "302a7bab-e9b0-4d29-881d-a44f0ee4de60",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "7356ad2c-d5f7-430e-8567-ce9a8053884e",
+        "pk": "e8e50358-bc1d-42db-9488-dc205a559dbd",
         "fields": {
             "name": "Aadijatmiko Christina Finarsih",
             "date_of_birth": "1972-02-08",
@@ -1185,7 +1185,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "ebbc7c48-772e-4e74-b706-4c12ef03030e",
+        "pk": "14dfe911-0f74-4f67-be9f-da453b4d4aff",
         "fields": {
             "name": "Eliza Nathanael",
             "date_of_birth": "1973-05-27",
@@ -1195,13 +1195,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "c9bf176d-27c9-4d0d-a1c7-ee1dbb0d5493",
+            "partner": "0b90700d-4fab-401f-9cac-c750851f9069",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "c9bf176d-27c9-4d0d-a1c7-ee1dbb0d5493",
+        "pk": "0b90700d-4fab-401f-9cac-c750851f9069",
         "fields": {
             "name": "Zelin Resiana",
             "date_of_birth": "1972-07-09",
@@ -1211,13 +1211,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "ebbc7c48-772e-4e74-b706-4c12ef03030e",
+            "partner": "14dfe911-0f74-4f67-be9f-da453b4d4aff",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "839fc688-b740-416d-a9b2-8f029b52476e",
+        "pk": "302a7bab-e9b0-4d29-881d-a44f0ee4de60",
         "fields": {
             "name": "Tri Kusharjanto",
             "date_of_birth": "1974-01-18",
@@ -1227,13 +1227,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "a90dd64a-86c8-49d0-923f-f9e1e1a15447",
+            "partner": "90895234-1510-4ddd-b15e-550c08c40a5b",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "488a6ef3-6e55-4f59-8a1e-e837677c13f1",
+        "pk": "7e408f64-3a8d-4cd5-a0d0-ad70f3f68a6f",
         "fields": {
             "name": "Imelda Wiguna",
             "date_of_birth": "1951-10-12",
@@ -1249,7 +1249,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "77a16008-8bc0-4017-b17c-07f2709bb3b8",
+        "pk": "789269eb-b43a-4a73-81ed-acdb5afc9fac",
         "fields": {
             "name": "Retno Kustiyah",
             "date_of_birth": "1942-06-19",
@@ -1265,7 +1265,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "6fdd985c-0c64-46a5-aee2-81523f8dcdab",
+        "pk": "4c347e02-ca5e-4716-b26f-ca600f98c24b",
         "fields": {
             "name": "Bobby Ertanto",
             "date_of_birth": "1960-08-02",
@@ -1275,13 +1275,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": null,
+            "partner": "a5c64b15-2b76-4614-9784-66c84e21bf42",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "5119f28c-a004-4e76-b2f2-949955425e6f",
+        "pk": "1f4f5a8c-4181-492f-addc-58708de9108c",
         "fields": {
             "name": "Ade Chandra",
             "date_of_birth": "1950-02-04",
@@ -1291,13 +1291,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "db01dc21-20d3-4b7d-aed3-3bc5a507fa2e",
+            "partner": "5f14f286-a525-48f3-bfbb-282acce03669",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "e3592f93-7a1b-4990-a4e2-cfb2c9783cde",
+        "pk": "70ae41e2-1e95-4b11-bf1a-33342437358b",
         "fields": {
             "name": "Tan Joe Hok",
             "date_of_birth": "1937-08-11",
@@ -1313,7 +1313,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "badba9aa-ccea-48e5-9a69-199dc047daa7",
+        "pk": "e93522a6-4aba-4c05-8fa7-8fd94db539b1",
         "fields": {
             "name": "Kevin Sanjaya Sukamuljo",
             "date_of_birth": "1995-08-02",
@@ -1323,13 +1323,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "557940d5-92d7-4d52-b129-aba78f0b7d80",
+            "partner": "7b207952-bc1e-43e2-bd3c-8e826c2634bd",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+        "pk": "283c1b17-1a7f-4535-a14f-cbd6fe76ac83",
         "fields": {
             "name": "Markis Kido",
             "date_of_birth": "1984-08-11",
@@ -1339,13 +1339,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "f9dd86a3-b8f2-4aa8-9090-9ccfc4881898",
+            "partner": "5a8d8f1d-9e0b-4214-9d43-d7e95c6c1afc",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "0df4abf5-c93b-4bf7-99a7-6d854704e404",
+        "pk": "fdacce86-7435-4104-9bdb-46cf3599a017",
         "fields": {
             "name": "Greysia Polli",
             "date_of_birth": "1987-08-11",
@@ -1355,13 +1355,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "d179d6a0-c817-4a85-8e84-400764ed27f8",
+            "partner": "7191abc9-9edc-47f8-8512-aa5b24f7d632",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "d179d6a0-c817-4a85-8e84-400764ed27f8",
+        "pk": "7191abc9-9edc-47f8-8512-aa5b24f7d632",
         "fields": {
             "name": "Apriani Rahayu",
             "date_of_birth": "1998-04-29",
@@ -1371,13 +1371,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "0df4abf5-c93b-4bf7-99a7-6d854704e404",
+            "partner": "fdacce86-7435-4104-9bdb-46cf3599a017",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "829e674f-cbea-40fe-8e3a-929f45eccb9d",
+        "pk": "7f418560-c437-4592-a78b-16f0efee03b5",
         "fields": {
             "name": "Bobby SETIABUDI",
             "date_of_birth": "2001-03-22",
@@ -1393,7 +1393,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "2ded6349-ed97-4d0f-9be4-191d18e3ff1e",
+        "pk": "299f6de0-c115-4c81-87ae-d5956b86753e",
         "fields": {
             "name": "Hermawan Susanto",
             "date_of_birth": "1967-09-27",
@@ -1409,7 +1409,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "4e9c9f70-5b08-44a2-9207-c6c7e7179dbe",
+        "pk": "95440ea8-105b-45c1-a4db-f841f6b9d0af",
         "fields": {
             "name": "Rexy Mainaky",
             "date_of_birth": "1968-03-09",
@@ -1419,13 +1419,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "652be75e-ce48-4c31-b0a9-60a8ba80dffc",
+            "partner": "74c5eb91-1eaa-4fb2-9991-670428825e52",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "b7adbdd0-28e9-4ba6-8a84-b7a11b950c09",
+        "pk": "31e9091d-3a48-4767-bcaa-8172ce0cc74a",
         "fields": {
             "name": "Tony Gunawan",
             "date_of_birth": "1975-04-09",
@@ -1435,13 +1435,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "6d1ea7de-8dc9-4b36-b3d8-9068e1efbc2c",
+            "partner": "9eca70aa-cd0f-438c-b209-61ee69b89b07",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "8631fab9-1b50-4a02-b9ea-cfd839d146c5",
+        "pk": "db9e3865-c6f6-45bc-9121-f0229d254692",
         "fields": {
             "name": "Rafael Candra Wijaya",
             "date_of_birth": "1975-09-16",
@@ -1451,13 +1451,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "b7adbdd0-28e9-4ba6-8a84-b7a11b950c09",
+            "partner": "31e9091d-3a48-4767-bcaa-8172ce0cc74a",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "8bfc6245-f742-4c01-a6e5-6c2bc0381ceb",
+        "pk": "1a859c51-18d6-4d54-ad59-76d25c20b01d",
         "fields": {
             "name": "Hendra Setiawan",
             "date_of_birth": "1984-08-25",
@@ -1467,13 +1467,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "23eb99b5-590b-475c-b543-bd71d7a3f84d",
+            "partner": "283c1b17-1a7f-4535-a14f-cbd6fe76ac83",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "cdf31f3d-923e-49a9-aff3-94b594ccfa1f",
+        "pk": "3a35b507-e46f-4e97-a1d8-fe61f9c86e10",
         "fields": {
             "name": "Ardy Bernardus Wiranata",
             "date_of_birth": "1970-02-10",
@@ -1489,7 +1489,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "6a59d331-45cf-46ba-b6c2-31edd4d61e21",
+        "pk": "36165315-684c-4a03-bbce-f734cc8b9803",
         "fields": {
             "name": "Sony Dwi Kuncoro",
             "date_of_birth": "1984-07-07",
@@ -1505,7 +1505,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "abec6712-34de-4677-9ec1-11a9d48460c1",
+        "pk": "05e6706a-d994-4c19-86ba-a6cd39567c5e",
         "fields": {
             "name": "Mia Audina Tjiptawan",
             "date_of_birth": "1979-08-22",
@@ -1521,7 +1521,7 @@
     },
     {
         "model": "main.Player",
-        "pk": "0535c47f-01da-4f3a-b195-247c5d8f65ec",
+        "pk": "c0a1aedf-2814-4a3f-82c0-71addea0636c",
         "fields": {
             "name": "Eddy Hartono",
             "date_of_birth": "1964-07-19",
@@ -1531,13 +1531,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "e65bfb36-e689-4b41-b75a-1c70d279d66b",
+            "partner": "a5c64b15-2b76-4614-9784-66c84e21bf42",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "551e73d5-a4c8-4175-9976-5fbd8ed7ad80",
+        "pk": "6d8dc304-5330-44a0-8819-106975810820",
         "fields": {
             "name": "Rudy Gunawan",
             "date_of_birth": "1966-12-31",
@@ -1547,13 +1547,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "0535c47f-01da-4f3a-b195-247c5d8f65ec",
+            "partner": "c0a1aedf-2814-4a3f-82c0-71addea0636c",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "5e72483c-bc7b-415c-b8e6-4bdfd99736bc",
+        "pk": "edd4d48e-b699-4d95-ae71-8de908a1a7be",
         "fields": {
             "name": "Antonius Budi Ariantho",
             "date_of_birth": "1971-10-03",
@@ -1563,13 +1563,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "ad28797e-5c1c-493b-b571-ef5a1347554c",
+            "partner": "1b44b538-9245-49b1-8892-b7fc1f4e9968",
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "d8e5ee0e-c937-48b4-8c4f-5741213a72ab",
+        "pk": "223d6116-c4f5-47ad-a14d-ce5060a6b2c9",
         "fields": {
             "name": "Nova Widianto",
             "date_of_birth": "1977-10-10",
@@ -1579,13 +1579,13 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "620f8759-8be5-456d-9606-5762bbc9e2c5",
+            "partner": null,
             "is_featured": false
         }
     },
     {
         "model": "main.Player",
-        "pk": "59cbdd62-8dc1-401f-a62e-0a5eb9abaae5",
+        "pk": "464cee26-04ef-4340-80a5-aff80b1a8cc9",
         "fields": {
             "name": "Flandy Limpele",
             "date_of_birth": "1974-02-09",
@@ -1595,7 +1595,7 @@
             "status": "retired",
             "thumbnail": "",
             "world_rank": null,
-            "partner": "b4e98326-b8e1-49f9-8c44-fb2c5ed0b33d",
+            "partner": "5a7b6bf3-ecc3-4bfb-92ab-ffade0094bd8",
             "is_featured": false
         }
     }
