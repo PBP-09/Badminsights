@@ -6,13 +6,15 @@
 <div class="flex items-center justify-between mb-6">
   <h1 class="text-2xl font-serif">🛒 Katalog Merch</h1>
 
-  <!-- Tombol tambah produk -->
-  <a 
-    href="{% if request.user.is_staff %}{% url 'katalog:product_create' %}{% else %}{% url 'katalog:user_login' %}{% endif %}"
+ <!-- Tombol tambah produk -->
+  {% if user.username == "Admin" or user.username == "admin" %}
+  <a
+    href="{% url 'katalog:product_create' %}"
     class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition"
   >
     + Tambah Produk
   </a>
+  {% endif %}
 </div>
 
 <!-- Filter Produk -->
