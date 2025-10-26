@@ -15,6 +15,7 @@ class Product(models.Model):
     stock = models.PositiveIntegerField(default=0)
     description = models.TextField(blank=True)
     image_url = models.URLField(blank=True)
+    rating = models.FloatField(default=0, help_text="Rating produk (0-5)")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
