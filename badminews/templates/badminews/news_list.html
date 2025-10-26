@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Filter buttons -->
-                {% if user.username == "Admin" or user.username == "admin" %}
+                {% if user.username == "adminpbpb09"%}
                 <div class="flex gap-2">
                     <a href="?filter=all{% if selected_category %}&category={{ selected_category }}{% endif %}{% if sort_by != 'date' %}&sort={{ sort_by }}{% endif %}" class="{% if filter_type == 'all' %}bg-blue-600{% else %}bg-primary{% endif %} text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">All News</a>
                     <a href="?filter=my{% if selected_category %}&category={{ selected_category }}{% endif %}{% if sort_by != 'date' %}&sort={{ sort_by }}{% endif %}" class="{% if filter_type == 'my' %}bg-blue-600{% else %}bg-secondary{% endif %} text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">My News</a>
