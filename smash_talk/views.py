@@ -77,7 +77,7 @@ def post_detail(request, pk):
     return render(request, 'post_detail.html', context)
 
 
-@login_required
+@login_required(login_url='/login/')
 def add_comment(request, pk):
     post = get_object_or_404(Post, pk=pk)
     
@@ -93,7 +93,7 @@ def add_comment(request, pk):
             messages.error(request, 'Gagal menambahkan komentar. Pastikan semua field diisi.')
     return redirect('smash_talk:post_detail', pk=post.pk)
 
-@login_required
+@login_required(login_url='/login/')
 def like_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     
@@ -104,7 +104,7 @@ def like_post(request, pk):
     
     return redirect('smash_talk:post_detail', pk=post.pk)
 
-@login_required
+@login_required(login_url='/login/')
 def like_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     
@@ -115,7 +115,7 @@ def like_comment(request, pk):
     
     return redirect('smash_talk:post_detail', pk=comment.post.pk)
 
-@login_required
+@login_required(login_url='/login/')
 def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     
@@ -134,7 +134,7 @@ def delete_post(request, pk):
     return redirect('smash_talk:forum_list')
 
 
-@login_required
+@login_required(login_url='/login/')
 def delete_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     
@@ -148,7 +148,7 @@ def delete_comment(request, pk):
     
     return redirect('smash_talk:post_detail', pk=comment.post.pk)
 
-@login_required
+@login_required(login_url='/login/')
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
