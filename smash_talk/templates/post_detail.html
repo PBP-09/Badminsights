@@ -57,10 +57,9 @@
     <form method="post" action="{% url 'smash_talk:add_comment' post.pk %}">
       {% csrf_token %}
       <div class="mb-3">
-        <label for="id_content" class="block text-sm font-medium text-gray-700">Tulis Komentar</label>
         <textarea name="content" id="id_content" rows="5"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-          placeholder="Tulis komentar...">{{ comment_form.content.value }}</textarea>
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+        placeholder="Tulis komentar...">{{ comment_form.content.value|default:"" }}</textarea>
       </div>
       <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Kirim Komentar</button>
     </form>
