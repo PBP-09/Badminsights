@@ -24,7 +24,7 @@ urlpatterns = [
     path('badminews/', include('badminews.urls')),
     path('', include('main.urls')),
     path('bookmark/', include('bookmark.urls')),
-    path('forum/', include('smash_talk.urls')),
+    path('forum/', include(('smash_talk.urls', 'smash_talk'), namespace='smash_talk')),
     path('accounts/', include('django.contrib.auth.urls')),
     path("katalog/", include("katalog.urls")),
 ]
