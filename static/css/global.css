@@ -41,8 +41,3 @@
   padding: .25rem .5rem !important;
   font-weight: 600 !important;
 }
-
-option {
-    background-color: #FFFFFF !important; /* Paksa latar putih */
-    color: #2C3E50 !important;      /* Paksa teks gelap (warna 'primary') */
-}
