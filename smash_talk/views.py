@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q, Count
+from django.db.models import Q, Count, F
 from django.core.paginator import Paginator
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
@@ -49,14 +49,26 @@ def forum_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    
-    # Increment view count
-    post.views += 1
-    post.save()
-    
-    comments = post.comments.all()
+
+    # --- Hitung view hanya sekali per user/session ---
+    if request.user.is_authenticated:
+        session_key = f'viewed_post_{post.pk}_user_{request.user.pk}'
+        if not request.session.get(session_key, False):
+            Post.objects.filter(pk=post.pk).update(views=F('views') + 1)
+            request.session[session_key] = True
+    else:
+        # untuk anonymous, simpan list id post yg sudah dilihat
+        viewed = request.session.get('viewed_posts', [])
+        if post.pk not in viewed:
+            Post.objects.filter(pk=post.pk).update(views=F('views') + 1)
+            viewed.append(post.pk)
+            request.session['viewed_posts'] = viewed
+
+    post.refresh_from_db()
+
+    comments = post.comments.select_related('author').order_by('-created_at')
     comment_form = CommentForm()
-    
+
     context = {
         'post': post,
         'comments': comments,
