@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from main.views import login_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +26,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('bookmark/', include('bookmark.urls')),
     path('forum/', include(('smash_talk.urls', 'smash_talk'), namespace='smash_talk')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/login/', login_user, name='login'), 
     path("katalog/", include("katalog.urls")),
 ]
 
