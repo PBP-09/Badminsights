@@ -16,7 +16,7 @@
         
         <div class="md:w-1/3">
             {% if player.thumbnail %}
-                <img class="object-cover h-full w-full" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
+                <img class="object-cover h-full w-full" src="{{ player.thumbnail }}" alt="Foto {{ player.name }}">
             {% else %}
                 <div class="bg-gray-100 h-full w-full flex items-center justify-center">
                     <span class="text-secondary">No Image</span>
@@ -106,49 +106,36 @@
 </div>
 
 <script>
-    // Pastikan DOM sudah siap
     document.addEventListener("DOMContentLoaded", function() {
         
-        // [1. Ambil Elemen]
         const favButton = document.getElementById("fav-button");
         
-        // Pastikan tombolnya ada di halaman ini
         if (favButton) {
             
-            // [2. Ambil CSRF Token]
-            // Ini adalah alasan #1 mengapa AJAX di Django gagal
             const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
             
-            // [3. Tambahkan Event Listener]
             favButton.addEventListener("click", function() {
                 
-                // Ambil ID pemain dari atribut data
                 const playerId = favButton.dataset.playerId;
                 
-                // Siapkan data untuk dikirim
                 const formData = new FormData();
                 formData.append("player_id", playerId);
                 
-                // [4. Kirim Panggilan AJAX (Fetch)]
                 fetch("{% url 'bookmark:toggle_favorite_ajax' %}", {
                     method: "POST",
                     headers: {
-                        // [PENTING] Kirim CSRF Token di header
                         "X-CSRFToken": csrfToken,
-                        "X-Requested-With": "XMLHttpRequest" // Memberitahu Django ini AJAX
+                        "X-Requested-With": "XMLHttpRequest" 
                     },
                     body: formData
                 })
-                .then(response => response.json()) // Ambil respons JSON
+                .then(response => response.json()) 
                 .then(data => {
-                    // [5. Perbarui Tampilan Tombol]
                     if (data.is_favorited) {
-                        // Jika server bilang 'ditambahkan'
                         favButton.textContent = "Hapus dari Favorit";
                         favButton.classList.remove("bg-accent", "hover:bg-opacity-80");
                         favButton.classList.add("bg-red-600", "hover:bg-red-700");
                     } else {
-                        // Jika server bilang 'dihapus'
                         favButton.textContent = "+ Tambah ke Favorit";
                         favButton.classList.remove("bg-red-600", "hover:bg-red-700");
                         favButton.classList.add("bg-accent", "hover:bg-opacity-80");
