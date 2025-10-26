@@ -27,13 +27,15 @@
     <div class="bg-surface rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
         
         <div>
-            {% if player.thumbnail %}
-                <img class="w-full h-56 object-cover" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
-            {% else %}
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center">
-                    <span class="text-secondary">No Image</span>
-                </div>
-            {% endif %}
+{% if player.thumbnail %}
+    {% if player.thumbnail|slice:":4" == "http" %}
+        <img class="w-full h-56 object-cover" src="{{ player.thumbnail }}" alt="Foto {{ player.name }}">
+    {% else %}
+        <img class="w-full h-56 object-cover" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
+    {% endif %}
+{% else %}
+    <img class="w-full h-56 object-cover" src="{% static 'img/no-image.png' %}" alt="No image">
+{% endif %}
             
             <div class="p-6">
                 <p class="text-sm text-accent font-semibold">{{ player.get_category_display }}</p>
