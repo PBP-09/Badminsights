@@ -34,6 +34,19 @@
       <div class="font-semibold text-lg mb-1 truncate">{{ p.name }}</div>
       <div class="text-sm text-gray-500 mb-2">{{ p.get_category_display }}</div>
       <div class="font-semibold text-primary mb-4">Rp {{ p.price|floatformat:0 }}</div>
+    
+    <!-- Rating Produk -->
+    {% if p.rating %}
+      <div class="flex items-center mt-2">
+        <span class="text-sm font-medium text-primary">
+          Rating: {{ p.rating|floatformat:1 }} / 5
+        </span>
+      </div>
+    {% else %}
+      <div class="flex items-center mt-2">
+        <span class="text-sm text-gray-400 italic">Belum ada rating</span>
+      </div>
+    {% endif %}
 
       <!-- Tombol Detail -->
       <a href="{% url 'katalog:product_detail' p.pk %}" 

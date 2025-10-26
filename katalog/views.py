@@ -52,6 +52,7 @@ def product_create(request: HttpRequest) -> HttpResponse:
         stock = request.POST.get("stock", "0").strip()
         description = request.POST.get("description", "").strip()
         image_url = request.POST.get("image_url", "").strip()
+        rating = request.POST.get("rating", "0").strip() 
         try:
             product = Product.objects.create(
                 name=name,
@@ -60,6 +61,7 @@ def product_create(request: HttpRequest) -> HttpResponse:
                 stock=stock or 0,
                 description=description,
                 image_url=image_url,
+                rating=rating or 0,
             )
             messages.success(request, "Produk berhasil dibuat.")
             return redirect("katalog:product_detail", pk=product.pk)
@@ -81,6 +83,7 @@ def product_update(request: HttpRequest, pk: int) -> HttpResponse:
         product.stock = request.POST.get("stock", product.stock)
         product.description = request.POST.get("description", product.description)
         product.image_url = request.POST.get("image_url", product.image_url)
+        product.rating = request.POST.get("rating", product.rating)
         product.save()
         messages.success(request, "Produk berhasil diperbarui.")
         return redirect("katalog:product_detail", pk=product.pk)
