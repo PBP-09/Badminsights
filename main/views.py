@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import Player
 from django.shortcuts import get_object_or_404, redirect, render
@@ -52,7 +52,6 @@ def is_staff_user(user):
     return user.is_staff
 
 
-@login_required(login_url='/login/')
 def main_page(request):
     featured_player = Player.objects.filter(is_featured=True).first()
 
@@ -62,7 +61,6 @@ def main_page(request):
 
     return render(request, "main.html", context)
 
-@login_required(login_url='/login/')
 def show_main(request):
     player_list = Player.objects.all()
 
@@ -108,16 +106,43 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('main:show_main'))
     
     
-@login_required(login_url='/login/')
+@user_passes_test(is_staff_user, login_url='/login/')
 def add_player(request):
-    form = PlayerForm(request.POST or None)
+    is_ajax = request.headers.get('x-requested-with') == 'XMLHttpRequest'
 
-    if form.is_valid() and request.method == "POST":
-        form.save()
-        return redirect('main:player_list')
-
-    context = {'form': form, 'title' : 'Tambah Player Baru'}
-    return render(request, "player_form.html", context)
+    if request.method == 'POST':
+        form = PlayerForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            player = form.save()
+            
+            if is_ajax:
+                player_data = {
+                    'id': player.id,
+                    'name': player.name,
+                    'country': player.country.name, 
+                    'category': player.get_category_display(),
+                    'thumbnail_url': player.thumbnail.url if player.thumbnail else None,
+                    'world_rank': player.world_rank,
+                    'detail_url': reverse('main:show_player', args=[player.id])
+                }
+                return JsonResponse({'status': 'success', 'player': player_data})
+            else:
+                return redirect('main:player_list')
+        else:
+            if is_ajax:
+                return JsonResponse({'status': 'error', 'errors': form.errors}, status=400)
+            else:
+                context = {'form': form, 'title': 'Tambah Pemain Baru'}
+                return render(request, "player_form.html", context)
+    else:
+        form = PlayerForm()
+        context = {'form': form, 'title': 'Tambah Pemain Baru'}
+        
+        if is_ajax:
+            return render(request, 'player_form_modal.html', context)
+        else:
+            return render(request, "player_form.html", context)
 
 def show_player(request, id):
     player = get_object_or_404(Player, pk=id)
