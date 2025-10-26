@@ -111,7 +111,15 @@ def create_news_ajax(request):
             return JsonResponse({
                 'success': True,
                 'message': 'News created successfully!',
-                'news_id': news.id
+                'news_id': news.id,
+                'news_data': {
+                    'id': news.id,
+                    'title': news.title,
+                    'content': news.content,
+                    'author_username': news.author.username,
+                    'category_display': news.get_category_display(),
+                    'image_url': news.image.url if news.image else None,
+                }
             })
         else:
             return JsonResponse({
