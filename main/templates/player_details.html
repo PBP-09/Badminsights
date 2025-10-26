@@ -59,7 +59,7 @@
                 {% endif %}
 
                 {% if request.user.is_staff %}
-                    <a href="{% url 'main:edit_player' player.id %}" class="bg-gray-200 text-primary ...">
+                    <a href="{% url 'main:edit_player' player.id %}" class="bg-gray-200 text-primary font-bold py-2 px-4 rounded-lg transition-colors hover:bg-gray-300">
                         Edit Pemain
                     </a>
                 {% endif %}
