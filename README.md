@@ -5,7 +5,7 @@
 
 **Wawasan Mendalam tentang Dunia Bulu Tangkis** 🏆
 
-[📂 Repository](https://github.com/PBP-09/Badminsights.git)
+[🌐 Link PWS](https://rousan-chandra-badminsights.pbp.cs.ui.ac.id/) | [📂 Repository](https://github.com/PBP-09/Badminsights.git)
 
 
 
