@@ -31,7 +31,6 @@ class Player(models.Model):
     world_rank = models.PositiveIntegerField(null=True, blank=True, help_text="Peringkat dunia saat ini") # peringkat dunia (bwf) pemain
     partner = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, help_text="Pilih pemain lain sebagai partner (jika pemain ganda)") # pasangan untuk pemain ganda
     is_featured = models.BooleanField(default=False) # featured player
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # tambahkan ini
 
     def __str__(self):
         return self.name

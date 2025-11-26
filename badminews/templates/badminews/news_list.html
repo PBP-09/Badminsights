@@ -46,7 +46,7 @@
         <div class="flex flex-col md:flex-row justify-between items-start gap-4">
             <!-- Left side - Create News Button -->
             <div class="flex items-center gap-4">
-                {% if user.username == "Admin" or user.username == "admin" %}
+                {% if user.username == "adminpbpb09" %}
                 <button id="create-news-btn" class="bg-accent text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors font-semibold">
                     + Create News
                 </button>
@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Filter buttons -->
-                {% if user.username == "Admin" or user.username == "admin" %}
+                {% if user.username == "adminpbpb09"%}
                 <div class="flex gap-2">
                     <a href="?filter=all{% if selected_category %}&category={{ selected_category }}{% endif %}{% if sort_by != 'date' %}&sort={{ sort_by }}{% endif %}" class="{% if filter_type == 'all' %}bg-blue-600{% else %}bg-primary{% endif %} text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">All News</a>
                     <a href="?filter=my{% if selected_category %}&category={{ selected_category }}{% endif %}{% if sort_by != 'date' %}&sort={{ sort_by }}{% endif %}" class="{% if filter_type == 'my' %}bg-blue-600{% else %}bg-secondary{% endif %} text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">My News</a>
@@ -253,17 +253,23 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('News created successfully!');
+                // Close modal and reset form
                 createNewsModal.classList.add('hidden');
                 createNewsForm.reset();
-                location.reload(); // Reload to show new news
+
+                // Add new news to the top of the list without reload
+                addNewNewsToList(data.news_data);
+
+                // Show success message
+                showSuccessMessage('News created successfully!');
             } else {
-                alert('Error creating news: ' + JSON.stringify(data.errors));
+                // Show error messages
+                showErrorMessages(data.errors);
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Error creating news');
+            showErrorMessage('Error creating news. Please try again.');
         });
     });
 
@@ -385,6 +391,90 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+    }
+
+    // Helper functions for AJAX create news
+    function addNewNewsToList(newsData) {
+        const newsContainer = document.getElementById('news-container');
+
+        // Create new article element
+        const article = document.createElement('article');
+        article.className = 'bg-surface p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow';
+
+        article.innerHTML = `
+    <div class="flex flex-col md:flex-row gap-4">
+        <div class="md:w-1/3">
+            ${newsData.image_url ? `<img src="${newsData.image_url}" alt="${newsData.title}" class="w-full h-48 object-cover rounded-md">` :
+              `<div class="w-full h-48 bg-gray-200 rounded-md flex items-center justify-center">
+                <span class="text-gray-500">No Image</span>
+               </div>`}
+        </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold text-primary mb-2">
+                        <a href="/badminews/${newsData.id}/" class="hover:text-secondary transition-colors">
+                            ${newsData.title}
+                        </a>
+                    </h2>
+                    <p class="text-secondary mb-4">${newsData.content.substring(0, 200)}${newsData.content.length > 200 ? '...' : ''}</p>
+                    <div class="flex flex-wrap items-center gap-4 text-sm text-secondary">
+                        <span>By ${newsData.author_username}</span>
+                        <span>Just now</span>
+                        <span class="bg-primary text-white px-2 py-1 rounded">${newsData.category_display}</span>
+                        <span>Views: 0</span>
+                        <div class="flex items-center gap-1">
+                            <button class="upvote-btn text-red-500 hover:text-red-700" data-news-id="${newsData.id}">⬆️</button>
+                            <span class="upvote-count">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Add to top of news container
+        if (newsContainer.firstChild) {
+            newsContainer.insertBefore(article, newsContainer.firstChild);
+        } else {
+            newsContainer.appendChild(article);
+        }
+
+        // Re-attach event listeners for the new news
+        attachEventListeners();
+    }
+
+    function showSuccessMessage(message) {
+        // Create and show success message
+        const successDiv = document.createElement('div');
+        successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-md shadow-lg z-50';
+        successDiv.textContent = message;
+        document.body.appendChild(successDiv);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            successDiv.remove();
+        }, 3000);
+    }
+
+    function showErrorMessages(errors) {
+        let errorText = 'Error creating news:\n';
+        if (typeof errors === 'object') {
+            for (const [field, messages] of Object.entries(errors)) {
+                errorText += `${field}: ${messages.join(', ')}\n`;
+            }
+        } else {
+            errorText += errors;
+        }
+        alert(errorText);
+    }
+
+    function showErrorMessage(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-md shadow-lg z-50';
+        errorDiv.textContent = message;
+        document.body.appendChild(errorDiv);
+
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 3000);
     }
 });
 </script>
