@@ -42,7 +42,7 @@ def product_detail(request: HttpRequest, pk: int) -> HttpResponse:
 
 @login_required
 def product_create(request: HttpRequest) -> HttpResponse:
-    if request.user.username not in ["Adminpbp09", "adminpbp09"]:
+    if request.user.username not in ["Adminpbpb09", "adminpbpb09"]:
         messages.error(request, "Only admin users can create products.")
         return redirect("katalog:product_list")
     if request.method == "POST":
