@@ -28,7 +28,7 @@ class ProductAdmin(admin.ModelAdmin):
         }),
     )
 
-    readonly_fields = ("created_at", "updated_at")  # ✅ tambahkan ini
+    readonly_fields = ("created_at", "updated_at")  
 
     def has_add_permission(self, request):
         return request.user.is_staff
