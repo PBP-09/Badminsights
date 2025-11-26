@@ -72,7 +72,7 @@ def product_create(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def product_update(request: HttpRequest, pk: int) -> HttpResponse:
-    if request.user.username not in ["Admin", "admin"]:
+    if request.user.username not in ["Adminpbpb09", "adminpbpb09"]:
         messages.error(request, "Only admin users can update products.")
         return redirect("katalog:product_list")
     product = get_object_or_404(Product, pk=pk)
@@ -92,7 +92,7 @@ def product_update(request: HttpRequest, pk: int) -> HttpResponse:
 
 @login_required
 def product_delete(request: HttpRequest, pk: int) -> HttpResponse:
-    if request.user.username not in ["Admin", "admin"]:
+    if request.user.username not in ["Adminpbpb09", "adminpbpb09"]:
         messages.error(request, "Only admin users can delete products.")
         return redirect("katalog:product_list")
     product = get_object_or_404(Product, pk=pk)
