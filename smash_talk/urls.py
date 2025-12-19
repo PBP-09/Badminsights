@@ -8,6 +8,7 @@ urlpatterns = [
 # --- JALUR WEB (Hanya untuk Browser/Template HTML) ---
     path('', forum_list, name='forum_list'),
     path('post/<int:pk>/', post_detail, name='post_detail'),
+    path('create/', create_post, name='create_post'),
     path('post/<int:pk>/comment/', add_comment, name='add_comment'),
     path('post/<int:pk>/like/', like_post, name='like_post'),
     path('comment/<int:pk>/like/', like_comment, name='like_comment'),
