@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -13,8 +12,6 @@ from main.forms import PlayerForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse
 from django.core import serializers
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from bookmark.models import Bookmark
 from django_countries import countries as all_countries_lookup
@@ -47,7 +44,10 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('main:login')
+    response = HttpResponseRedirect(reverse('main:login'))
+    response.delete_cookie('last_login')
+    return response
+   
 
 def is_staff_user(user):
     return user.is_staff
