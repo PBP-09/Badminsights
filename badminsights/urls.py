@@ -28,6 +28,7 @@ urlpatterns = [
     path('forum/', include(('smash_talk.urls', 'smash_talk'), namespace='smash_talk')),
     path('accounts/login/', login_user, name='login'), 
     path("katalog/", include("katalog.urls")),
+    path('auth/', include('authentication.urls')),
 ]
 
 if settings.DEBUG:
