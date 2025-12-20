@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from main.models import Player  
 from django.contrib.auth.decorators import login_required
 from .models import Bookmark
+from django.core import serializers
+from django.http import HttpResponse
 
 @login_required(login_url='/login/')
 def show_favorites(request): 
