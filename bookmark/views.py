@@ -38,3 +38,9 @@ def toggle_favorite_ajax(request):
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+    
+@login_required
+def show_favorite_json(request):
+    favorites = Bookmark.objects.filter(user=request.user)
+    data = serializers.serialize("json", favorites)
+    return HttpResponse(data, content_type="application/json")
