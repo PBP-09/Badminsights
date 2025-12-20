@@ -20,4 +20,6 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('player/<str:id>/edit/', edit_player, name='edit_player'),
+    path('json/', show_json, name='show_json'),
+    path('json/<str:player_id>/', show_json_by_id, name='show_json_by_id'),
 ]
