@@ -5,6 +5,7 @@ app_name = "katalog"
 
 urlpatterns = [
     path("", views.product_list, name="product_list"),
+    path("json/", views.product_list_json, name="product_list_json"),
     path("grid/", views.product_grid, name="product_grid"),
     path("create/", views.product_create, name="product_create"),
     path("<int:pk>/", views.product_detail, name="product_detail"),

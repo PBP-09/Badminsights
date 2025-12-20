@@ -3,54 +3,57 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-<div class="flex items-center justify-between mb-6">
-  <h1 class="text-2xl font-serif">🛒 Katalog Merch</h1>
 
- <!-- Tombol tambah produk -->
-  {% if user.username == "adminpbpb09"%}
-  <a
-    href="{% url 'katalog:product_create' %}"
-    class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition"
-  >
-    + Tambah Produk
-  </a>
-  {% endif %}
-</div>
+<div class="max-w-7xl mx-auto px-4">
 
-<!-- Filter Produk -->
-<form id="filter-form" class="grid md:grid-cols-2 gap-3 mb-6">
-  <input 
-    name="q" id="q" 
-    value="{{ query }}" 
-    placeholder="Cari produk..." 
-    class="border rounded px-3 py-2 w-full"
-  />
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-serif">🛒 Katalog Merch</h1>
 
-  <select 
-    name="category" 
-    id="category" 
-    class="border rounded px-3 py-2 w-full"
-    onchange="this.form.dispatchEvent(new Event('submit'))"
-  >
-    <option value="">Semua Kategori</option>
-    {% for val,label in categories %}
-      <option value="{{ val }}" {% if label == category %}selected{% endif %}>{{ label }}</option>
-    {% endfor %}
-  </select>
-</form>
+    {% if user.is_staff %}
+    <a href="{% url 'katalog:product_create' %}"
+       class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition">
+      + Tambah Produk
+    </a>
+    {% endif %}
+  </div>
 
-<!-- Kontainer Produk -->
-<div id="grid-container" class="min-h-[100px] flex flex-col items-center justify-center text-secondary">
-  <div id="loading-text" class="animate-pulse text-gray-500">⏳ Memuat produk...</div>
+  <form id="filter-form" class="grid md:grid-cols-2 gap-3 mb-6">
+    <input
+      name="q"
+      id="q"
+      value="{{ query }}"
+      placeholder="Cari produk..."
+      class="border rounded px-3 py-2 w-full"
+    />
+
+    <select
+      name="category"
+      id="category"
+      class="border rounded px-3 py-2 w-full"
+      onchange="this.form.dispatchEvent(new Event('submit'))"
+    >
+      <option value="">Semua Kategori</option>
+      {% for val,label in categories %}
+        <option value="{{ val }}" {% if val == category %}selected{% endif %}>
+          {{ label }}
+        </option>
+      {% endfor %}
+    </select>
+  </form>
+
+  <div id="grid-container" class="w-full">
+    <div id="loading-text" class="animate-pulse text-gray-500 py-10 text-center">
+      ⏳ Memuat produk...
+    </div>
+  </div>
+
 </div>
 
 <script>
   const gridContainer = document.getElementById('grid-container');
   const form = document.getElementById('filter-form');
-  const loadingText = document.getElementById('loading-text');
 
   async function loadGrid(page = 1) {
-    loadingText.innerText = '⏳ Memuat produk...';
     gridContainer.style.opacity = 0.6;
 
     const params = new URLSearchParams({
@@ -63,7 +66,6 @@
     const html = await res.text();
     gridContainer.innerHTML = html;
 
-    // Pagination AJAX
     gridContainer.querySelectorAll('.ajax-page').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
@@ -81,4 +83,5 @@
 
   document.addEventListener('DOMContentLoaded', () => loadGrid(1));
 </script>
+
 {% endblock %}
