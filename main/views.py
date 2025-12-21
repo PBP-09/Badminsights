@@ -224,3 +224,39 @@ def show_xml_by_id(request, player_id):
     except Player.DoesNotExist:
         return HttpResponse(status=404)
 
+def api_player_list(request):
+    players = Player.objects.all()[:5]
+    
+    data = []
+    for p in players:
+        thumbnail_url = ""
+        
+        try:
+            if p.thumbnail:
+              
+                val = str(p.thumbnail)
+                
+                # 1. Kalau link dari internet (https://...), pakai langsung
+                if val.startswith('http'):
+                    thumbnail_url = val
+                # 2. Kalau file upload lokal, bikin absolute URL
+                elif hasattr(p.thumbnail, 'url'):
+                    thumbnail_url = request.build_absolute_uri(p.thumbnail.url)
+                # 3. Fallback
+                else:
+                    thumbnail_url = val
+        except Exception as e:
+            print(f"Error getting image for {p.name}: {e}")
+            thumbnail_url = ""
+        # -------------------------------------
+
+        rank_display = f"Rank: {p.world_rank}" if p.world_rank else "Unranked"
+
+        data.append({
+            "name": p.name,
+            "category": p.get_category_display(),
+            "rank": rank_display,
+            "thumbnail": thumbnail_url, 
+        })
+        
+    return JsonResponse(data, safe=False)
