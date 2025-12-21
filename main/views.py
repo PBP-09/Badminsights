@@ -206,9 +206,15 @@ def show_xml(request):
     return HttpResponse(xml_data, content_type="application/xml")
 
 def show_json(request):
-    player_list = Player.objects.all()
-    json_data = serializers.serialize("json", player_list)
-    return HttpResponse(json_data, content_type="application/json")
+    player_list = Player.objects.all().values()
+    return JsonResponse(list(player_list), safe=False)
+
+def show_json_by_id(request, player_id):
+    player = Player.objects.filter(pk=player_id).values()
+    if player.exists():
+        return JsonResponse(player[0], safe=False)
+    
+    return JsonResponse({"message": "Not Found"}, status=404)
 
 def show_xml_by_id(request, player_id):
     try: 
@@ -218,10 +224,3 @@ def show_xml_by_id(request, player_id):
     except Player.DoesNotExist:
         return HttpResponse(status=404)
 
-def show_json_by_id(request, player_id):
-    try:
-        player = Player.objects.get(pk=player_id)
-        json_data = serializers.serialize("json", [player])
-        return HttpResponse(json_data, content_type="application/json")
-    except Player.DoesNotExist:
-        return HttpResponse(status=404)
