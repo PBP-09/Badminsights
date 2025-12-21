@@ -5,8 +5,82 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-
 from .models import Product
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from .models import Product
+
+@csrf_exempt
+def save_product_flutter(request):
+    if request.method != "POST":
+        return JsonResponse({'success': False, 'error': 'POST only'}, status=405)
+
+    if not request.user.is_authenticated:
+        return JsonResponse({'success': False, 'error': 'Auth required'}, status=401)
+
+    if not request.user.is_staff:
+        return JsonResponse({'success': False, 'error': 'Admin only'}, status=403)
+
+    data = request.POST
+
+    def to_int(v, default=0):
+        try:
+            return int(v)
+        except (TypeError, ValueError):
+            return default
+
+    def to_float(v, default=0.0):
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return default
+
+    product_id = data.get('product_id')
+    name = (data.get('name') or '').strip()
+    category = (data.get('category') or '').strip()
+    price = to_int(data.get('price'))
+    stock = to_int(data.get('stock'))
+    description = (data.get('description') or '').strip()
+    image_url = (data.get('image_url') or '').strip()
+    rating = to_float(data.get('rating'))
+
+    if not name or not category:
+        return JsonResponse({'success': False, 'error': 'Name & category required'}, status=400)
+
+    if category not in dict(Product.Category.choices):
+        return JsonResponse({'success': False, 'error': 'Invalid category'}, status=400)
+
+    if price < 0 or stock < 0:
+        return JsonResponse({'success': False, 'error': 'Invalid price/stock'}, status=400)
+
+    if rating < 0 or rating > 5:
+        return JsonResponse({'success': False, 'error': 'Rating must be 0–5'}, status=400)
+
+    if product_id:
+        product = get_object_or_404(Product, id=product_id)
+        product.name = name
+        product.category = category
+        product.price = price
+        product.stock = stock
+        product.description = description
+        product.image_url = image_url
+        product.rating = rating
+        product.save()
+        msg = "updated"
+    else:
+        product = Product.objects.create(
+            name=name,
+            category=category,
+            price=price,
+            stock=stock,
+            description=description,
+            image_url=image_url,
+            rating=rating
+        )
+        msg = "created"
+
+    return JsonResponse({'success': True, 'message': msg, 'id': product.id})
 
 
 def product_list(request: HttpRequest) -> HttpResponse:
@@ -187,3 +261,32 @@ def product_list_json(request: HttpRequest):
         "rating",
     )
     return JsonResponse(list(products), safe=False)
+
+@csrf_exempt
+def delete_product_flutter(request, pk):
+    if request.method != "POST":
+        return JsonResponse(
+            {'success': False, 'error': 'POST only'},
+            status=405
+        )
+
+    if not request.user.is_authenticated:
+        return JsonResponse(
+            {'success': False, 'error': 'Auth required'},
+            status=401
+        )
+
+    if not request.user.is_staff:
+        return JsonResponse(
+            {'success': False, 'error': 'Admin only'},
+            status=403
+        )
+
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+
+    return JsonResponse({
+        'success': True,
+        'message': 'Product deleted',
+        'id': pk
+    })
