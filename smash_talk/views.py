@@ -341,24 +341,40 @@ def api_toggle_like_post(request, pk):
 @login_required(login_url='/login/')
 @csrf_exempt
 def api_add_comment(request, pk):
-    # POST to add comment to post pk
-    if request.method != 'POST':
-        return HttpResponseNotAllowed(['POST'])
-    post = get_object_or_404(Post, pk=pk)
-    form = CommentForm(request.POST)
-    if form.is_valid():
-        c = form.save(commit=False)
-        c.post = post
-        c.author = request.user
-        c.save()
-        return JsonResponse({
-            'status': 'success',
-            'id': c.id,
-            'content': c.content,
-            'author': c.author.username,
-            'created_at': c.created_at.isoformat()
-        }, status=201)
-    return JsonResponse({'status':'error','errors': form.errors}, status=400)
+    if request.method == 'POST':
+        try:
+            # 1. Ambil data JSON dari body request
+            data = json.loads(request.body)
+            
+            # 2. Ambil Postingan terkait
+            post = get_object_or_404(Post, pk=pk)
+            
+            # 3. Buat object Comment secara manual (lebih aman buat API)
+            content = data.get('content')
+            if not content:
+                return JsonResponse({'status': 'error', 'message': 'Content cannot be empty'}, status=400)
+
+            new_comment = Comment.objects.create(
+                post=post,
+                author=request.user,
+                content=content
+            )
+            
+            # 4. Return Success
+            return JsonResponse({
+                'status': 'success',
+                'id': new_comment.id,
+                'content': new_comment.content,
+                'author': new_comment.author.username,
+                'created_at': new_comment.created_at.isoformat()
+            }, status=200)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+            
+    return HttpResponseNotAllowed(['POST'])
 
 
 def api_get_comments(request, pk):

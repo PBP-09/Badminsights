@@ -14,8 +14,8 @@ urlpatterns = [
     path('comment/<int:pk>/like/', like_comment, name='like_comment'),
     path('post/<int:pk>/delete/', delete_post, name='delete_post'),
     path('comment/<int:pk>/delete/', delete_comment, name='delete_comment'),
-    path('json/', show_json, name='show_json'), 
-    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
+    path('json-django/', show_json, name='show_json'), 
+    path('json-django/<int:id>/', show_json_by_id, name='show_json_by_id'),
 
     # --- JALUR FLUTTER (Hanya untuk kirim/terima JSON) ---
     # Kita pake prefix 'json/' supaya gak bentrok sama path web

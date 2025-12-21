@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import main_page, show_main, add_player, show_player, show_xml, show_json, show_json_by_id, show_xml_by_id, register, login_user, logout_user, edit_player
+from main.views import main_page, show_main, add_player, show_player, show_xml, show_json, show_json_by_id, show_xml_by_id, register, login_user, logout_user, edit_player, api_player_list
 
 app_name = 'main'
 
@@ -20,6 +20,5 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('player/<str:id>/edit/', edit_player, name='edit_player'),
-    path('json/', show_json, name='show_json'),
-    path('json/<str:player_id>/', show_json_by_id, name='show_json_by_id'),
+    path('api/players/', api_player_list, name='api_player_list'),
 ]
