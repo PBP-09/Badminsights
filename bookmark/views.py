@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from main.models import Player  
 from django.contrib.auth.decorators import login_required
 from .models import Bookmark
+from django.core import serializers
+from django.http import HttpResponse
 
 @login_required(login_url='/login/')
 def show_favorites(request): 
@@ -38,3 +40,9 @@ def toggle_favorite_ajax(request):
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+    
+@login_required
+def show_favorite_json(request):
+    favorites = Bookmark.objects.filter(user=request.user)
+    data = serializers.serialize("json", favorites)
+    return HttpResponse(data, content_type="application/json")
