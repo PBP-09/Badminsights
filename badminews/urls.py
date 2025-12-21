@@ -12,4 +12,5 @@ urlpatterns = [
     path('add/', views.add_news, name='add_news'),
     path('create-ajax/', views.create_news_ajax, name='create_news_ajax'),
     path('json/', views.news_json, name='news_json'),
+    path('trending/', views.trending_news_json, name='trending_news_json'),
 ]

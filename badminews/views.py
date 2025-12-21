@@ -66,7 +66,34 @@ def news_detail(request, pk):
     if request.user.is_authenticated:
         news_item.read_by.add(request.user)
     news_item.save()
-    return render(request, 'badminews/news_detail.html', {'news_item': news_item})
+
+    # Check if this is an API request (from Flutter)
+    if request.GET.get('format') == 'json':
+        # Return JSON for Flutter app
+        data = {
+            'id': news_item.id,
+            'title': news_item.title,
+            'content': news_item.content,
+            'author_username': news_item.author.username,
+            'date_published': news_item.date_published.isoformat(),
+            'category': news_item.category,
+            'views': news_item.views,
+            'total_upvotes': news_item.total_upvotes(),
+            'image': news_item.image.url if news_item.image else None,
+        }
+
+        # Add user-specific data if authenticated
+        if request.user.is_authenticated:
+            data['is_upvoted'] = request.user in news_item.upvotes.all()
+            data['is_read'] = request.user in news_item.read_by.all()
+        else:
+            data['is_upvoted'] = False
+            data['is_read'] = False
+
+        return JsonResponse(data)
+    else:
+        # Return HTML for web browser
+        return render(request, 'badminews/news_detail.html', {'news_item': news_item})
 
 @login_required
 def add_news(request):
@@ -117,8 +144,13 @@ def create_news_ajax(request):
                     'title': news.title,
                     'content': news.content,
                     'author_username': news.author.username,
-                    'category_display': news.get_category_display(),
-                    'image_url': news.image.url if news.image else None,
+                    'date_published': news.date_published.isoformat(),
+                    'category': news.category,
+                    'image': news.image.url if news.image else None,
+                    'views': news.views,
+                    'total_upvotes': news.total_upvotes(),
+                    'is_upvoted': False,  # New news, not upvoted yet
+                    'is_read': False,  # New news, not read yet
                 }
             })
         else:
@@ -135,7 +167,35 @@ def edit_news(request, pk):
         form = NewsForm(request.POST, request.FILES, instance=news)
         if form.is_valid():
             form.save()
-            return redirect('badminews:news_list')
+            if request.content_type == 'multipart/form-data':
+                # Web form submission
+                return redirect('badminews:news_list')
+            else:
+                # Flutter API call
+                return JsonResponse({
+                    'success': True,
+                    'message': 'News updated successfully!',
+                    'news_data': {
+                        'id': news.id,
+                        'title': news.title,
+                        'content': news.content,
+                        'author_username': news.author.username,
+                        'date_published': news.date_published.isoformat(),
+                        'category': news.category,
+                        'image': news.image.url if news.image else None,
+                        'views': news.views,
+                        'total_upvotes': news.total_upvotes(),
+                        'is_upvoted': request.user in news.upvotes.all(),
+                        'is_read': request.user in news.read_by.all(),
+                    }
+                })
+        else:
+            if request.content_type == 'multipart/form-data':
+                # Web form with errors
+                return render(request, 'badminews/add_news.html', {'form': form, 'news': news, 'is_edit': True})
+            else:
+                # Flutter API call with errors
+                return JsonResponse({'success': False, 'errors': form.errors})
     else:
         form = NewsForm(instance=news)
     return render(request, 'badminews/add_news.html', {'form': form, 'news': news, 'is_edit': True})
@@ -145,7 +205,15 @@ def delete_news(request, pk):
     news = get_object_or_404(News, pk=pk, author=request.user)
     if request.method == 'POST':
         news.delete()
-        return redirect('badminews:news_list')
+        if request.content_type == 'multipart/form-data':
+            # Web form submission
+            return redirect('badminews:news_list')
+        else:
+            # Flutter API call
+            return JsonResponse({
+                'success': True,
+                'message': 'News deleted successfully!'
+            })
     return redirect('badminews:news_list')
 
 def news_json(request):
@@ -172,5 +240,61 @@ def news_json(request):
     else:
         news = news.order_by('-date_published')
 
-    data = list(news.values('id', 'title', 'content', 'author__username', 'date_published', 'category', 'views'))
+    # Build data with additional fields
+    data = []
+    for item in news:
+        item_data = {
+            'id': item.id,
+            'title': item.title,
+            'content': item.content,
+            'author_username': item.author.username,
+            'date_published': item.date_published.isoformat(),
+            'category': item.category,
+            'views': item.views,
+            'total_upvotes': item.total_upvotes(),
+            'image': item.image.url if item.image else None,
+        }
+
+        # Add user-specific data if authenticated
+        if request.user.is_authenticated:
+            item_data['is_upvoted'] = request.user in item.upvotes.all()
+            item_data['is_read'] = request.user in item.read_by.all()
+        else:
+            item_data['is_upvoted'] = False
+            item_data['is_read'] = False
+
+        data.append(item_data)
+
+    return JsonResponse(data, safe=False)
+
+def trending_news_json(request):
+    # Get trending news (top 3 by upvotes, then by views)
+    trending_news = News.objects.annotate(
+        upvote_count=Count('upvotes')
+    ).order_by('-upvote_count', '-views', '-date_published')[:3]
+
+    data = []
+    for item in trending_news:
+        item_data = {
+            'id': item.id,
+            'title': item.title,
+            'content': item.content,
+            'author_username': item.author.username,
+            'date_published': item.date_published.isoformat(),
+            'category': item.category,
+            'views': item.views,
+            'total_upvotes': item.total_upvotes(),
+            'image': item.image.url if item.image else None,
+        }
+
+        # Add user-specific data if authenticated
+        if request.user.is_authenticated:
+            item_data['is_upvoted'] = request.user in item.upvotes.all()
+            item_data['is_read'] = request.user in item.read_by.all()
+        else:
+            item_data['is_upvoted'] = False
+            item_data['is_read'] = False
+
+        data.append(item_data)
+
     return JsonResponse(data, safe=False)

@@ -40,10 +40,16 @@ def login(request):
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        username = data['username']
-        password1 = data['password1']
-        password2 = data['password2']
+        username = request.POST.get('username')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        # Check if required fields are provided
+        if not username or not password1 or not password2:
+            return JsonResponse({
+                "status": False,
+                "message": "All fields are required."
+            }, status=400)
 
         # Check if the passwords match
         if password1 != password2:
@@ -51,24 +57,24 @@ def register(request):
                 "status": False,
                 "message": "Passwords do not match."
             }, status=400)
-        
+
         # Check if the username is already taken
         if User.objects.filter(username=username).exists():
             return JsonResponse({
                 "status": False,
                 "message": "Username already exists."
             }, status=400)
-        
+
         # Create the new user
         user = User.objects.create_user(username=username, password=password1)
         user.save()
-        
+
         return JsonResponse({
             "username": user.username,
             "status": 'success',
             "message": "User created successfully!"
         }, status=200)
-    
+
     else:
         return JsonResponse({
             "status": False,

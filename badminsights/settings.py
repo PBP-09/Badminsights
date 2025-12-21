@@ -35,7 +35,14 @@ DEBUG = True
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "rousan-chandra-badminsights.pbp.cs.ui.ac.id","10.0.2.2"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://rousan-chandra-badminsights.pbp.cs.ui.ac.id"
+    "https://rousan-chandra-badminsights.pbp.cs.ui.ac.id",
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5000",
+    "http://127.0.0.1:8000",
+    "http://localhost:56843",  # Flutter dev server
 ]
 
 # Application definition
@@ -69,6 +76,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Disable CSRF for development
+if DEBUG:
+    MIDDLEWARE = [m for m in MIDDLEWARE if 'csrf' not in m.lower()]
 
 ROOT_URLCONF = 'badminsights.urls'
 
