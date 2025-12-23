@@ -338,43 +338,36 @@ def api_toggle_like_post(request, pk):
     return JsonResponse({'status': 'success', 'liked': liked, 'like_count': post.like_count()})
 
 
-@login_required(login_url='/login/')
 @csrf_exempt
 def api_add_comment(request, pk):
     if request.method == 'POST':
-        try:
-            # 1. Ambil data JSON dari body request
-            data = json.loads(request.body)
-            
-            # 2. Ambil Postingan terkait
-            post = get_object_or_404(Post, pk=pk)
-            
-            # 3. Buat object Comment secara manual (lebih aman buat API)
-            content = data.get('content')
-            if not content:
-                return JsonResponse({'status': 'error', 'message': 'Content cannot be empty'}, status=400)
+        if not request.user.is_authenticated:
+            return JsonResponse({'status': 'error', 'message': 'Belum login'}, status=403)
 
+        try:
+            # Cek format data (Handle Form Data dari pbp_django_auth)
+            if request.content_type == 'application/json':
+                data = json.loads(request.body)
+                content = data.get('content')
+            else:
+                content = request.POST.get('content') # <--- INI KUNCINYA
+
+            if not content:
+                return JsonResponse({'status': 'error', 'message': 'Konten kosong'}, status=400)
+
+            post = get_object_or_404(Post, pk=pk)
             new_comment = Comment.objects.create(
                 post=post,
                 author=request.user,
                 content=content
             )
-            
-            # 4. Return Success
-            return JsonResponse({
-                'status': 'success',
-                'id': new_comment.id,
-                'content': new_comment.content,
-                'author': new_comment.author.username,
-                'created_at': new_comment.created_at.isoformat()
-            }, status=200)
+            return JsonResponse({'status': 'success'}, status=200)
 
-        except json.JSONDecodeError:
-            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
         except Exception as e:
-            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+            # Biar kita tau error aslinya kalau gagal lagi
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
             
-    return HttpResponseNotAllowed(['POST'])
+    return JsonResponse({'status': 'error', 'message': 'Method not allowed'}, status=405)
 
 
 def api_get_comments(request, pk):

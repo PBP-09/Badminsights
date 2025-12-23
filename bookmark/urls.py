@@ -1,10 +1,10 @@
 from django.urls import path
-from . import views
+from bookmark.views import show_favorites, toggle_favorite_ajax, show_json # <--- Tambah import show_json
 
 app_name = 'bookmark'
 
 urlpatterns = [
-    path('favorites/', views.show_favorites, name='show_favorites'),
-    path('ajax/toggle_favorite/', views.toggle_favorite_ajax, name='toggle_favorite_ajax'),
-    path('favorites/json/', views.show_favorite_json, name='show_favorite_json'),
+    path('', show_favorites, name='show_favorites'),
+    path('toggle/', toggle_favorite_ajax, name='toggle_favorite_ajax'),
+    path('json/', show_json, name='show_json'),
 ]
