@@ -343,31 +343,20 @@ def api_add_comment(request, pk):
     if request.method == 'POST':
         if not request.user.is_authenticated:
             return JsonResponse({'status': 'error', 'message': 'Belum login'}, status=403)
-
         try:
-            # Cek format data (Handle Form Data dari pbp_django_auth)
-            if request.content_type == 'application/json':
-                data = json.loads(request.body)
-                content = data.get('content')
-            else:
-                content = request.POST.get('content') # <--- INI KUNCINYA
-
+            # Karena lo pake postJson di Flutter, dia bakal masuk ke sini:
+            data = json.loads(request.body)
+            content = data.get('content')
+            
             if not content:
-                return JsonResponse({'status': 'error', 'message': 'Konten kosong'}, status=400)
+                return JsonResponse({'status': 'error', 'message': 'Isi komentar kosong'}, status=400)
 
             post = get_object_or_404(Post, pk=pk)
-            new_comment = Comment.objects.create(
-                post=post,
-                author=request.user,
-                content=content
-            )
+            Comment.objects.create(post=post, author=request.user, content=content)
             return JsonResponse({'status': 'success'}, status=200)
-
         except Exception as e:
-            # Biar kita tau error aslinya kalau gagal lagi
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-            
-    return JsonResponse({'status': 'error', 'message': 'Method not allowed'}, status=405)
+    return JsonResponse({'status': 'error'}, status=405)
 
 
 def api_get_comments(request, pk):
