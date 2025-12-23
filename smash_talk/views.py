@@ -343,21 +343,36 @@ def api_add_comment(request, pk):
     if request.method == 'POST':
         if not request.user.is_authenticated:
             return JsonResponse({'status': 'error', 'message': 'Belum login'}, status=403)
+
         try:
-            # Karena lo pake postJson di Flutter, dia bakal masuk ke sini:
-            data = json.loads(request.body)
-            content = data.get('content')
-            
+            # LOGIKA HYBRID: Cek tipe konten yang masuk
+            if request.content_type == 'application/json':
+                data = json.loads(request.body)
+                content = data.get('content')
+            else:
+                # Ini yang bakal dipake Flutter Web lo sekarang
+                content = request.POST.get('content')
+
             if not content:
-                return JsonResponse({'status': 'error', 'message': 'Isi komentar kosong'}, status=400)
+                return JsonResponse({'status': 'error', 'message': 'Konten kosong'}, status=400)
 
             post = get_object_or_404(Post, pk=pk)
-            Comment.objects.create(post=post, author=request.user, content=content)
-            return JsonResponse({'status': 'success'}, status=200)
+            new_comment = Comment.objects.create(
+                post=post,
+                author=request.user,
+                content=content
+            )
+            
+            return JsonResponse({
+                'status': 'success',
+                'id': new_comment.id,
+                'author': new_comment.author.username
+            }, status=200)
+
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-    return JsonResponse({'status': 'error'}, status=405)
-
+            
+    return JsonResponse({'status': 'error', 'message': 'Method not allowed'}, status=405)
 
 def api_get_comments(request, pk):
     if request.method != 'GET':
