@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse
 from main.models import Player  
@@ -5,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Bookmark
 from django.core import serializers
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.html import strip_tags
 
 @login_required(login_url='/login/')
 def show_favorites(request): 
@@ -74,3 +77,48 @@ def show_json(request):
         })
         
     return JsonResponse(data, safe=False)
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+import json
+
+@csrf_exempt
+def create_bookmark_flutter(request):
+    if request.method != "POST":
+        return JsonResponse({"status": "error"}, status=401)
+
+    try:
+        data = json.loads(request.body)
+        player_id = data.get("player_id")
+
+        if not player_id:
+            return JsonResponse(
+                {"status": "error", "message": "player_id is required"},
+                status=400
+            )
+
+        user = request.user
+        player = get_object_or_404(Player, id=player_id)
+
+        bookmark, created = Bookmark.objects.get_or_create(
+            user=user,
+            player=player
+        )
+
+        if not created:
+            return JsonResponse(
+                {"status": "error", "message": "Already bookmarked"},
+                status=409
+            )
+
+        return JsonResponse(
+            {"status": "success", "message": "Bookmark added"},
+            status=200
+        )
+
+    except Exception as e:
+        return JsonResponse(
+            {"status": "error", "message": str(e)},
+            status=500
+        )
