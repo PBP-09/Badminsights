@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Akun{% endblock %}
+{% block content %}
+<div class="max-w-xl mx-auto bg-surface p-6 rounded shadow">
+  <h1 class="text-2xl font-serif mb-4">Akun</h1>
+  {% if request.user.is_authenticated %}
+    <p class="mb-2">Masuk sebagai <strong>{{ request.user.username }}</strong></p>
+    {% if profile %}
+      <p class="mb-4">Role: {{ profile.get_role_display }}</p>
+    {% endif %}
+    <div class="flex gap-2 mb-4">
+      <a href="{% url 'katalog:user_logout' %}" class="px-4 py-2 border rounded">Logout</a>
+      <a href="/admin/" class="px-4 py-2 bg-primary text-white rounded">Admin</a>
+    </div>
+    <div class="grid gap-2">
+      <a href="{% url 'katalog:product_list' %}" class="underline">🛒 Lihat Katalog Merchandise</a>
+    </div>
+
+  {% else %}
+    <p class="mb-4">Silakan login atau daftar untuk melanjutkan.</p>
+    <div class="flex gap-2">
+      <a href="{% url 'katalog:user_login' %}" class="px-4 py-2 bg-primary text-white rounded">Login</a>
+      <a href="{% url 'katalog:user_register' %}" class="px-4 py-2 border rounded">Register</a>
+    </div>
+    <div class="mt-4">
+      <a href="/admin/" class="underline">Menu Admin</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - SmashTalk{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="md:col-span-2 space-y-6">
+    <!-- Post card -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <h1 class="text-2xl font-semibold text-gray-900">{{ post.title }}</h1>
+          <div class="mt-2 flex items-center gap-2 text-sm text-gray-500">
+            <span class="px-2 py-1 rounded-md text-xs font-semibold text-white bg-blue-600">{{ post.get_category_display }}</span>
+            <span>Oleh <strong>{{ post.author.username }}</strong></span>
+            <time class="text-gray-400">• {{ post.created_at|date:"d M Y H:i" }}</time>
+          </div>
+        </div>
+ 
+        <div class="text-sm text-gray-500 text-right">
+          <div>👁️ {{ post.views|default:0 }}</div>
+          <div class="mt-1">👍 {{ post.likes.count }}</div>
+        </div>
+      </div>
+
+      <div class="mt-4 text-gray-700">
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="Gambar post" class="w-full rounded-lg mb-4 object-cover max-h-80">
+        {% endif %}
+        <div class="prose max-w-none">
+          {{ post.content|linebreaks }}
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center gap-3">
+        <form method="post" action="{% url 'smash_talk:like_post' post.pk %}">
+          {% csrf_token %}
+          <button class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">
+            {% if user.is_authenticated and user in post.likes.all %}❤️{% else %}🤍{% endif %}
+            Like ({{ post.likes.count }})
+          </button>
+        </form>
+
+    {% if user == post.author %}
+      <a href="{% url 'smash_talk:delete_post' post.pk %}"
+         class="text-sm text-red-600 hover:underline delete-post">Hapus</a>
+    {% endif %}
+      </div>
+    </div>
+
+   <!-- Comment form -->
+<div class="bg-white rounded-xl shadow-sm p-6">
+  <h3 class="text-lg font-semibold text-gray-800 mb-3">Komentar ({{ comments.count }})</h3>
+
+  {% if user.is_authenticated %}
+    <form method="post" action="{% url 'smash_talk:add_comment' post.pk %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <textarea name="content" id="id_content" rows="5"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+        placeholder="Tulis komentar...">{{ comment_form.content.value|default:"" }}</textarea>
+      </div>
+      <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Kirim Komentar</button>
+    </form>
+  {% else %}
+    <div class="text-sm text-gray-600">
+      Silakan <a href="{% url 'login' %}?next={{ request.path }}" class="text-blue-600">login</a> untuk memberi komentar. Kamu tetap dapat melihat komentar di bawah.
+    </div>
+  {% endif %}
+</div>
+
+    <!-- Comments list -->
+    <div class="bg-white rounded-xl shadow-sm p-6 space-y-4">
+      {% for comment in comments %}
+      <div class="border-b pb-3">
+        <div class="flex justify-between items-start">
+          <div>
+            <strong>{{ comment.author.username }}</strong>
+            <div class="text-sm text-gray-500">{{ comment.created_at|date:"d M Y H:i" }}</div>
+            <p class="mt-2 text-gray-700">{{ comment.content|linebreaks }}</p>
+          </div>
+          <div class="text-right">
+        {% if user == comment.author %}
+          <a href="{% url 'smash_talk:delete_comment' comment.pk %}"
+             class="text-sm text-red-600 delete-post">Hapus</a>
+        {% endif %}          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="text-gray-500 text-center py-6">Belum ada komentar. Jadilah yang pertama!</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="space-y-4">
+    <div class="bg-white rounded-xl shadow-sm p-4 text-sm text-gray-700">
+      <div class="mb-2"><strong>Statistik</strong></div>
+      <div>Like: {{ post.likes.count }}</div>
+      <div>Komentar: {{ post.comments.count }}</div>
+      <div>Dilihat: {{ post.views|default:0 }}</div>
+      <div>Dibuat: {{ post.created_at|date:"d M Y" }}</div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm p-4 text-center">
+      <a href="{% url 'smash_talk:forum_list' %}" class="text-sm text-blue-600 hover:underline">← Kembali ke Forum</a>
+    </div>
+  </aside>
+</div>
+{% endblock %}

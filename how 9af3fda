@@ -1,0 +1,19 @@
+[33m29d9b9c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mpws/master[m[33m)[m HEAD@{0}: pull pws master: Merge made by the 'ort' strategy.
+[33mec719a8[m[33m ([m[1;31morigin/Ghalen[m[33m)[m HEAD@{1}: Branch: renamed refs/heads/Ghalen to refs/heads/master
+[33mec719a8[m[33m ([m[1;31morigin/Ghalen[m[33m)[m HEAD@{3}: commit: admin py
+[33m259bb73[m HEAD@{4}: commit: Update admin
+[33mecce3bf[m HEAD@{5}: pull origin master: Fast-forward
+[33mecea315[m HEAD@{6}: commit: playerdetail
+[33m9af3fda[m HEAD@{7}: commit: playerdetail
+[33m7c53263[m HEAD@{8}: pull origin master: Fast-forward
+[33md19e124[m HEAD@{9}: pull origin master: Fast-forward
+[33m4916d06[m HEAD@{10}: commit: database
+[33m8e10808[m HEAD@{11}: pull origin master: Fast-forward
+[33mcfabc9a[m HEAD@{12}: pull origin master: Fast-forward
+[33md9487e3[m HEAD@{13}: pull origin master: Fast-forward
+[33m288a4ef[m HEAD@{14}: pull origin master: Fast-forward
+[33me0b85c4[m HEAD@{15}: commit: katalog
+[33mb736ea9[m HEAD@{16}: commit (merge): Fix smash_talk migration conflict and recreate initial migration
+[33mc9b5dd6[m HEAD@{17}: commit: katalog tinggal htmlnya
+[33mdabe15b[m HEAD@{18}: checkout: moving from master to Ghalen
+[33mdabe15b[m HEAD@{19}: clone: from https://github.com/PBP-09/Badminsights.git

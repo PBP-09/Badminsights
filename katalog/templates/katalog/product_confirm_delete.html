@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Hapus Produk{% endblock %}
+{% block content %}
+<div>
+  <form method="post" class="bg-white p-6 rounded shadow max-w-lg mx-auto">
+    {% csrf_token %}
+    <h1 class="text-xl font-serif mb-2">Hapus Produk</h1>
+    <p class="mb-4">Anda yakin ingin menghapus <strong>{{ product.name }}</strong>?</p>
+
+    <div class="flex gap-2">
+     <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded">Hapus</button>
+     <a href="{% url 'katalog:product_list' %}" class="px-4 py-2 border rounded">Batal</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

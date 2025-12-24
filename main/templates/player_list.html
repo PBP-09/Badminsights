@@ -4,49 +4,90 @@
 {% block title %}Daftar Pemain{% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 
 <div class="bg-surface p-8 rounded-lg shadow-sm text-center mb-8 border border-gray-200">
-    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">Who's on Court?</h1>
+    <h1 class="text-4xl md:text-5xl font-serif text-primary mb-4">{{ title|default:"Who's on Court?" }}</h1>
     <p class="text-lg text-secondary max-w-2xl mx-auto">
-        Get to know your favourite player!
+        Get to know your favourite players!
     </p>
-    <hr class="border-gray-200 my-6">
     
     {% if request.user.is_staff %}
-    <hr class="border-gray-200 my-6">
-    <a href="{% url 'main:add_player' %}" class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-        + Tambah Pemain Baru
-    </a>
+        <hr class="border-gray-200 my-6">
+        <button id="add-player-button" 
+                class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+            + Tambah Pemain Baru
+        </button>
     {% endif %}
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    
-    {% for player in player_list %}
-    <div class="bg-surface rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+<form method="GET" action="{% url 'main:player_list' %}" class="bg-surface p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <div>
+            <label for="category" class="block text-sm font-semibold text-primary mb-2">Filter per Kategori</label>
+            <select name="category" id="category" class="w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent">
+                <option value="">Semua Kategori</option>
+                {% for code, name in categories %}
+                    <option value="{{ code }}" {% if code == selected_category %}selected{% endif %}>
+                        {{ name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="country" class="block text-sm font-semibold text-primary mb-2">Filter per Negara</label>
+            <select name="country" id="country" class="w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent">
+                <option value="">Semua Negara</option>
+                {% for code, name in countries %}
+                    <option value="{{ code }}" {% if code == selected_country %}selected{% endif %}>
+                        {{ name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="flex items-end space-x-3">
+            <button type="submit" class="w-full bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded-lg">
+                Filter
+            </button>
+            <a href="{% url 'main:player_list' %}" class="w-full text-center bg-gray-200 text-primary font-bold py-2 px-4 rounded-lg hover:bg-gray-300">
+                Reset
+            </a>
+        </div>
+    </div>
+</form>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for player in player_list %}
+    
+    <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition hover:shadow-lg">
+        
+        <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
             {% if player.thumbnail %}
-                <img class="w-full h-56 object-cover" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
-            {% else %}
-                <div class="w-full h-56 bg-gray-100 flex items-center justify-center">
-                    <span class="text-secondary">No Image</span>
-                </div>
-            {% endif %}
-            
-            <div class="p-6">
-                <p class="text-sm text-accent font-semibold">{{ player.get_category_display }}</p>
-                <h2 class="text-2xl font-serif text-primary mt-2 mb-1">
-                    {{ player.name }}
-                </h2>
-                <p class="text-secondary mb-4">{{ player.country }}</p>
-                
-                {% if player.world_rank %}
-                <span class="inline-block bg-gray-100 text-primary text-xs font-bold px-2 py-1 rounded-full">
-                    Rank #{{ player.world_rank }}
-                </span>
+                {% if player.thumbnail|slice:":4" == "http" %}
+                    <img class="object-cover w-full h-full" src="{{ player.thumbnail }}" alt="Foto {{ player.name }}">
+                {% else %}
+                    <img class="object-cover w-full h-full" src="{{ player.thumbnail.url }}" alt="Foto {{ player.name }}">
                 {% endif %}
-            </div>
+            {% else %}
+                <img class="object-contain w-full h-full p-6 opacity-80" src="{% static 'img/no-image.png' %}" alt="No image">
+            {% endif %}
+        </div>
+
+        <div class="p-6">
+            <p class="text-sm text-accent font-semibold">{{ player.get_category_display }}</p>
+            <h2 class="text-2xl font-serif text-primary mt-2 mb-1">
+                {{ player.name }}
+            </h2>
+            <p class="text-secondary mb-4">{{ player.country }}</p>
+            
+            {% if player.world_rank %}
+            <span class="inline-block bg-gray-100 text-primary text-xs font-bold px-2 py-1 rounded-full">
+                Rank #{{ player.world_rank }}
+            </span>
+            {% endif %}
         </div>
 
         <div class="p-4 bg-gray-50 border-t border-gray-200">
@@ -55,13 +96,173 @@
             </a>
         </div>
     </div>
-    
+
     {% empty %}
     <div class="col-span-full bg-surface p-8 rounded-lg shadow-sm border border-gray-200 text-center">
         <h3 class="text-xl font-serif text-primary">Masih Kosong</h3>
         <p class="text-secondary mt-2">Belum ada data pemain.</p>
     </div>
     {% endfor %}
-
 </div>
+
+<div id="player-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        
+        <div id="modal-overlay" class="fixed inset-0 bg-black opacity-50"></div>
+        
+        <div class="relative bg-surface rounded-lg shadow-xl p-8 z-10 w-full max-w-2xl">
+            
+            <button id="close-modal-button" 
+                    class="absolute top-4 right-4 text-secondary hover:text-primary">
+                &times;
+            </button>
+            
+            <h2 class="text-2xl font-serif text-primary mb-6">Tambah Pemain Baru</h2>
+            
+            <div id="modal-content">
+                <p>Memuat form...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const addPlayerBtn = document.getElementById("add-player-button");
+    const modal = document.getElementById("player-modal");
+    const modalContent = document.getElementById("modal-content");
+    const closeModalBtn = document.getElementById("close-modal-button");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const playerGrid = document.querySelector(".grid"); 
+    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+    function closeModal() {
+        modal.classList.add("hidden");
+        modalContent.innerHTML = "<p>Memuat form...</p>"; 
+    }
+
+    async function openModal() {
+        try {
+            const response = await fetch("{% url 'main:add_player' %}", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            });
+            if (!response.ok) throw new Error("Gagal memuat form.");
+            
+            const formHtml = await response.text();
+
+            modalContent.innerHTML = formHtml;
+            modal.classList.remove("hidden");
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Gagal memuat form. Coba lagi.");
+        }
+    }
+
+    function handleFormErrors(errors) {
+        document.querySelectorAll("[id^='error-']").forEach(el => el.textContent = "");
+        document.getElementById("form-non-field-errors").classList.add("hidden");
+        
+        for (const field in errors) {
+            const errorDiv = document.getElementById(`error-${field}`);
+            if (errorDiv) {
+                errorDiv.textContent = errors[field][0].message; 
+            }
+        }
+        if (errors.__all__) {
+            const nonFieldDiv = document.getElementById("form-non-field-errors");
+            nonFieldDiv.textContent = errors.__all__[0].message;
+            nonFieldDiv.classList.remove("hidden");
+        }
+    }
+
+    function createPlayerCard(player) {
+        const thumbnailHtml = player.thumbnail_url
+            ? `<img class="w-full h-56 object-cover" src="${player.thumbnail_url}" alt="Foto ${player.name}">`
+            : `<div class="w-full h-56 bg-gray-100 flex items-center justify-center">
+                   <span class="text-secondary">No Image</span>
+               </div>`;
+        
+        const rankHtml = player.world_rank
+            ? `<span class="inline-block bg-gray-100 text-primary text-xs font-bold px-2 py-1 rounded-full">
+                   Rank #${player.world_rank}
+               </span>`
+            : "";
+
+        return `
+        <div class="bg-surface rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+            <div>
+                ${thumbnailHtml}
+                <div class="p-6">
+                    <p class="text-sm text-accent font-semibold">${player.category}</p>
+                    <h2 class="text-2xl font-serif text-primary mt-2 mb-1">${player.name}</h2>
+                    <p class="text-secondary mb-4">${player.country}</p>
+                    ${rankHtml}
+                </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-200">
+                <a href="${player.detail_url}" class="text-accent font-semibold text-sm hover:underline">
+                    Lihat Profil Lengkap &rarr;
+                </a>
+            </div>
+        </div>
+        `;
+    }
+
+    if (addPlayerBtn) {
+        addPlayerBtn.addEventListener("click", openModal);
+    }
+    
+    closeModalBtn.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", closeModal);
+
+    modal.addEventListener("submit", async function(e) {
+        if (e.target.id === "add-player-form") {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-CSRFToken": csrfToken,
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.status === 'success') {
+                    const newCardHtml = createPlayerCard(data.player);
+                    playerGrid.insertAdjacentHTML("afterbegin", newCardHtml); 
+                    closeModal(); 
+                    Toastify({
+                        text: `Pemain "${data.player.name}" berhasil ditambahkan!`,
+                        duration: 3000,
+                        gravity: "top", 
+                        position: "right", 
+                        style: {
+                            background: "linear-gradient(to right, #4CAF50, #8BC34A)",
+                            borderRadius: "10px" 
+                        },
+                        stopOnFocus: true 
+                    }).showToast();
+                } else {
+                    handleFormErrors(data.errors);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Terjadi kesalahan. Coba lagi.");
+            }
+        }
+    });
+
+});
+</script>
+
 {% endblock %}

@@ -10,22 +10,17 @@
         Daftar pemain badminton yang kamu tandai sebagai favorit!
     </p>
     <hr class="border-gray-200 my-6">
-
     <a href="{% url 'main:player_list' %}" 
        class="bg-accent hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-lg transition-colors">
         ← Kembali ke Daftar Pemain
     </a>
 </div>
 
-{% if not request.user.is_authenticated %}
-<div class="text-center bg-yellow-50 text-yellow-800 border border-yellow-300 rounded-lg p-4 mb-8">
-    Silakan <a href="{% url 'main:login' %}" class="underline text-accent">login</a> untuk melihat pemain favoritmu.
-</div>
-{% endif %}
+{% csrf_token %}
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {% for fav in favorites %}
-    <div class="bg-surface rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+    <div id="fav-card-{{ fav.player.id }}" class="bg-surface rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
         <div>
             {% if fav.player.thumbnail %}
                 <img class="w-full h-56 object-cover" src="{{ fav.player.thumbnail.url }}" alt="Foto {{ fav.player.name }}">
@@ -41,13 +36,11 @@
                     {{ fav.player.name }}
                 </h2>
                 <p class="text-secondary mb-4">{{ fav.player.country }}</p>
-
                 {% if fav.player.world_rank %}
                 <span class="inline-block bg-gray-100 text-primary text-xs font-bold px-2 py-1 rounded-full">
                     Rank #{{ fav.player.world_rank }}
                 </span>
                 {% endif %}
-
                 <p class="text-xs text-gray-400 mt-1">
                     Ditambahkan: {{ fav.created_at|date:"d M Y, H:i" }}
                 </p>
@@ -60,13 +53,10 @@
                 Lihat Profil &rarr;
             </a>
 
-            <form action="{% url 'main:toggle_favorite' fav.player.id %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" 
-                        class="text-red-600 hover:text-red-800 font-semibold text-sm transition">
-                    Hapus ❌
-                </button>
-            </form>
+            <button data-player-id="{{ fav.player.id }}"
+                    class="js-remove-button text-red-600 hover:text-red-800 font-semibold text-sm transition">
+                Hapus ❌
+            </button>
         </div>
     </div>
     {% empty %}
@@ -78,4 +68,39 @@
     </div>
     {% endfor %}
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+    
+    const removeButtons = document.querySelectorAll(".js-remove-button");
+    
+    removeButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const playerId = button.dataset.playerId;
+            const formData = new FormData();
+            formData.append("player_id", playerId);
+            
+            fetch("{% url 'bookmark:toggle_favorite_ajax' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": csrfToken,
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "removed") {
+                    const card = document.getElementById(`fav-card-${playerId}`);
+                    if (card) {
+                        card.remove();
+                    }
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+});
+</script>
 {% endblock %}

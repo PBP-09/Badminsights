@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white shadow-sm border rounded-lg p-6">
+
+  <!-- 🔹 Tombol kembali di pojok kiri atas -->
+  <div class="mb-6">
+    <a href="{% url 'katalog:product_list' %}" 
+       class="inline-flex items-center gap-2 text-secondary hover:text-primary transition">
+      ← Kembali ke Katalog
+    </a>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- Gambar produk -->
+    <div class="aspect-[4/3] bg-gray-100 rounded overflow-hidden flex items-center justify-center">
+      {% if product.image_url %}
+        <img src="{{ product.image_url }}" alt="{{ product.name }}" class="w-full h-full object-cover" />
+      {% else %}
+        <div class="text-gray-400 italic">Tidak ada gambar</div>
+      {% endif %}
+    </div>
+
+    <!-- Detail produk -->
+    <div>
+      <h1 class="text-2xl font-serif mb-2">{{ product.name }}</h1>
+      <p class="text-gray-500 mb-2">{{ product.get_category_display }}</p>
+      <p class="text-xl font-semibold text-primary mb-4">Rp {{ product.price|floatformat:0 }}</p>
+      <p class="text-gray-700 mb-4">{{ product.description|default:"Tidak ada deskripsi." }}</p>
+
+      <div class="text-sm text-gray-400 mb-4">
+        Stok: {{ product.stock }} | Diperbarui: {{ product.updated_at|date:"d M Y" }}
+      </div>
+
+    <!-- Rating -->
+    {% if product.rating %}
+      <div class="flex items-center mt-2">
+        <span class="text-sm font-medium text-primary">
+          Rating: {{ product.rating|floatformat:1 }} / 5
+        </span>
+      </div>
+    {% else %}
+      <div class="flex items-center mt-2">
+        <span class="text-sm text-gray-400 italic">Belum ada rating</span>
+      </div>
+    {% endif %}
+
+      <!-- 🔹 Tombol aksi (edit/hapus) -->
+      {% if request.user.is_staff %}
+      <div class="flex flex-wrap gap-3 mt-4">
+        <a href="{% url 'katalog:product_update' product.pk %}" 
+           class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+           ✏️ Edit
+        </a>
+        <a href="{% url 'katalog:product_delete' product.pk %}" 
+           class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+           onclick="return confirm('Yakin ingin menghapus produk ini?');">
+           🗑️ Hapus
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

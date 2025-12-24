@@ -1,0 +1,43 @@
+
+.list-group {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.list-group .list-group-item {
+  display: block !important;        /* pastikan block (override inline) */
+  width: 100% !important;
+  box-sizing: border-box;
+  padding: 0.55rem 0.75rem !important;
+  margin-bottom: 0.6rem !important;
+  background-color: #f8fafc !important;
+  color: #1f2937 !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(15,23,42,0.04) !important;
+  text-decoration: none !important;
+}
+
+.list-group .list-group-item:hover {
+  transform: translateX(6px);
+  background-color: #eef2ff !important;
+  text-decoration: none;
+  color: inherit !important;
+}
+
+.list-group .list-group-item.active {
+  background: linear-gradient(90deg,#0d6efd,#0b5ed7) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 20px rgba(13,110,253,0.12) !important;
+  transform: none !important;
+}
+
+/* Minor fix: make badge look normal (if using .badge) */
+.badge.bg-primary {
+  background-color: #0d6efd !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: .25rem .5rem !important;
+  font-weight: 600 !important;
+}

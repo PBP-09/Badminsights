@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}Katalog Merch{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="max-w-7xl mx-auto px-4">
+
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-serif">🛒 Katalog Merch</h1>
+
+    {% if user.is_staff %}
+    <a href="{% url 'katalog:product_create' %}"
+       class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition">
+      + Tambah Produk
+    </a>
+    {% endif %}
+  </div>
+
+  <form id="filter-form" class="grid md:grid-cols-2 gap-3 mb-6">
+    <input
+      name="q"
+      id="q"
+      value="{{ query }}"
+      placeholder="Cari produk..."
+      class="border rounded px-3 py-2 w-full"
+    />
+
+    <select
+      name="category"
+      id="category"
+      class="border rounded px-3 py-2 w-full"
+      onchange="this.form.dispatchEvent(new Event('submit'))"
+    >
+      <option value="">Semua Kategori</option>
+      {% for val,label in categories %}
+        <option value="{{ val }}" {% if val == category %}selected{% endif %}>
+          {{ label }}
+        </option>
+      {% endfor %}
+    </select>
+  </form>
+
+  <div id="grid-container" class="w-full">
+    <div id="loading-text" class="animate-pulse text-gray-500 py-10 text-center">
+      ⏳ Memuat produk...
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const gridContainer = document.getElementById('grid-container');
+  const form = document.getElementById('filter-form');
+
+  async function loadGrid(page = 1) {
+    gridContainer.style.opacity = 0.6;
+
+    const params = new URLSearchParams({
+      q: document.getElementById('q').value,
+      category: document.getElementById('category').value,
+      page: page
+    });
+
+    const res = await fetch(`{% url 'katalog:product_grid' %}?` + params.toString());
+    const html = await res.text();
+    gridContainer.innerHTML = html;
+
+    gridContainer.querySelectorAll('.ajax-page').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        loadGrid(el.dataset.page);
+      });
+    });
+
+    gridContainer.style.opacity = 1;
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    loadGrid(1);
+  });
+
+  document.addEventListener('DOMContentLoaded', () => loadGrid(1));
+</script>
+
+{% endblock %}

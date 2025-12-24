@@ -1,0 +1,78 @@
+{% load static %}
+<nav class="bg-surface/75 backdrop-blur-lg p-4 shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            
+            <a href="{% url 'main:main_page' %}" class="text-primary text-xl font-serif">
+                🏸 Badminsights
+            </a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="{% url 'main:main_page' %}" class="text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="{% url 'main:player_list' %}" class="text-secondary hover:text-primary transition-colors">Who's on court</a>
+                <a href="{% url 'smash_talk:forum_list' %}" class="text-secondary hover:text-primary transition-colors">SmashTalk</a>
+                <a href="{% url 'badminews:news_list' %}" class="text-secondary hover:text-primary transition-colors">BadmiNews</a>
+                <a href="{% url 'katalog:product_list' %}" class="text-secondary hover:text-primary transition-colors">Merch</a>
+
+                <div class="border-l border-gray-200 h-6"></div>
+
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_staff %}
+                        <a href="/admin/" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Admin</a>
+                    {% endif %}
+                    <span class="text-primary font-semibold text-sm">Hello, {{ request.user.username }}!</span>
+                    <form action="{% url 'main:logout' %}" method="POST" class="m-0">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white text-sm font-bold py-2 px-3 rounded-lg transition-colors">
+                            Logout
+                        </button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'main:login' %}" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Login</a>
+                    <a href="{% url 'main:register' %}" class="bg-accent hover:bg-opacity-80 text-white text-sm font-bold py-2 px-3 rounded-lg transition-colors">
+                        Register
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-primary p-2 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-gray-200">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="{% url 'main:main_page' %}" class="text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="{% url 'main:player_list' %}" class="text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Who's on court</a>
+            <a href="{% url 'smash_talk:forum_list' %}" class="text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">SmashTalk</a>
+            <a href="{% url 'badminews:news_list' %}" class="text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">BadmiNews</a>
+            <a href="{% url 'katalog:product_list' %}" class="text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Merch</a>
+        </div>
+        
+        <div class="border-t border-gray-200 pt-4 pb-3">
+            {% if request.user.is_authenticated %}
+                <div class="px-5 mb-3">
+                    <span class="text-primary font-semibold text-base">Hello, {{ request.user.username }}!</span>
+                </div>
+                {% if request.user.is_staff %}
+                    <a href="/admin/" class="text-secondary hover:text-primary block px-5 py-2 text-base font-medium">Admin Panel</a>
+                {% endif %}
+                <form action="{% url 'main:logout' %}" method="POST" class="px-5">
+                    {% csrf_token %}
+                    <button type="submit" class="w-full text-left text-red-500 hover:text-red-400 block py-2 text-base font-medium">
+                        Logout
+                    </button>
+                </form>
+            {% else %}
+                <a href="{% url 'main:login' %}" class="text-secondary hover:text-primary block px-5 py-2 text-base font-medium">Login</a>
+                <a href="{% url 'main:register' %}" class="text-secondary hover:text-primary block px-5 py-2 text-base font-medium">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

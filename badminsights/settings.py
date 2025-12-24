@@ -32,10 +32,21 @@ PRODUCTION = os.getenv('PRODUCTION', 'False').lower() == 'true'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "rousan-chandra-badminsights.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "rousan-chandra-badminsights.pbp.cs.ui.ac.id","10.0.2.2"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://rousan-chandra-badminsights.pbp.cs.ui.ac.id"
+    "https://rousan-chandra-badminsights.pbp.cs.ui.ac.id",
+    "https://localhost:8000",
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5000",
+    "http://127.0.0.1:8000",
+    "http://localhost:56843",  # Flutter dev server
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://127.0.0.1:8000",
 ]
 
 # Application definition
@@ -50,11 +61,18 @@ INSTALLED_APPS = [
     'django_countries',
     'main',
     'bookmark',
+    'badminews',
     'smash_talk',
+    'katalog',
+    'authentication',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -62,6 +80,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Disable CSRF for development
+if DEBUG:
+    MIDDLEWARE = [m for m in MIDDLEWARE if 'csrf' not in m.lower()]
 
 ROOT_URLCONF = 'badminsights.urls'
 
@@ -146,9 +168,35 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static' # merujuk ke /static root project pada mode development
+    ]
+else:
+    STATIC_ROOT = BASE_DIR / 'static' # merujuk ke /static root project pada mode production
+
+# Media files (User uploaded files)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Media files (uploaded images)
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'  # opsional: ke mana diarahkan setelah login sukses
+LOGOUT_REDIRECT_URL = '/login/'  # opsional juga
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
