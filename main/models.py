@@ -4,6 +4,7 @@ import uuid
 from django_countries.fields import CountryField
 from django.contrib.auth.models import User
 
+
 class Player(models.Model):
     CATEGORY_CHOICES = [
         ('women\'s single', 'Women\'s Single'),

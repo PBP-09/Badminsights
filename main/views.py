@@ -224,6 +224,7 @@ def show_xml_by_id(request, player_id):
     except Player.DoesNotExist:
         return HttpResponse(status=404)
 
+
 def api_player_list(request):
     players = Player.objects.all()[:5]
     

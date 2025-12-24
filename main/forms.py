@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from main.models import Player
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
+
 text_input_class = "w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent"
 select_input_class = "w-full px-3 py-2 bg-background border border-gray-200 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent"
 

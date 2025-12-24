@@ -374,6 +374,8 @@ def api_add_comment(request, pk):
             
     return JsonResponse({'status': 'error', 'message': 'Method not allowed'}, status=405)
 
+
+
 def api_get_comments(request, pk):
     if request.method != 'GET':
         return HttpResponseNotAllowed(['GET'])

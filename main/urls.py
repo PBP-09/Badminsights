@@ -3,6 +3,7 @@ from main.views import main_page, show_main, add_player, show_player, show_xml, 
 
 app_name = 'main'
 
+
 urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),

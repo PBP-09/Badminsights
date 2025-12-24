@@ -29,3 +29,4 @@ urlpatterns = [
     path('ajax/create/', create_post_ajax, name='create_post_ajax'),
 
 ]
+

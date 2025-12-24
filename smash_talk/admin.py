@@ -9,6 +9,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('category',  'created_at', 'author')
     search_fields = ('title', 'content', 'author__username')
 
+
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         # annotate jumlah like supaya bisa di-order di admin
